@@ -20,7 +20,6 @@
     "@angular/router": "~13.3.0",
     "bcrypt": "^5.0.1",
     "express": "^4.17.3",
-    "express-session": "^1.17.2",
     "mongoose": "^6.2.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

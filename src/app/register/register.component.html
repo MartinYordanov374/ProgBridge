@@ -1,7 +1,8 @@
-<form method="POST" action="http://localhost:3000/register">
+<form #formData>
     <input type="text" name="username">
     <input type="text" name="password">
+    <input type="text" name="repass">
 
-    <input type="submit">
+    <button (click)='registerUser(formData)' type="button">Submit</button>
 
 </form>

@@ -4,7 +4,6 @@ const databaseConfig = require('./database/mongoose')
 const { login, register } = require('./services/userService')
 
 var bodyParser = require('body-parser')
-const session = require('express-session')
 
 async function start()
 {
@@ -18,19 +17,6 @@ async function start()
     app.use(express.urlencoded({
         extended: true
     }))
-
-    app.use(session(
-            { 
-                secret: 'secret',
-                resave: false,
-                saveUninitialized: true,
-                cookie:
-                    {
-                        secure: 'auto'
-                    }
-            }
-        )
-    )
  
     app.post('/login', async (req,res) => {
         let username = req.body.username
@@ -39,7 +25,6 @@ async function start()
         try
         {
             let user = await login(username, pass)
-            req.session.user = user
         }
         catch(err)
         {
@@ -49,12 +34,13 @@ async function start()
 
     app.post('/register', async (req,res) => {
         let username = req.body.username
-        let pass = req.body.password
+        let pass = req.body.pass
         let repass = req.body.repass
+
         try
         {
-            let user = await register(username, pass)
-            req.session.user = user
+            let user = await register(username, pass, 'test')
+            console.log(user)
             
         }
         catch(err)
