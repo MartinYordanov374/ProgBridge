@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http'
 })
 export class AuthService {
 
+  data: any = ''
   registerURL = 'http://localhost:3000/register'
   constructor(private http: HttpClient) { }
 
@@ -13,8 +14,10 @@ export class AuthService {
     let username = user.username.value
     let pass = user.password.value
     let repass = user.repass.value
-    this.http.post(this.registerURL, {username, pass, repass}).subscribe((err)=>{
-      console.log(err)
+    this.http.post(this.registerURL, {username, pass, repass}).subscribe(res=>{
+      this.data = res;
     })
+
+    document.cookie = this.data
   }
 }

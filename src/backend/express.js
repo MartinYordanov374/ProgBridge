@@ -5,11 +5,14 @@ const { login, register } = require('./services/userService')
 
 var bodyParser = require('body-parser')
 
+var cookieParser = require('cookie-parser');
+
 async function start()
 {
     const app = express()
-
+    
     app.use(bodyParser.json())
+    app.use(cookieParser());
 
 
     await databaseConfig(app)
@@ -36,12 +39,11 @@ async function start()
         let username = req.body.username
         let pass = req.body.pass
         let repass = req.body.repass
-
+        console.log('FUCK')
         try
         {
-            let user = await register(username, pass, 'test')
-            console.log(user)
-            
+            let user = await register(username, pass, 'SOME RANDOM STRING FOR THE SAKE OF IT')
+            res.send(user)
         }
         catch(err)
         {
