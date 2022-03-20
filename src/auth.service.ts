@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,9 +15,17 @@ export class AuthService {
     let username = user.username.value
     let pass = user.password.value
     let repass = user.repass.value
-    this.http.post(this.registerURL, {username, pass, repass}).subscribe(res=> console.log(res), err => console.log(err))
+    
+    this.http.post(this.registerURL, {username, pass, repass}).subscribe(res=>{
+      this.data = res;
+    })
 
-    // document.cookie = this.data
-    this.router.navigate(['/'])
+    if( this.data ) {
+      this.router.navigate(['/'])
+    }
+    else
+    {
+      this.router.navigate([''])
+    }
   }
 }
