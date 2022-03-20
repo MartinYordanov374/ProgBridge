@@ -24,10 +24,10 @@ async function start()
     app.post('/login', async (req,res) => {
         let username = req.body.username
         let pass = req.body.password
-        console.log('logged')
         try
         {
             let user = await login(username, pass)
+            console.log(user)
         }
         catch(err)
         {
