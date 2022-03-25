@@ -38,7 +38,13 @@ export class AuthService {
       (error) => { console.log(error);
 
     })
-    
+  }
+  
 
+  logoutUser()
+  {
+    localStorage.clear()
+    this.router.navigate(['/'])
+    
   }
 }
