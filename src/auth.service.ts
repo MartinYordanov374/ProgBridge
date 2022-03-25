@@ -15,21 +15,30 @@ export class AuthService {
 
   registerUser(user: any)
   {
-    let username = user.username.value
-    let pass = user.password.value
-    let repass = user.repass.value
+    // let username = user.username.value
+    // let pass = user.password.value
+    // let repass = user.repass.value
 
-    return this.http.post<any>(this.registerURL, {username, pass, repass})
-                     
+    let username = user[0].value;
+    let pass = user[1].value
+    let repass = user[2].value
+
+    let userData = this.http.post<any>('http://localhost:3000/register', {username, pass, repass}).subscribe(
+      (res) => { 
+        this.data = res
+        if( this.data ) {
+          this.router.navigate(['/'])
+          
+        }
+        else
+        {
+          this.router.navigate(['/register'])
+        }
+      },
+      (error) => { console.log(error);
+
+    })
     
 
-    if( this.data ) {
-      this.router.navigate(['/'])
-      
-    }
-    else
-    {
-      this.router.navigate(['/register'])
-    }
   }
 }

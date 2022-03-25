@@ -17,20 +17,16 @@ export class RegisterComponent implements OnInit {
   }
   registerUser(user: any)
   {
-    // let userData = this.auth.registerUser(user).subscribe((response: any) => {
-    //   console.log(response);
-    // });
+    this.auth.registerUser(user)
 
-    let username = user[0].value;
-    let pass = user[1].value
-    let repass = user[2].value
+    // let username = user[0].value;
+    // let pass = user[1].value
+    // let repass = user[2].value
 
-    let userData = this.http.post<any>('http://localhost:3000/register', {username, pass, repass}).subscribe(
-      (res) => { this.myData = res},
-      (error) => { console.log(error); }
-    )
-
-    console.log(this.myData)
+    // let userData = this.http.post<any>('http://localhost:3000/register', {username, pass, repass}).subscribe(
+    //   (res) => { this.myData = res},
+    //   (error) => { console.log(error); }
+    // )
   }
 
 }
