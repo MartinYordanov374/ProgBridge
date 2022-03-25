@@ -26,6 +26,7 @@ export class AuthService {
       (res) => { 
         this.data = res
         if( this.data ) {
+          localStorage.setItem('user', this.data)
           this.router.navigate(['/'])
           
         }

@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     const auth = 'testValue'
-    if (auth.includes('testValue')) {
+    if (!localStorage.getItem('user')) {
         // this.router.navigate([ '/' ]);
 	      return true; 
     }
