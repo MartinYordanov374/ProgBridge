@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   registerUser(user: any)
   {
     this.auth.registerUser(user)
-
     // let username = user[0].value;
     // let pass = user[1].value
     // let repass = user[2].value

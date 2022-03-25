@@ -18,7 +18,6 @@ export class AuthService {
     // let username = user.username.value
     // let pass = user.password.value
     // let repass = user.repass.value
-
     let username = user[0].value;
     let pass = user[1].value
     let repass = user[2].value
