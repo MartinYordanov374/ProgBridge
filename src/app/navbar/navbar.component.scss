@@ -1,0 +1,16 @@
+
+$color-top: #2568fb;
+$color-bottom: #fecd45;
+
+.navbar{
+    background-color: $color-top !important;
+    font-size: large;
+    .nav-link{
+        color: $color-bottom !important;
+    }
+    .navbar-brand{
+        color: $color-bottom !important;
+        font-weight: bold;
+
+    }
+}
