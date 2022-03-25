@@ -1,4 +1,4 @@
-# Progbridge
+# ProgBridge
 
 This project was created by me as a project for the Angular front-end course at Softuni. 
 
