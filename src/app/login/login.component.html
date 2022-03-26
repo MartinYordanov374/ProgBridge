@@ -1,6 +1,6 @@
-<form method="POST" action="http://localhost:3000/login">
+<form #formData>
     <input type="text" name = 'username'>
     <input type="text" name = 'password'>
 
-    <input type="submit">
+    <button type="button" (click)="loginUser(formData)">Submit</button>
 </form>

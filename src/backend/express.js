@@ -26,11 +26,12 @@ async function start()
  
     app.post('/login', async (req,res) => {
         let username = req.body.username
-        let pass = req.body.password
+        let pass = req.body.pass
+        console.log(username, pass)
         try
         {
             let user = await login(username, pass)
-            console.log(user)
+            res.status(200).send(user)
         }
         catch(err)
         {

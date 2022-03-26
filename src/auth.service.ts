@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
 import { map, filter } from 'rxjs/operators'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,30 @@ export class AuthService {
 
     })
   }
-  
+
+  loginUser(user: any)
+  {
+    let username = user[0].value;
+    let pass = user[1].value
+
+
+    let userData = this.http.post<any>('http://localhost:3000/login', {username, pass}).subscribe(
+      (res) => { 
+        this.data = res
+        if( this.data ) {
+          localStorage.setItem('user', this.data)
+          this.router.navigate(['/'])
+          
+        }
+        else
+        {
+          this.router.navigate(['/login'])
+        }
+      },
+      (error) => { console.log(error);
+
+    })
+  } 
 
   logoutUser()
   {
@@ -47,4 +71,5 @@ export class AuthService {
     this.router.navigate(['/'])
     
   }
+
 }
