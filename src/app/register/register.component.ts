@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   constructor(private auth: AuthService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.myData = 'test'
+    this.myData = localStorage.getItem('user')
   }
   registerUser(user: any)
   {

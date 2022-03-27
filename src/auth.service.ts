@@ -29,6 +29,8 @@ export class AuthService {
         if( this.data ) {
           localStorage.setItem('user', this.data)
           this.router.navigate(['/'])
+          location.reload();
+
           
         }
         else
@@ -53,11 +55,13 @@ export class AuthService {
         if( this.data ) {
           localStorage.setItem('user', this.data)
           this.router.navigate(['/'])
+          location.reload();
           
         }
         else
         {
           this.router.navigate(['/login'])
+          
         }
       },
       (error) => { console.log(error);
@@ -67,8 +71,14 @@ export class AuthService {
 
   logoutUser()
   {
-    localStorage.clear()
-    this.router.navigate(['/'])
+    
+    if(localStorage.getItem('user'))
+    {
+      localStorage.clear()
+      this.router.navigate(['/'])
+      location.reload();
+    }
+
     
   }
 
