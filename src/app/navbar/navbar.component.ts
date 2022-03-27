@@ -11,12 +11,12 @@ export class NavbarComponent implements OnInit, OnChanges {
   isUser: any ;
   ngOnInit(): void {
     this.isUser = localStorage.getItem('user')
+    console.log(this.isUser)
   }
   
   ngOnChanges(changes: SimpleChanges)
   {
     
-    console.log(this.isUser)
   }
 
 }
