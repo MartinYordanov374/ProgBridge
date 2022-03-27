@@ -2,6 +2,12 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  color: #fecd45;
+  background-color: #2568fb;
+}
+
+.footer .wrapper {
+  border-color: #fecd45 !important;
 }
 
 .footer .aboutHeader {

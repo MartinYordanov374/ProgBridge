@@ -2,7 +2,11 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    // border-style: solid;
+    color: #fecd45;
+    background-color: #2568fb ;
+    .wrapper{
+        border-color: #fecd45 !important;
+    }
     .aboutHeader{
         word-break: keep-all;
     }
