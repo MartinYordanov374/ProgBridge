@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #2568fb !important;
+  font-size: large;
+}
+
+.navbar .nav-link {
+  color: #fecd45 !important;
+}
+
+.navbar .navbar-brand {
+  color: #fecd45 !important;
+  font-weight: bold;
+}
+/*# sourceMappingURL=navbar.component.css.map */

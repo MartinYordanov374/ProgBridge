@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap");
+body {
+  background-color: #f0eff0 !important;
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+}
+
+.ErrorWrapper {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  left: 40%;
+  top: 25%;
+  text-align: center;
+}
+
+.ErrorWrapper .Error .Code {
+  font-size: 188px;
+  font-weight: 700;
+  text-shadow: 4px 4px 0px black;
+  color: #2568fb;
+  margin: 0;
+}
+
+.ErrorWrapper .Error .Message {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #2568fb;
+}
+
+.ErrorWrapper .Error .subMessage {
+  font-family: 'Lato', sans-serif;
+  color: #000;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.ErrorWrapper .Error .homePageLink {
+  text-decoration: none;
+  padding: 10px 30px;
+  -webkit-box-shadow: 0px 0px 0px 2px #000, 2px 2px 0px 2px #2568fb;
+          box-shadow: 0px 0px 0px 2px #000, 2px 2px 0px 2px #2568fb;
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
+}
+
+.ErrorWrapper .Error .homePageLink:hover {
+  color: orange;
+  background-color: #000;
+  -webkit-box-shadow: 0px 0px 0px 2px #000, 2px 2px 0px 2px blue;
+          box-shadow: 0px 0px 0px 2px #000, 2px 2px 0px 2px blue;
+}
+/*# sourceMappingURL=error.component.css.map */

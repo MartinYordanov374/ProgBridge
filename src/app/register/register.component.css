@@ -1,0 +1,11 @@
+.container {
+  margin-top: 10%;
+}
+
+.container .form-group {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=register.component.css.map */
