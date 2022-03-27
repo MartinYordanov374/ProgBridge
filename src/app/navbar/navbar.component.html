@@ -25,8 +25,8 @@
                   <li class="nav-item" *ngIf="isUser">
                     <a class="nav-link" href="logout">Logout</a>
                   </li>
-                  <li class="nav-item" *ngFor="let userData of isUser">
-                    <a class="nav-link">{{userData}} Data</a>
+                  <li class="nav-item" *ngFor="let userData of isUser ">
+                    <a class="nav-link"> {{userData.username}}</a>
                   </li>
               </ul>
             

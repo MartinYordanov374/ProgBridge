@@ -5,18 +5,13 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit, OnChanges {
+export class NavbarComponent implements OnInit {
 
   constructor(private router: Router) { }
   isUser: any ;
   ngOnInit(): void {
     this.isUser = localStorage.getItem('user')
-    console.log(this.isUser)
-  }
-  
-  ngOnChanges(changes: SimpleChanges)
-  {
-    
+    this.isUser = JSON.parse(this.isUser)
   }
 
 }
