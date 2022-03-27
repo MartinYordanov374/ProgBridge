@@ -78,6 +78,10 @@ export class AuthService {
       this.router.navigate(['/'])
       location.reload();
     }
+    else
+    {
+      this.router.navigate(['/'])
+    }
 
     
   }
