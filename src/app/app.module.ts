@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ErrorComponent } from './error/error.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ErrorComponent } from './error/error.component';
     NavbarComponent,
     LogoutComponent,
     ErrorComponent,
+    FooterComponent,
     
   ],
   imports: [
