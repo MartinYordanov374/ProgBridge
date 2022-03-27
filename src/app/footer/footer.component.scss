@@ -1,13 +1,26 @@
+$text-color: #fecd45;
+$hover-link-color: #ffc832;
+$background-color: #2568fb;
 .footer{
     position: absolute;
     bottom: 0;
     width: 100%;
-    color: #fecd45;
-    background-color: #2568fb ;
+    color: $text-color;
+    background-color: $background-color;
     .wrapper{
-        border-color: #fecd45 !important;
+        border-color: $text-color !important;
     }
     .aboutHeader{
         word-break: keep-all;
+    }
+    a{
+        text-decoration: none;
+        transition: linear 0.09s;
+
+        &:hover{
+            opacity: 0.8;
+            transition: 0.09s linear;
+            color: $hover-link-color !important;
+        }
     }
 }

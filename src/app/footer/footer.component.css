@@ -13,4 +13,17 @@
 .footer .aboutHeader {
   word-break: keep-all;
 }
+
+.footer a {
+  text-decoration: none;
+  -webkit-transition: linear 0.09s;
+  transition: linear 0.09s;
+}
+
+.footer a:hover {
+  opacity: 0.8;
+  -webkit-transition: 0.09s linear;
+  transition: 0.09s linear;
+  color: #ffc832 !important;
+}
 /*# sourceMappingURL=footer.component.css.map */
