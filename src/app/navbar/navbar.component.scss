@@ -11,6 +11,9 @@ $color-bottom: #fecd45;
     .navbar-brand{
         color: $color-bottom !important;
         font-weight: bold;
-
+    }
+    .profileLink{
+        position:absolute;
+        right:0;
     }
 }
