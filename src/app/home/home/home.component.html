@@ -30,6 +30,7 @@
             <div class="card-body">
               <p class="card-text">{{post.Content}}</p>
             </div>
+            <span  *ngIf="isUser">
             <hr>
             <div class="postInteractionButtons">
               <div class="commentSection">
@@ -42,6 +43,7 @@
                 <i class="bi bi-share"></i>  <span>Share</span>
               </div>
             </div>
+          </span>
           </div>
           <!-- <div class="card" >
             <div class="card-body">
