@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   }
   keyup(textarea: any): void{
     this.charactersLeft =  120 - textarea.value.length
+
   }
   clearTextArea(textarea: any):void{
     textarea.value = ""
