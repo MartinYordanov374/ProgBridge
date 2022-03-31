@@ -7,11 +7,14 @@ body{
 }
 .HomeWrapper{
     display: block;
+    margin-left: 35%;
+    // padding-top: 2%;
     .card{
         text-align: center;
         margin-bottom: 0.5%;
+        width: 30rem !important;
         .postInteractionButtons{
-            margin-top: -5.5%;
+            margin-top: -4%;
             padding: 8px;
             display: flex;
             justify-content: center;
