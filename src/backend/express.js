@@ -6,7 +6,7 @@ const { login, register } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost } = require('./services/CRUD_Service')
+const { createPost, getAllPosts } = require('./services/CRUD_Service')
 
 
 
@@ -64,6 +64,12 @@ async function start()
         let postContent = req.body['content']
         let postOwner = req.body['owner']
         createPost(postContent, postOwner)
+    })
+
+    app.get('/getAllPosts', async (req,res) => {
+        let allPosts = await getAllPosts()
+        console.log(allPosts)
+        res.status(200).send(allPosts)
     })
     
     app.listen(3000, () => {

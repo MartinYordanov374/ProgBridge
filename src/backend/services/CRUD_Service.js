@@ -11,6 +11,15 @@ async function createPost(content, owner)
     return post
 }
 
+async function getAllPosts()
+{
+    let allPosts = await postModel.find({}).populate('Author')
+
+    
+    return allPosts
+}
+
 module.exports = {
-    createPost
+    createPost,
+    getAllPosts
 }

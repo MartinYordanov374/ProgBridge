@@ -6,6 +6,7 @@ body{
     height: 100vh;
     margin: 0px;
 }
+
 .HomeWrapper{
     display: block;
     margin-left: 35%;
@@ -92,6 +93,7 @@ body{
 
         }
     }
+
     .postButton{
         margin-top: -5% !important;
         width: 100%;
@@ -102,4 +104,8 @@ body{
     .charactersCounter{
         text-align: left;
     }
+}
+.postOwner{
+    text-align: left;
+    margin: 5%;
 }
