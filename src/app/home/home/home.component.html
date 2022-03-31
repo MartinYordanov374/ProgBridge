@@ -26,7 +26,8 @@
             </div>
           </div>
           <div class="card" *ngFor="let post of allPosts" >
-            <p class=" postOwner">{{post.Author['username']}}</p>
+           <span class="usernamePostSection"> {{post.Author['username']}}    <i class="bi bi-three-dots"></i> </span> 
+
             <div class="card-body">
               <p class="card-text">{{post.Content}}</p>
             </div>
