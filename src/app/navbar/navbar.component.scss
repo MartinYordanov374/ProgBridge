@@ -14,7 +14,17 @@ $color-bottom: #fecd45;
     }
     .profileLink{
         position:absolute;
-        right:0;
+        right:30px;
+        display: flex;
+        .profileIconsWrapper{
+            display: flex;
+            margin-top: 5%;
+            .bi{
+                margin-left: 10%;
+                color: white;
+                font-size: larger;
+            }
+        }
     }
     .input-group-text{
         border-radius: 4px;
@@ -28,10 +38,5 @@ $color-bottom: #fecd45;
     .searchBar{
         border-color: white;
     }
-    .navbar-brand{
-        // border-style: solid;
-        // border-radius: 50%;
-        // height:40px;
-        // height:40px;
-    }
+
 }
