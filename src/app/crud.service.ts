@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,10 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class CRUDService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  public createPostURL = 'http://localhost:3000/createPost'
 
   createPost(postData: any)
   { 
-    console.log('creating post')
+    this.http.post(this.createPostURL, postData).subscribe()
   }
 }

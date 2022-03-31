@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
   }
 
   createPost(textarea: any):void{
-    this.service.createPost(textarea)
+    let postData = {
+      content: textarea.value,
+      owner: this.isUser[0]._id
+    }
+    this.service.createPost(postData)
   }
 }
