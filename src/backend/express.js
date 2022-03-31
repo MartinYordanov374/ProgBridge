@@ -57,6 +57,9 @@ async function start()
         }
     })
 
+    app.post('/createPost', async (req,res) => {
+        console.log('creating post')
+    })
     
     app.listen(3000, () => {
         console.log('server working')

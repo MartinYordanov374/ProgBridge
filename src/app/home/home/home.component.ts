@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CRUDService } from 'src/app/crud.service';
 import {AuthService}  from '../../../auth.service'
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import {AuthService}  from '../../../auth.service'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private src: AuthService) { }
+  constructor(private src: AuthService, private service: CRUDService) { }
   isUser: any;
   charactersLeft: number = 120;
   
@@ -22,5 +23,9 @@ export class HomeComponent implements OnInit {
   }
   clearTextArea(textarea: any):void{
     textarea.value = ""
+  }
+
+  createPost(textarea: any):void{
+    this.service.createPost(textarea)
   }
 }

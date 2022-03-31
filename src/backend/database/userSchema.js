@@ -12,7 +12,7 @@ const userSchema = new Schema({
         type: String, 
         required: true 
     },
-    offers:{
+    posts:{
         type: [ObjectId],
         ref: 'posts'
     }
