@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private src: AuthService, private service: CRUDService, private router: Router) { }
   isUser: any;
   charactersLeft: number = 120;
-  allPosts: any = '';
+  allPosts: any = [];
   ngOnInit(): void {
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)

@@ -27,6 +27,7 @@
           </div>
 
 
+
           <div class="card" *ngFor="let post of allPosts" >
            <div class="usernamePostSection"> 
              <div ngbDropdown>
@@ -59,7 +60,9 @@
             </div>
           </span>
           </div>
-
+          <div *ngIf="allPosts.length == 0">
+            <p>No posts yet...</p>
+          </div>
 
         </div>
 
