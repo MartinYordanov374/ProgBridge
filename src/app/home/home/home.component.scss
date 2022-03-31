@@ -1,4 +1,5 @@
 $hover-color: #e8e5e7;
+$post-field-color: #faf6f6;
 body{
     background-color: #f0eff0 !important;
     width: 100%;
@@ -20,6 +21,10 @@ body{
             justify-content: center;
             .bi-chat-left, .bi-hand-thumbs-up, .bi-share{
                 margin-right: 4%;
+                margin-left: 25%;
+            }
+            .bi-chat-left{
+                margin-left: 15%;
             }
             .commentSection{
                 width: 100%;
@@ -71,6 +76,20 @@ body{
         }
     }
 }
-.card-body{
-    // text-align: center;
+.postWrapper{
+    .postField{
+        border-radius: 4px !important;
+        font-size: larger;
+        background-color: $post-field-color;
+        transition: 0.05s linear;
+
+        &:hover{
+            background-color: $hover-color;
+            transition: 0.05s linear;
+
+        }
+    }
+    .username{
+        text-align: left;
+    }
 }

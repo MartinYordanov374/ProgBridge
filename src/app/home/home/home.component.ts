@@ -8,7 +8,10 @@ import {AuthService}  from '../../../auth.service'
 export class HomeComponent implements OnInit {
 
   constructor(private src: AuthService) { }
-
+  isUser: any;
   ngOnInit(): void {
+    this.isUser = localStorage.getItem('user')
+    this.isUser = JSON.parse(this.isUser)
+
   }
 }
