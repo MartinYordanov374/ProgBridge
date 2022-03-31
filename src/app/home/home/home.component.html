@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class="card" *ngFor="let post of allPosts" >
-           <span class="usernamePostSection"> {{post.Author['username']}}    <i class="bi bi-three-dots"></i> </span> 
+           <span class="usernamePostSection"> <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>   <i class="bi bi-three-dots"></i> </span> 
 
             <div class="card-body">
               <p class="card-text">{{post.Content}}</p>
