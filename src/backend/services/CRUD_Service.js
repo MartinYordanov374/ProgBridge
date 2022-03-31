@@ -19,7 +19,15 @@ async function getAllPosts()
     return allPosts
 }
 
+async function deletePost(id)
+{
+    let targetPost = await postModel.findByIdAndDelete({_id: id})
+    
+    return targetPost
+}
+
 module.exports = {
     createPost,
-    getAllPosts
+    getAllPosts,
+    deletePost
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CRUDService } from 'src/app/crud.service';
 import {AuthService}  from '../../../auth.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +9,7 @@ import {AuthService}  from '../../../auth.service'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private src: AuthService, private service: CRUDService) { }
+  constructor(private src: AuthService, private service: CRUDService, private router: Router) { }
   isUser: any;
   charactersLeft: number = 120;
   allPosts: any = '';
@@ -23,7 +24,6 @@ export class HomeComponent implements OnInit {
       this.allPosts = JSON.parse(this.allPosts)
       this.allPosts = this.allPosts[0]
   
-      console.log(this.allPosts)
       
     }
   }
@@ -41,6 +41,25 @@ export class HomeComponent implements OnInit {
       owner: this.isUser[0]._id
     }
     this.service.createPost(postData)
+  }
+
+  deletePost(post: any)
+  {
+    let postData = post
+    console.log(postData)
+    let postID = postData['_id']
+    let ownerID = postData['Author']['_id']
+    let userID = this.isUser[0]['_id']
+    if(userID == ownerID)
+    {
+      this.service.deletePost(postID)
+      // console.log('owner confirmed')
+    }
+    else
+    {
+      console.log('Not Owner')
+    }
+
   }
 
 

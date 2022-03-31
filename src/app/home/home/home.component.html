@@ -33,7 +33,7 @@
                 <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
                 <i class="bi bi-three-dots" ngbDropdownToggle ></i>  
                 <div ngbDropdownMenu >
-                  <a ngbDropdownItem> <i class="bi bi-trash-fill"></i> Delete </a>
+                  <a ngbDropdownItem (click)="deletePost(post)"> <i class="bi bi-trash-fill"></i> Delete </a>
                   <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
 
                 </div>
