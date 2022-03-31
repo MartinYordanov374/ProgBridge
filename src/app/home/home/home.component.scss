@@ -16,20 +16,29 @@ body{
         margin-bottom: 0.5%;
         width: 30rem !important;
         box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        .dropdown-toggle:after 
+        { 
+            content: none 
+        }
+        
         .profileLink{
             text-decoration: none;
             color: #212529;
         }
         .usernamePostSection{
             display: flex;
-            margin:10px;
+            margin:10px;    
             .bi-three-dots{
-                margin-left:auto; 
-                margin-right:10px;
+                position: absolute;
+                left: 430px;
                 &:hover{
                     cursor: pointer;
                 }
             }
+            a{
+                cursor: pointer;
+            }
+
         }
         .postInteractionButtons{
             margin-top: -4%;

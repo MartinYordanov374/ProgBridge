@@ -25,8 +25,21 @@
 
             </div>
           </div>
+
+
           <div class="card" *ngFor="let post of allPosts" >
-           <span class="usernamePostSection"> <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>   <i class="bi bi-three-dots"></i> </span> 
+           <div class="usernamePostSection"> 
+             <div ngbDropdown>
+                <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
+                <i class="bi bi-three-dots" ngbDropdownToggle ></i>  
+                <div ngbDropdownMenu >
+                  <a ngbDropdownItem> <i class="bi bi-trash-fill"></i> Delete </a>
+                  <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
+
+                </div>
+           </div>
+          </div> 
+            
 
             <div class="card-body">
               <p class="card-text">{{post.Content}}</p>
@@ -46,27 +59,10 @@
             </div>
           </span>
           </div>
-          <!-- <div class="card" >
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <hr>
-            <div class="postInteractionButtons">
-              <div class="commentSection">
-                <i class="bi bi-chat-left"></i> <span>Comments</span>
-              </div>
-              <div class="like">
-                <i class="bi bi-hand-thumbs-up"></i>  <span>Like</span>
-              </div>
-              <div class="share">
-                <i class="bi bi-share"></i>  <span>Share</span>
-              </div>
-            </div>
-          </div> -->
-
 
 
         </div>
 
     </body>
+    
 </html>
