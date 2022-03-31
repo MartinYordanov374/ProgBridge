@@ -1,4 +1,4 @@
-
+$hover-color: #e8e5e7;
 $color-top: #2568fb;
 $color-bottom: #fecd45;
 
@@ -15,5 +15,18 @@ $color-bottom: #fecd45;
     .profileLink{
         position:absolute;
         right:0;
+    }
+    .input-group-text{
+        border-radius: 4px;
+        background-color: white;
+        border-color: white;
+        &:hover{
+            background-color: $hover-color;
+            cursor: pointer;
+        }
+    }
+    .searchBar{
+        border-color: white;
+        
     }
 }
