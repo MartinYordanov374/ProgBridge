@@ -9,7 +9,17 @@
           <div class="makePost" *ngIf="isUser">
             <div class="card postWrapper">
               <div class="card-body" *ngFor="let userData of isUser">
-                <textarea class='form-control postField' placeholder="Got a question, {{userData.username}}?" data-toggle="modal" data-target="#exampleModal"></textarea>
+                <textarea class='form-control postField' 
+                          #postArea
+                          (keyup) = "keyup(postArea)"
+                          (click) = "clearTextArea(postArea)"
+                          placeholder="Got a question, {{userData.username}}?"
+                          value = ''  
+                          data-toggle="modal" 
+                          data-target="#exampleModal" 
+                          maxlength="120">
+                </textarea>
+                <p class="charactersCounter text-muted">Characters left: {{charactersLeft}}</p>
               </div>
             </div>
           </div>
