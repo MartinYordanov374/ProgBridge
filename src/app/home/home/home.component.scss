@@ -82,6 +82,8 @@ body{
         font-size: larger;
         background-color: $post-field-color;
         transition: 0.05s linear;
+        height: 12px;
+        resize: none;
 
         &:hover{
             background-color: $hover-color;

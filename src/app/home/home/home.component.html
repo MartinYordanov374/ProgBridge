@@ -9,8 +9,7 @@
           <div class="makePost" *ngIf="isUser">
             <div class="card postWrapper">
               <div class="card-body" *ngFor="let userData of isUser">
-                <input class='form-control postField' placeholder="Got a question, {{userData.username}}?" data-toggle="modal" data-target="#exampleModal">
-    
+                <textarea class='form-control postField' placeholder="Got a question, {{userData.username}}?" data-toggle="modal" data-target="#exampleModal"></textarea>
               </div>
             </div>
           </div>
@@ -48,7 +47,8 @@
               </div>
             </div>
           </div>
-          
+
+
 
         </div>
 
