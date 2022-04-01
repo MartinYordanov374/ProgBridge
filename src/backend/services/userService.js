@@ -55,8 +55,16 @@ async function getUserByUsername(username)
     return user 
 }
 
+async function getUserByID(id)
+{
+    let user = await userModel.findById({ _id: id})
+
+    return user 
+}
+
 
 module.exports = {
     login,
-    register
+    register,
+    getUserByID
 }

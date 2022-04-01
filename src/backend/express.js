@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const databaseConfig = require('./database/mongoose')
-const { login, register } = require('./services/userService')
+const { login, register, getUserByID } = require('./services/userService')
 
 var bodyParser = require('body-parser')
 
@@ -105,6 +105,15 @@ async function start()
     app.get('/getAllUserPosts/:id', async (req,res) => {
         let userPosts = await getAllUserPosts(req.params.id)
         res.status(200).send(userPosts)
+    })
+    app.get('/getAllUserPosts/:id', async (req,res) => {
+        let userPosts = await getAllUserPosts(req.params.id)
+        res.status(200).send(userPosts)
+    })
+    app.get('/getUserByID/:id', async (req,res)=> {
+
+        let user = await getUserByID(req.params.id)
+        res.status(200).send(user)
     })
 
     

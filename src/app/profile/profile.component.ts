@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 import { AuthService } from 'src/auth.service';
 import { CRUDService } from '../crud.service';
 
@@ -9,22 +10,26 @@ import { CRUDService } from '../crud.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private service: CRUDService) { }
+  constructor(private service: CRUDService, private router: Router) { }
   userData: any;
   allUserPosts: any;
   
   ngOnInit(): void {
-    this.userData = localStorage.getItem('user')
+    let userID = this.router.url.split('/')[2]
+
+    this.userData = this.service.getUserById(userID)
+
+    this.userData = localStorage.getItem('profileData')
     this.userData = JSON.parse(this.userData)
     this.userData = this.userData[0]
+
 
     this.service.getAllUserPosts(this.userData['_id'])
 
     this.allUserPosts = localStorage.getItem('userPosts')
     this.allUserPosts = JSON.parse(this.allUserPosts)
     this.allUserPosts = this.allUserPosts[0].posts
-    console.log(this.allUserPosts)
-    console.log(this.userData)
+
   }
 
   showFriends(friendsList: any, postsList: any):void

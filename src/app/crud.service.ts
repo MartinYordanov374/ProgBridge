@@ -16,12 +16,12 @@ export class CRUDService {
   public createPostURL = 'http://localhost:3000/createPost'
   public getAllPostsUrl = 'http://localhost:3000/getAllPosts'
   public getAllUserPostsUrl = 'http://localhost:3000/getAllUserPosts/'
-
   public deletePostUrl = 'http://localhost:3000/deletePost/'
+
   public addCommentURL = 'http://localhost:3000/addComment/'
   public addLikeURL = 'http://localhost:3000/likePost/'
   public removeLikeURL = 'http://localhost:3000/removeLike/'
-
+  public getUserByID_URL = 'http://localhost:3000/getUserByID/'
   private data: any;
   createPost(postData: any)
   { 
@@ -60,6 +60,7 @@ export class CRUDService {
       localStorage.setItem('userPosts', JSON.stringify([this.data]))
     })
   }
+
   deletePost(postID: any){
     this.http.post(this.deletePostUrl + postID, {}).subscribe(
       (res) => {
@@ -82,6 +83,15 @@ export class CRUDService {
     this.http.post(this.addLikeURL + postID, likeData).subscribe()
   }
 
+  getUserById(userID: any)
+  {
+    this.http.get(this.getUserByID_URL+userID).subscribe(
+      (res)=>{
+        this.data = res
+        localStorage.setItem('profileData', JSON.stringify([this.data]))
+      }
+    )
+  }
 
 
 }
