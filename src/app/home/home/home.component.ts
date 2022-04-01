@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
       this.allPosts = JSON.parse(this.allPosts)
       this.allPosts = this.allPosts[0]
   
-      
+      console.log(this.allPosts[0].Comments[0])
     }
   }
   keyup(textarea: any): void{

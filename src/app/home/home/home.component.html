@@ -61,15 +61,15 @@
 
               <div class="commentsWrapper">
 
-                <div class="Comment">
+                <div class="Comment" *ngFor="let comment of post.Comments">
                   <div class="userData">
                     <i class="bi bi-person-circle userImage"></i>
                   </div>
                   <div class="userComment">
                     <div class="commentArea">
-                      <a class="userCommentAuthor" href="#">Username</a>
+                      <a class="userCommentAuthor" href="#">{{comment.Author}}</a>
 
-                      <p class="commentContent">This is a test comment</p>
+                      <p class="commentContent">{{comment.Content}}</p>
                     </div>
                     <div class="commentInteractButtons">
                       <a class="commentLikeButton" href="#"> Like </a>

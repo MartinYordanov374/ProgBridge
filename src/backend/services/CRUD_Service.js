@@ -15,9 +15,8 @@ async function createPost(content, owner)
 
 async function getAllPosts()
 {
-    let allPosts = await postModel.find({}).populate('Author')
-
-    
+    let allPosts = await postModel.find({}).populate('Author Comments')
+    console.log(allPosts[0].Comments)
     return allPosts
 }
 
@@ -52,6 +51,8 @@ async function addPostComment(content)
 
     targetPost.Comments.push(comment['_id'])
     
+    await targetPost.save()
+
     // res.status(200).send()
 }
 module.exports = {

@@ -20,8 +20,6 @@ export class CRUDService {
 
   private data: any;
 
-  private mySubscription: any;
-
   createPost(postData: any)
   { 
     this.http.post(this.createPostURL, postData).subscribe()
@@ -33,7 +31,9 @@ export class CRUDService {
       (res) => { 
         this.data = res
 
+        localStorage.removeItem('posts')
         localStorage.setItem('posts', JSON.stringify([this.data]))
+
       },
       (error) => { console.log(error);
 
