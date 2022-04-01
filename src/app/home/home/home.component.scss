@@ -26,6 +26,7 @@ body{
             }
         }
         .commentsWrapper{
+            
             .addComment{
                 padding-left: 10%;
                 padding-right: 10%;
@@ -37,10 +38,13 @@ body{
                 .makeCommentButton{
                     // position: absolute;
                     // right: 60px;
+                    
                     color: #2568fb;
                     &:hover{
                         cursor: pointer;
                     }
+
+
                 }
                 .commentField{
                     border-radius: 4px !important;
@@ -155,7 +159,10 @@ body{
             padding: 8px;
             display: flex;
             justify-content: center;
-
+            -webkit-user-select: none; /* Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            user-select: none; /* Standard */
             .Liked{
                 color: blue;
 
