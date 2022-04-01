@@ -81,6 +81,7 @@ async function start()
         let commAuthor = req.body['commentAuthor']
 
         let commentObj = {content: commContent, author: commAuthor, postID: req.params.id }
+        console.log(commAuthor)
         let result = await addPostComment(commentObj)
     })
     

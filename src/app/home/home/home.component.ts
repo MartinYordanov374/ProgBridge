@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     let commentContent = comment.value
     let commentPostID = comment.id
     
-    let ownerID = this.isUser[0]['_id']
+    let ownerID = this.isUser[0].username
     this.service.addComment(commentContent, commentPostID, ownerID)
   }
 
