@@ -14,14 +14,14 @@
                     <span class="friends ">
                         <p>Friends</p>
                     </span>
+                    <span class="posts">
+                        <p>Posts</p>
+                    </span>
                     <span class="about">
                         <p>About</p>
                     </span>
-                    <span class="posts">
-                        <p>About</p>
-                    </span>
                 </div>
-                <div class="FriendsList">
+                <div class="FriendsList" style="display: none">
                     <div class="Friend">
                         <i class="bi bi-person-circle"></i>
                         <p class="FriendName"> Friend Name </p>
@@ -42,6 +42,25 @@
                         <i class="bi bi-person-circle"></i>
                         <p class="FriendName"> Friend Name </p>
                     </div>
+                </div>
+
+                <div class="userPostsList">
+                    <div class="card" *ngFor="let post of allUserPosts" id="{{post._id}}" #card>
+                        <div class="usernamePostSection" > 
+                          <div ngbDropdown>
+                             <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author}}  </a>    
+                             <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author == userData._id"></i>  
+                             <div ngbDropdownMenu>
+                               <a ngbDropdownItem > <i class="bi bi-trash-fill"></i> Delete </a>
+                               <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
+             
+                             </div>
+                        </div>
+                       </div> 
+                         <div class="card-body">
+                           <p class="card-text">{{post.Content}}</p>
+                         </div>
+                     </div>
                 </div>
             </div>
             <div class="profileDetails">
@@ -50,4 +69,3 @@
         </div>
     </body>
 </html>
-

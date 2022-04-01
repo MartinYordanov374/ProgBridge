@@ -6,7 +6,7 @@ const { login, register } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts } = require('./services/CRUD_Service')
 
 
 
@@ -100,6 +100,11 @@ async function start()
         }
 
         await targetPost.save()
+    })
+
+    app.get('/getAllUserPosts/:id', async (req,res) => {
+        let userPosts = await getAllUserPosts(req.params.id)
+        res.status(200).send(userPosts)
     })
 
     

@@ -1,5 +1,6 @@
 let postModel = require('../database/postsSchema')
 let commentModel = require('../database/commentSchema')
+let userModel = require('../database/userSchema')
 
 async function createPost(content, owner)
 {
@@ -7,8 +8,11 @@ async function createPost(content, owner)
         Author: owner,
         Content: content
     })
-
     await post.save()
+    
+    let allUserPosts = await userModel.findById({_id: owner})
+    allUserPosts.posts.push(post)
+    await allUserPosts.save()
 
     return post
 }
@@ -55,10 +59,17 @@ async function addPostComment(content)
     // res.status(200).send()
 }
 
+async function getAllUserPosts(userID)
+{
+    let allUserPosts = await userModel.findById({_id: userID}).populate('posts')
+    return allUserPosts
+}
+
 module.exports = {
     createPost,
     getAllPosts,
     deletePost,
     findPostByID,
-    addPostComment
+    addPostComment,
+    getAllUserPosts
 }

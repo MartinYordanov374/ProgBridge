@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/auth.service';
+import { CRUDService } from '../crud.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: CRUDService) { }
   userData: any;
+  allUserPosts: any;
+  
   ngOnInit(): void {
     this.userData = localStorage.getItem('user')
     this.userData = JSON.parse(this.userData)
     this.userData = this.userData[0]
+
+    this.service.getAllUserPosts(this.userData['_id'])
+
+    this.allUserPosts = localStorage.getItem('userPosts')
+    this.allUserPosts = JSON.parse(this.allUserPosts)
+    this.allUserPosts = this.allUserPosts[0].posts
+    console.log(this.allUserPosts)
+    console.log(this.userData)
   }
 
 }

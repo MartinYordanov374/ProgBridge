@@ -108,7 +108,6 @@ export class HomeComponent implements OnInit {
       this.allPosts = localStorage.getItem('posts')
       this.allPosts = JSON.parse(this.allPosts)
       this.allPosts = this.allPosts[0]
-  
       this.cdr.detectChanges();
     }
   }
