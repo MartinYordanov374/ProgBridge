@@ -32,8 +32,8 @@
            <div class="usernamePostSection"> 
              <div ngbDropdown>
                 <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
-                <i class="bi bi-three-dots" ngbDropdownToggle ></i>  
-                <div ngbDropdownMenu >
+                <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author['_id'] == isUser[0]._id"></i>  
+                <div ngbDropdownMenu>
                   <a ngbDropdownItem (click)="deletePost(post)"> <i class="bi bi-trash-fill"></i> Delete </a>
                   <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
 
@@ -48,11 +48,11 @@
             <span  *ngIf="isUser">
               <hr>
               <div class="postInteractionButtons">
-                <div class="commentSection">
-                  <i class="bi bi-chat-left"></i> <span>Comments</span>
-                </div>
                 <div class="like">
                   <i class="bi bi-hand-thumbs-up"></i>  <span>Like</span>
+                </div>
+                <div class="commentSection">
+                  <i class="bi bi-chat-left"></i> <span>Comments</span>
                 </div>
                 <div class="share">
                   <i class="bi bi-share"></i>  <span>Share</span>
@@ -67,7 +67,7 @@
                   </div>
                   <div class="userComment">
                     <div class="commentArea">
-                      <a class="userCommentAuthor" href="#">{{comment.Author}}</a>
+                      <a class="userCommentAuthor">{{comment.Author}}</a>
 
                       <p class="commentContent">{{comment.Content}}</p>
                     </div>

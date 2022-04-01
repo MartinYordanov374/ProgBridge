@@ -85,6 +85,9 @@ body{
                             font-weight: bold;
                             text-decoration: none;
                             color: black;
+                            &:hover{
+                                cursor:pointer;
+                            }
                         }
                         .commentContent{
                             padding-top: 15px;
