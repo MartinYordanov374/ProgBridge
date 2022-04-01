@@ -10,12 +10,19 @@ import { AuthService } from 'src/auth.service';
 export class LoginComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
+  public error: any;
 
   ngOnInit(): void {
   }
 
   loginUser(user: any)
   {
-    this.auth.loginUser(user)
+    let res = this.auth.loginUser(user)
+    this.error = document.cookie.split('; ')[1]
+  }
+
+  hideAlert(alert: any)
+  {
+    
   }
 }

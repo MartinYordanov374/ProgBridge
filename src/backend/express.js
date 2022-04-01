@@ -39,6 +39,8 @@ async function start()
         catch(err)
         {
             console.log(err)
+            res.status(401).send(err.message)
+
         }
     })
 

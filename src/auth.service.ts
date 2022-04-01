@@ -12,6 +12,7 @@ export class AuthService {
   data: any = ''
   registerURL = 'http://localhost:3000/register'
   secondURL = 'https://reqres.in/api/users'
+  public loginError: any = '';
   constructor(private http: HttpClient, private router: Router) { }
 
   registerUser(user: any)
@@ -47,8 +48,7 @@ export class AuthService {
   {
     let username = user[0].value;
     let pass = user[1].value
-
-
+    
     let userData = this.http.post<any>('http://localhost:3000/login', {username, pass}).subscribe(
       (res) => { 
         this.data = res
@@ -61,13 +61,19 @@ export class AuthService {
         else
         {
           this.router.navigate(['/login'])
+
           
         }
       },
-      (error) => { console.log(error);
+      (error) => {
+          document.cookie = error.error
+          location.reload()
 
-    })
-  } 
+
+        
+      })
+
+    } 
 
   logoutUser()
   {
