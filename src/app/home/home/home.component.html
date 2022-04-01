@@ -46,18 +46,37 @@
               <p class="card-text">{{post.Content}}</p>
             </div>
             <span  *ngIf="isUser">
-            <hr>
-            <div class="postInteractionButtons">
-              <div class="commentSection">
-                <i class="bi bi-chat-left"></i> <span>Comments</span>
+              <hr>
+              <div class="postInteractionButtons">
+                <div class="commentSection">
+                  <i class="bi bi-chat-left"></i> <span>Comments</span>
+                </div>
+                <div class="like">
+                  <i class="bi bi-hand-thumbs-up"></i>  <span>Like</span>
+                </div>
+                <div class="share">
+                  <i class="bi bi-share"></i>  <span>Share</span>
+                </div>
               </div>
-              <div class="like">
-                <i class="bi bi-hand-thumbs-up"></i>  <span>Like</span>
+
+              <div class="commentsWrapper">
+                <div class="Comment">
+                  <div class="userData">
+                    <i class="bi bi-person-circle userImage"></i>
+                  </div>
+                  <div class="userComment">
+                    <div class="commentArea">
+                      <a class="userCommentAuthor" href="#">Username</a>
+
+                      <p class="commentContent">This is a test comment</p>
+                    </div>
+                    <div class="commentInteractButtons">
+                      <a class="commentLikeButton" href="#"> Like </a>
+                      <a class="commentReplyButton" href="#"> Reply </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="share">
-                <i class="bi bi-share"></i>  <span>Share</span>
-              </div>
-            </div>
           </span>
           </div>
           <div *ngIf="allPosts.length == 0">
