@@ -71,5 +71,12 @@ export class HomeComponent implements OnInit {
     this.service.addComment(commentContent, commentPostID, ownerID)
   }
 
+  addLike(post:any)
+  {
+    let postID = post.id
+    let likeGiver = this.isUser[0]._id
+    this.service.addLike(likeGiver,postID)
+  }
+
 
 }

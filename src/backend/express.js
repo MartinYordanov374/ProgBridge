@@ -81,8 +81,18 @@ async function start()
         let commAuthor = req.body['commentAuthor']
 
         let commentObj = {content: commContent, author: commAuthor, postID: req.params.id }
-        console.log(commAuthor)
         let result = await addPostComment(commentObj)
+    })
+
+    app.post('/likePost/:id', async (req,res) => {
+
+        let targetPost = await findPostByID(req.params.id)
+        let likeGiverID = req.body.likeGiverID
+        if(!targetPost.Likes.includes(likeGiverID))
+        {
+            targetPost.Likes.push(likeGiverID)
+        }
+        await targetPost.save()
     })
     
     app.listen(3000, () => {

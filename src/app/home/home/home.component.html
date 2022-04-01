@@ -28,8 +28,8 @@
 
 
 
-          <div class="card" *ngFor="let post of allPosts" >
-           <div class="usernamePostSection"> 
+          <div class="card" *ngFor="let post of allPosts" id="{{post._id}}" #card>
+           <div class="usernamePostSection" > 
              <div ngbDropdown>
                 <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
                 <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author['_id'] == isUser[0]._id"></i>  
@@ -47,9 +47,9 @@
             </div>
             <span  *ngIf="isUser">
               <hr>
-              <div class="postInteractionButtons">
-                <div class="like">
-                  <i class="bi bi-hand-thumbs-up"></i>  <span>Like</span>
+              <div class="postInteractionButtons" >
+                <div class="like" (click)="addLike(card)">
+                  <i class="bi bi-hand-thumbs-up"></i>  <span>Like {{post.Likes.length}}</span>
                 </div>
                 <div class="commentSection">
                   <i class="bi bi-chat-left"></i> <span>Comments</span>

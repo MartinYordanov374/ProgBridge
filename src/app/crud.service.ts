@@ -17,6 +17,7 @@ export class CRUDService {
   public getAllPostsUrl = 'http://localhost:3000/getAllPosts'
   public deletePostUrl = 'http://localhost:3000/deletePost/'
   public addCommentURL = 'http://localhost:3000/addComment/'
+  public addLikeURL = 'http://localhost:3000/likePost/'
 
   private data: any;
 
@@ -53,5 +54,13 @@ export class CRUDService {
   {
     let commentData = {content: commentContent, targetPost: postID, commentAuthor: ownerID}
     this.http.post(this.addCommentURL + postID, commentData).subscribe()
+  }
+
+  addLike(likeGiverID: any, postID: any)
+  {    
+    let likeData = {likeGiverID: likeGiverID, targetPost: postID}
+
+    this.http.post(this.addLikeURL + postID, likeData).subscribe()
+
   }
 }
