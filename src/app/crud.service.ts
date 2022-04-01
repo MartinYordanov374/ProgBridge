@@ -16,6 +16,7 @@ export class CRUDService {
   public createPostURL = 'http://localhost:3000/createPost'
   public getAllPostsUrl = 'http://localhost:3000/getAllPosts'
   public deletePostUrl = 'http://localhost:3000/deletePost/'
+  public addCommentURL = 'http://localhost:3000/addComment/'
 
   private data: any;
 
@@ -47,4 +48,10 @@ export class CRUDService {
       }
       )
     }
+
+  addComment(commentContent: any, postID:any, ownerID: any)
+  {
+    let commentData = {content: commentContent, targetPost: postID, commentAuthor: ownerID}
+    this.http.post(this.addCommentURL + postID, commentData).subscribe()
+  }
 }

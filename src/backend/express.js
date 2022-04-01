@@ -6,7 +6,7 @@ const { login, register } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment } = require('./services/CRUD_Service')
 
 
 
@@ -74,6 +74,14 @@ async function start()
     app.post('/deletePost/:id', async (req,res) => {
         let result = await deletePost(req.params.id)
         // res.status(200)
+    })
+
+    app.post('/addComment/:id', async (req,res) => {
+        let commContent = req.body['content']
+        let commAuthor = req.body['commentAuthor']
+
+        let commentObj = {content: commContent, author: commAuthor, postID: req.params.id }
+        let result = await addPostComment(commentObj)
     })
     
     app.listen(3000, () => {

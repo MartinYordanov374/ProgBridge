@@ -79,8 +79,8 @@
                 </div>
 
                 <div class="addComment">
-                  <input class="form-control commentField" placeholder="Write your comment here">
-                  <a class="makeCommentButton" href="#"> <i class="bi bi-send-fill"></i> </a>
+                  <input #commentInput class="form-control commentField" placeholder="Write your comment here" id="{{post._id}}">
+                  <a class="makeCommentButton" (click)="addComment(commentInput)"> <i class="bi bi-send-fill"></i> </a>
                 </div>
               </div>
           </span>
