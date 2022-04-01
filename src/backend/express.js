@@ -6,7 +6,7 @@ const { login, register } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost, findPostByID, addPostComment } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike } = require('./services/CRUD_Service')
 
 
 
@@ -88,12 +88,15 @@ async function start()
 
         let targetPost = await findPostByID(req.params.id)
         let likeGiverID = req.body.likeGiverID
-        if(!targetPost.Likes.includes(likeGiverID))
+
+        if(targetPost.Likes.includes(likeGiverID) == false)
         {
             targetPost.Likes.push(likeGiverID)
         }
+
         await targetPost.save()
     })
+
     
     app.listen(3000, () => {
         console.log('server working')

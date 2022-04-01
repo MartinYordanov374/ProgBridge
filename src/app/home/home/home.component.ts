@@ -78,5 +78,20 @@ export class HomeComponent implements OnInit {
     this.service.addLike(likeGiver,postID)
   }
 
+  showComments(comment: any)
+  {
+    if(comment.style.display=="none")
+    {
+      comment.style.display = "initial";
+    }
+    else
+    {
+      comment.style.display = "none"
+    }
+      
+  }
+
+
+
 
 }

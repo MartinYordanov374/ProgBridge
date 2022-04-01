@@ -46,12 +46,20 @@
               <p class="card-text">{{post.Content}}</p>
             </div>
             <span  *ngIf="isUser">
+              <div class="postStats">
+                <p class="likeStats">{{post.Likes.length}} likes</p>
+                <p class="commentStats">{{post.Comments.length}} Comments</p>
+              </div>
+
               <hr>
               <div class="postInteractionButtons" >
-                <div class="like" (click)="addLike(card)">
-                  <i class="bi bi-hand-thumbs-up"></i>  <span>Like {{post.Likes.length}}</span>
+                <div class="like" (click)="addLike(card)" *ngIf="!post.Likes.includes(isUser[0]._id)">
+                  <i class="bi bi-hand-thumbs-up"></i>  <span >Like {{post.Likes.length}}</span>
                 </div>
-                <div class="commentSection">
+                <div class="like Liked"  *ngIf="post.Likes.includes(isUser[0]._id)">
+                  <i class="bi bi-hand-thumbs-up"></i>  <span > Liked! {{post.Likes.length}} </span>
+                </div>
+                <div class="commentSection" (click)="showComments(commentWrapper)" >
                   <i class="bi bi-chat-left"></i> <span>Comments</span>
                 </div>
                 <div class="share">
@@ -59,9 +67,9 @@
                 </div>
               </div>
 
-              <div class="commentsWrapper">
+              <div class="commentsWrapper" #commentWrapper style="display: none">
 
-                <div class="Comment" *ngFor="let comment of post.Comments">
+                <div class="Comment" *ngFor="let comment of post.Comments" >
                   <div class="userData">
                     <i class="bi bi-person-circle userImage"></i>
                   </div>

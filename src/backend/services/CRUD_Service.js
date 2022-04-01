@@ -55,6 +55,7 @@ async function addPostComment(content)
 
     // res.status(200).send()
 }
+
 module.exports = {
     createPost,
     getAllPosts,
