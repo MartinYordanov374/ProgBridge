@@ -1,0 +1,100 @@
+$hover-color: #e8e5e7;
+
+.profilePageWrapper{
+    background-color: #f0eff0;
+    .profileHeader{
+        text-align: center;
+        .bi-person-circle{
+            font-size: 14rem;
+        }
+        .username{
+            margin-top: -2%;
+            font-size: 2rem;
+        }
+    }
+    hr{
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .profileNavigation{
+        display: flex;
+        .friends{
+            margin-left: 2%;
+            width: 100%;
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            transition: 0.05s linear;
+            p{
+                margin-top: 2%;
+                margin-left: 40%;
+            }
+            &:hover{
+                background-color: $hover-color;
+                cursor: pointer;
+                transition: 0.05s linear;
+            }
+        }
+        .about{
+            margin-left: 2%;
+            width: 100%;
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            transition: 0.05s linear;   
+            p{
+                margin-top: 2%;
+                margin-left: 40%;
+            }
+            &:hover{
+                background-color: $hover-color;
+                cursor: pointer;
+                transition: 0.05s linear;
+            }
+
+        }
+        .posts{
+            margin-left: 2%;
+            width: 100%;
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            transition: 0.05s linear;
+            p{
+                margin-top: 2%;
+                margin-left: 40%;
+            }
+            &:hover{
+                background-color: $hover-color;
+                cursor: pointer;
+                transition: 0.05s linear;
+            }
+        }
+    }
+
+    .FriendsList{
+        display: block;
+        .Friend{
+            display: flex;
+            float: left;
+            // margin-left: 5%;
+            width: 100%;
+            height: 100%;
+            &:hover{
+                background-color: $hover-color;
+                cursor: pointer;
+                transition: 0.05s linear;
+            }
+            .bi{
+                font-size: 5rem;
+                margin-left: 4%;
+            }
+            .FriendName{
+                margin-top: 1.6%;
+                margin-left: 1%;
+                font-size: 2rem;
+            }
+        }
+    }
+}

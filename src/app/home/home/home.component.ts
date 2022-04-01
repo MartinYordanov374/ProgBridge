@@ -9,7 +9,10 @@ import {Router} from '@angular/router'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private src: AuthService, private service: CRUDService, private router: Router, private cdr:ChangeDetectorRef) { }
+  constructor(private src: AuthService, private service: CRUDService, private router: Router, private cdr:ChangeDetectorRef) 
+  {
+
+  }
   isUser: any;
   charactersLeft: number = 120;
   allPosts: any = [];
@@ -38,7 +41,8 @@ export class HomeComponent implements OnInit {
     this.service.createPost(postData)
     this.getAllPosts()
     location.reload()
-    this.cdr.detectChanges()
+    this.getAllPosts()
+
   }
 
   deletePost(post: any)
@@ -69,8 +73,7 @@ export class HomeComponent implements OnInit {
     
     let ownerID = this.isUser[0].username
     this.service.addComment(commentContent, commentPostID, ownerID)
-    this.getAllPosts()
-    // location.reload()
+    this.getAllPosts();
     
   }
 
@@ -80,7 +83,9 @@ export class HomeComponent implements OnInit {
     let likeGiver = this.isUser[0]._id
     this.service.addLike(likeGiver,postID)
     this.getAllPosts()
-    // location.reload()
+    this.router.navigateByUrl('/')
+
+
   }
 
   showComments(comment: any)
