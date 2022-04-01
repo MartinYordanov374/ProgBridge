@@ -41,6 +41,7 @@ export class AuthService {
       },
       (error) => { 
         alert(error.error)
+        location.reload()
 
     })
   }
@@ -66,6 +67,7 @@ export class AuthService {
       },
       (error) => {
           alert(error.error)
+          location.reload()
 
       })
 
