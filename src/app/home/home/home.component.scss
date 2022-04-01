@@ -18,6 +18,40 @@ body{
         box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 
         .commentsWrapper{
+            .addComment{
+                padding-left: 10%;
+                padding-right: 10%;
+                margin-top: 2%;
+                margin-bottom: 1.5%;
+
+                display: flex;
+                word-break: break-all;
+                .makeCommentButton{
+                    position: absolute;
+                    right: 60px;
+                    color: #2568fb;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                .commentField{
+                    border-radius: 4px !important;
+                    font-size: medium;
+                    background-color: $post-field-color;
+                    transition: 0.05s linear;
+                    height: 25px;
+                    border-radius: 50%;
+                    padding-left: 12px;
+                    resize: none;
+                    
+            
+                    &:hover{
+                        background-color: $hover-color;
+                        transition: 0.05s linear;
+            
+                    }
+                }
+            }
             .Comment{
                 display: flex;
                 .userData{
