@@ -27,4 +27,15 @@ export class ProfileComponent implements OnInit {
     console.log(this.userData)
   }
 
+  showFriends(friendsList: any, postsList: any):void
+  {
+    friendsList.style.display = "block"
+    postsList.style.display = "none"
+  }
+  showPosts(friendsList: any, postsList: any):void
+  {
+    friendsList.style.display = "none"
+    postsList.style.display = "block"
+  }
+
 }

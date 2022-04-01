@@ -11,17 +11,17 @@
                 <p class="username">{{userData.username}}</p>
                 <hr>
                 <div class="profileNavigation">
-                    <span class="friends ">
+                    <span class="friends "  (click)="showFriends(FriendsList, PostsList)">
                         <p>Friends</p>
                     </span>
-                    <span class="posts">
+                    <span class="posts" (click)="showPosts(FriendsList, PostsList)">
                         <p>Posts</p>
                     </span>
                     <span class="about">
                         <p>About</p>
                     </span>
                 </div>
-                <div class="FriendsList" style="display: none">
+                <div class="FriendsList" #FriendsList>
                     <div class="Friend">
                         <i class="bi bi-person-circle"></i>
                         <p class="FriendName"> Friend Name </p>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="userPostsList">
+                <div class="userPostsList"style="display: none" #PostsList >
                     <div class="card" *ngFor="let post of allUserPosts" id="{{post._id}}" #card>
                         <div class="usernamePostSection" > 
                           <div ngbDropdown>
