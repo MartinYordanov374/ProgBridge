@@ -10,6 +10,7 @@ import { AuthService } from 'src/auth.service';
 export class RegisterComponent implements OnInit {
 
   myData: any;
+  public error: any;
   constructor(private auth: AuthService, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -18,6 +19,9 @@ export class RegisterComponent implements OnInit {
   registerUser(user: any)
   {
     this.auth.registerUser(user)
+    
+
+
     // let username = user[0].value;
     // let pass = user[1].value
     // let repass = user[2].value

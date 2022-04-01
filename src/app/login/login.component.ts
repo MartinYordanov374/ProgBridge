@@ -18,11 +18,6 @@ export class LoginComponent implements OnInit {
   loginUser(user: any)
   {
     let res = this.auth.loginUser(user)
-    this.error = document.cookie.split('; ')[1]
   }
 
-  hideAlert(alert: any)
-  {
-    
-  }
 }

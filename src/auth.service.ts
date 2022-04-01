@@ -39,7 +39,8 @@ export class AuthService {
           this.router.navigate(['/register'])
         }
       },
-      (error) => { console.log(error);
+      (error) => { 
+        alert(error.error)
 
     })
   }
@@ -61,16 +62,11 @@ export class AuthService {
         else
         {
           this.router.navigate(['/login'])
-
-          
         }
       },
       (error) => {
-          document.cookie = error.error
-          location.reload()
+          alert(error.error)
 
-
-        
       })
 
     } 
