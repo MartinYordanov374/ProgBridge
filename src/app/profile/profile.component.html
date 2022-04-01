@@ -45,10 +45,10 @@
                 </div>
 
                 <div class="userPostsList"style="display: none" #PostsList >
-                    <div class="card" *ngFor="let post of allUserPosts" id="{{post._id}}" #card>
+                    <div class="card" *ngFor="let post of allUserPosts.posts" id="{{post._id}}" #card>
                         <div class="usernamePostSection" > 
                           <div ngbDropdown>
-                             <a href="/profile/{{post.Author}}" class="profileLink "> {{post.Author}}  </a>    
+                             <a href="/profile/{{post.Author}}" class="profileLink "> {{allUserPosts.username}}  </a>    
                              <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author == userData._id"></i>  
                              <div ngbDropdownMenu>
                                <a ngbDropdownItem > <i class="bi bi-trash-fill"></i> Delete </a>

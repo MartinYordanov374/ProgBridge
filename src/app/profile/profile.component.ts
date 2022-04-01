@@ -28,7 +28,8 @@ export class ProfileComponent implements OnInit {
 
     this.allUserPosts = localStorage.getItem('userPosts')
     this.allUserPosts = JSON.parse(this.allUserPosts)
-    this.allUserPosts = this.allUserPosts[0].posts
+    this.allUserPosts = this.allUserPosts[0]
+    console.log(this.allUserPosts)
 
   }
 

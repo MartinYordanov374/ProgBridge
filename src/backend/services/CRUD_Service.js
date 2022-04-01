@@ -1,6 +1,7 @@
 let postModel = require('../database/postsSchema')
 let commentModel = require('../database/commentSchema')
 let userModel = require('../database/userSchema')
+const { ObjectID } = require('mongodb');
 
 async function createPost(content, owner)
 {
@@ -61,7 +62,8 @@ async function addPostComment(content)
 
 async function getAllUserPosts(userID)
 {
-    let allUserPosts = await userModel.findById({_id: userID}).populate('posts')
+    let allUserPosts = await userModel.findById({_id: userID}).populate('posts').populate('Author')
+    console.log('allUserPosts:', allUserPosts)
     return allUserPosts
 }
 
