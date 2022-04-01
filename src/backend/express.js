@@ -12,7 +12,10 @@ const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, remov
 
 async function start()
 {
+
+    
     const app = express()
+    app.use(cors()) // Use this after the variable declaration
     
     
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,7 +68,7 @@ async function start()
     app.post('/createPost', async (req,res) => {
         let postContent = req.body['content']
         let postOwner = req.body['owner']
-        createPost(postContent, postOwner)
+        await createPost(postContent, postOwner)
     })
 
     app.get('/getAllPosts', async (req,res) => {

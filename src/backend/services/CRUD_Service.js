@@ -16,7 +16,6 @@ async function createPost(content, owner)
 async function getAllPosts()
 {
     let allPosts = await postModel.find({}).populate('Author Comments')
-    console.log(allPosts[0].Comments)
     return allPosts
 }
 

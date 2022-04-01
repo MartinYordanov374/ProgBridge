@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class CRUDService {
 
-  constructor(private http: HttpClient, private router: Router) 
+  constructor(private http: HttpClient, private router: Router, private zone:NgZone) 
   { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
@@ -24,17 +24,27 @@ export class CRUDService {
 
   createPost(postData: any)
   { 
-    this.http.post(this.createPostURL, postData).subscribe()
+    this.http.post(this.createPostURL, postData).subscribe((res) => { 
+      this.data = res
+
+      localStorage.removeItem('posts')
+      localStorage.setItem('posts', JSON.stringify([this.data]))
+
+    },
+    (error) => { console.log(error)})
  
   }
 
   getAllPosts(){
     let result = this.http.get(this.getAllPostsUrl).subscribe(
       (res) => { 
-        this.data = res
+        this.zone.run(() =>{
 
-        localStorage.removeItem('posts')
-        localStorage.setItem('posts', JSON.stringify([this.data]))
+          this.data = res
+  
+          localStorage.removeItem('posts')
+          localStorage.setItem('posts', JSON.stringify([this.data]))
+        })
 
       },
       (error) => { console.log(error);
