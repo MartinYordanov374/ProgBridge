@@ -7,12 +7,17 @@ body, html {
 
 .container {
   padding-top: 10%;
+  text-align: center;
+  display: block !important;
+  width: 17%;
 }
 
 .container .form-group {
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
+}
+
+.container .btn {
+  width: 100%;
 }
 /*# sourceMappingURL=register.component.css.map */

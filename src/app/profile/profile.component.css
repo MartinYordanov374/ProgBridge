@@ -1,0 +1,277 @@
+.profilePageWrapper {
+  background-color: #f0eff0;
+}
+
+.profilePageWrapper .profileHeader {
+  text-align: center;
+}
+
+.profilePageWrapper .profileHeader .bi-person-circle {
+  font-size: 14rem;
+}
+
+.profilePageWrapper .profileHeader .username {
+  margin-top: -2%;
+  font-size: 2rem;
+}
+
+.profilePageWrapper hr {
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profilePageWrapper .profileNavigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profilePageWrapper .profileNavigation .friends {
+  margin-left: 2%;
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profilePageWrapper .profileNavigation .friends p {
+  margin-top: 2%;
+  margin-left: 40%;
+}
+
+.profilePageWrapper .profileNavigation .friends:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .profileNavigation .about {
+  margin-left: 2%;
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profilePageWrapper .profileNavigation .about p {
+  margin-top: 2%;
+  margin-left: 40%;
+}
+
+.profilePageWrapper .profileNavigation .about:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .profileNavigation .posts {
+  margin-left: 2%;
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profilePageWrapper .profileNavigation .posts p {
+  margin-top: 2%;
+  margin-left: 40%;
+}
+
+.profilePageWrapper .profileNavigation .posts:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .FriendsList, .profilePageWrapper .SharedList {
+  display: none;
+}
+
+.profilePageWrapper .FriendsList .Friend, .profilePageWrapper .SharedList .Friend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 2%;
+}
+
+.profilePageWrapper .FriendsList .Friend:hover, .profilePageWrapper .SharedList .Friend:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .FriendsList .Friend .bi, .profilePageWrapper .SharedList .Friend .bi {
+  font-size: 5rem;
+  margin-left: 4%;
+}
+
+.profilePageWrapper .FriendsList .Friend .FriendName, .profilePageWrapper .SharedList .Friend .FriendName {
+  margin-top: 1.6%;
+  margin-left: 1%;
+  font-size: 2rem;
+}
+
+.profilePageWrapper .card {
+  text-align: center;
+  margin-bottom: 0.5%;
+  width: 30rem !important;
+  margin-left: 38.9%;
+  margin-top: 2%;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profilePageWrapper .card .postStats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 71%;
+  margin-bottom: -6%;
+  color: #656765 !important;
+  font-size: 0.9375rem;
+}
+
+.profilePageWrapper .card .postStats .commentStats {
+  margin-left: 5%;
+}
+
+.profilePageWrapper .card .profileLink {
+  text-decoration: none;
+  color: #212529;
+}
+
+.profilePageWrapper .card .usernamePostSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+}
+
+.profilePageWrapper .card .usernamePostSection .bi-three-dots {
+  position: absolute;
+  left: 430px;
+}
+
+.profilePageWrapper .card .usernamePostSection .bi-three-dots:hover {
+  cursor: pointer;
+}
+
+.profilePageWrapper .card .usernamePostSection a {
+  cursor: pointer;
+}
+
+.profilePageWrapper .card .postInteractionButtons {
+  margin-top: -4%;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.profilePageWrapper .card .postInteractionButtons .Liked {
+  color: blue;
+}
+
+.profilePageWrapper .card .postInteractionButtons .bi-chat-left, .profilePageWrapper .card .postInteractionButtons .bi-hand-thumbs-up, .profilePageWrapper .card .postInteractionButtons .bi-share {
+  margin-right: 4%;
+  margin-left: 25%;
+}
+
+.profilePageWrapper .card .postInteractionButtons .bi-chat-left {
+  margin-left: 15%;
+}
+
+.profilePageWrapper .card .postInteractionButtons .commentSection {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .card .postInteractionButtons .commentSection:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .card .postInteractionButtons .like {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .card .postInteractionButtons .like:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .card .postInteractionButtons .share {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.profilePageWrapper .card .postInteractionButtons .share:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+/*# sourceMappingURL=profile.component.css.map */

@@ -4,4 +4,295 @@ body {
   height: 100vh;
   margin: 0px;
 }
+
+.loading-dots {
+  margin-left: 16%;
+}
+
+.HomeWrapper {
+  display: block;
+  margin-left: 35%;
+}
+
+.HomeWrapper .card {
+  text-align: left;
+  margin-bottom: 0.5%;
+  width: 30rem !important;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.HomeWrapper .card .postStats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 71%;
+  margin-bottom: -6%;
+  color: #656765 !important;
+  font-size: 0.9375rem;
+}
+
+.HomeWrapper .card .postStats .commentStats {
+  margin-left: 5%;
+}
+
+.HomeWrapper .card .commentsWrapper .addComment {
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 1.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  word-break: break-all;
+}
+
+.HomeWrapper .card .commentsWrapper .addComment .makeCommentButton {
+  color: #2568fb;
+}
+
+.HomeWrapper .card .commentsWrapper .addComment .makeCommentButton:hover {
+  cursor: pointer;
+}
+
+.HomeWrapper .card .commentsWrapper .addComment .commentField {
+  border-radius: 4px !important;
+  font-size: medium;
+  background-color: #faf6f6;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+  height: 25px;
+  border-radius: 50%;
+  padding-left: 12px;
+  resize: none;
+}
+
+.HomeWrapper .card .commentsWrapper .addComment .commentField:hover {
+  background-color: #e8e5e7;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userData .userImage {
+  float: left;
+  font-size: 1.3rem;
+  width: 32px;
+  height: 32px;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userComment {
+  display: block;
+  float: left;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userComment .commentArea {
+  background-color: #F2F3F5;
+  border-radius: 10px;
+  text-align: left;
+  padding-bottom: 1px;
+  word-break: break-all;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userComment .commentArea .userCommentAuthor {
+  margin-bottom: -10px;
+  padding-left: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userComment .commentArea .userCommentAuthor:hover {
+  cursor: pointer;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .userComment .commentArea .commentContent {
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: .9375rem;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .commentInteractButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .commentInteractButtons .commentReplyButton {
+  margin-left: 25px;
+  color: #656765 !important;
+  text-decoration: none;
+}
+
+.HomeWrapper .card .commentsWrapper .Comment .commentInteractButtons .commentLikeButton {
+  color: #656765 !important;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.HomeWrapper .card .dropdown-toggle:after {
+  content: none;
+}
+
+.HomeWrapper .card .profileLink {
+  text-decoration: none;
+  color: #212529;
+}
+
+.HomeWrapper .card .usernamePostSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+}
+
+.HomeWrapper .card .usernamePostSection .bi-three-dots {
+  position: absolute;
+  left: 430px;
+}
+
+.HomeWrapper .card .usernamePostSection .bi-three-dots:hover {
+  cursor: pointer;
+}
+
+.HomeWrapper .card .usernamePostSection a {
+  cursor: pointer;
+}
+
+.HomeWrapper .card .postInteractionButtons {
+  margin-top: -4%;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.HomeWrapper .card .postInteractionButtons .Liked {
+  color: blue;
+}
+
+.HomeWrapper .card .postInteractionButtons .bi-chat-left, .HomeWrapper .card .postInteractionButtons .bi-hand-thumbs-up, .HomeWrapper .card .postInteractionButtons .bi-share {
+  margin-right: 4%;
+  margin-left: 25%;
+}
+
+.HomeWrapper .card .postInteractionButtons .bi-chat-left {
+  margin-left: 15%;
+}
+
+.HomeWrapper .card .postInteractionButtons .commentSection {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.HomeWrapper .card .postInteractionButtons .commentSection:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.HomeWrapper .card .postInteractionButtons .like {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.HomeWrapper .card .postInteractionButtons .like:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.HomeWrapper .card .postInteractionButtons .share {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.HomeWrapper .card .postInteractionButtons .share:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.postWrapper .postField {
+  border-radius: 4px !important;
+  font-size: larger;
+  background-color: #faf6f6;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+  height: 12px;
+  resize: none;
+}
+
+.postWrapper .postField:hover {
+  background-color: #e8e5e7;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+}
+
+.postWrapper .postButton {
+  margin-top: -5% !important;
+  width: 100%;
+}
+
+.postWrapper .username {
+  text-align: left;
+}
+
+.postWrapper .charactersCounter {
+  text-align: left;
+}
+
+.postOwner {
+  text-align: left;
+  margin: 5%;
+}
 /*# sourceMappingURL=home.component.css.map */

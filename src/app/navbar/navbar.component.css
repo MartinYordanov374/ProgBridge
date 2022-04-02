@@ -11,4 +11,41 @@
   color: #fecd45 !important;
   font-weight: bold;
 }
+
+.navbar .profileLink {
+  position: absolute;
+  right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar .profileLink .profileIconsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 5%;
+}
+
+.navbar .profileLink .profileIconsWrapper .bi {
+  margin-left: 10%;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.navbar .input-group-text {
+  border-radius: 4px;
+  background-color: white;
+  border-color: white;
+}
+
+.navbar .input-group-text:hover {
+  background-color: #e8e5e7;
+  cursor: pointer;
+}
+
+.navbar .searchBar {
+  border-color: white;
+}
 /*# sourceMappingURL=navbar.component.css.map */
