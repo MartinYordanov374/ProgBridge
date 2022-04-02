@@ -15,6 +15,10 @@ const userSchema = new Schema({
     posts:{
         type: [ObjectId],
         ref: 'post'
+    },
+    shares:{
+        type: [ObjectId],
+        ref: 'post'
     }
 })
 

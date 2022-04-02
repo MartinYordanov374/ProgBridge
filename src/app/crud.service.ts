@@ -22,6 +22,8 @@ export class CRUDService {
   public addLikeURL = 'http://localhost:3000/likePost/'
   public removeLikeURL = 'http://localhost:3000/removeLike/'
   public getUserByID_URL = 'http://localhost:3000/getUserByID/'
+  public sharePostURL = 'http://localhost:3000/sharePost/'
+
   private data: any;
   createPost(postData: any)
   { 
@@ -91,6 +93,11 @@ export class CRUDService {
         localStorage.setItem('profileData', JSON.stringify([this.data]))
       }
     )
+  }
+
+  sharePost(sharedPostObj: any)
+  {
+    this.http.post(this.sharePostURL + sharedPostObj['post'], sharedPostObj).subscribe()
   }
 
 

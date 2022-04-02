@@ -112,6 +112,18 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  SharePost(card: any)
+  {
+    // let postAuthor = card.children[0].children[0].innerText
+    // let postContent = card.children[1].children[0].innerText
+    let postSharerID = this.isUser[0]._id
+    let sharedPostID = card.id
+
+    let sharePostObj ={sharer: postSharerID, post: sharedPostID}
+    
+    this.service.sharePost(sharePostObj)
+  }
+
 
 
 

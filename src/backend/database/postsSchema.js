@@ -14,8 +14,8 @@ const postSchema = new Schema({
         required: true 
     },
     Shares:{
-        type: Number,
-        default: 0
+        type: [ObjectId],
+        ref: 'post'
     },
     Likes:{
         type: [ObjectId],

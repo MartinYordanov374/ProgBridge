@@ -33,7 +33,6 @@ async function start()
     app.post('/login', async (req,res) => {
         let username = req.body.username
         let pass = req.body.pass
-        console.log(username, pass)
         try
         {
             let user = await login(username, pass)
@@ -41,7 +40,6 @@ async function start()
         }
         catch(err)
         {
-            console.log(err)
             res.status(401).send(err.message)
 
         }
@@ -59,7 +57,6 @@ async function start()
         }
         catch(err)
         {
-            console.log(err)
             res.status(401).send(err.message)
 
         }
@@ -106,16 +103,23 @@ async function start()
         let userPosts = await getAllUserPosts(req.params.id)
         res.status(200).send(userPosts)
     })
-    app.get('/getAllUserPosts/:id', async (req,res) => {
-        let userPosts = await getAllUserPosts(req.params.id)
-        res.status(200).send(userPosts)
-    })
+
     app.get('/getUserByID/:id', async (req,res)=> {
 
         let user = await getUserByID(req.params.id)
         res.status(200).send(user)
     })
 
+    app.post('/sharePost/:id', async ( req, res ) => {
+        let sharerID = req.body.sharer
+        let postID = req.body.post
+        let targetPost = await findPostByID(req.params.id)
+        let targetSharer = await getUserByID(sharerID)
+
+        targetSharer.shares.push(postID)
+        await targetSharer.save()
+        console.log(targetSharer.shares)
+    })
     
     app.listen(3000, () => {
         console.log('server working')
