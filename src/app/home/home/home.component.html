@@ -91,8 +91,16 @@
               </div>
           </span>
           </div>
-          <div *ngIf="allPosts.length == 0">
-            <p>No posts yet...</p>
+          <div *ngIf="allPosts.length == 0" class="loading-dots">
+            <div class="spinner-grow text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
           </div>
 
         </div>
