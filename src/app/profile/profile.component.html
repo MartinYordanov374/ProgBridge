@@ -11,10 +11,10 @@
                 <p class="username">{{userData.username}}</p>
                 <hr>
                 <div class="profileNavigation">
-                    <span class="friends "  (click)="showFriends(FriendsList, PostsList)">
+                    <span class="friends "  (click)="showFriends(FriendsList, PostsList, SharedList)">
                         <p>Friends</p>
                     </span>
-                    <span class="posts" (click)="showPosts(FriendsList, PostsList)">
+                    <span class="posts" (click)="showPosts(FriendsList, PostsList,SharedList)">
                         <p>Feed</p>
                     </span>
                     <span class="posts" (click)="showShared(FriendsList, PostsList, SharedList)">

@@ -33,16 +33,20 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  showFriends(friendsList: any, postsList: any):void
+  showFriends(friendsList: any, postsList: any,sharedList: any):void
   {
     friendsList.style.display = "block"
     postsList.style.display = "none"
+    sharedList.style.display = "none"
+
   }
 
-  showPosts(friendsList: any, postsList: any):void
+  showPosts(friendsList: any, postsList: any, sharedList: any):void
   {
     friendsList.style.display = "none"
     postsList.style.display = "block"
+    sharedList.style.display = "none"
+
   }
 
   showShared(friendsList: any, postsList: any, sharedList: any):void
@@ -50,7 +54,6 @@ export class ProfileComponent implements OnInit {
     friendsList.style.display = "none"
     postsList.style.display = "none"
     sharedList.style.display = "block"
-    console.log(this.allUserPosts.shares)
   }
 
 }
