@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
     this.allUserPosts = localStorage.getItem('userPosts')
     this.allUserPosts = JSON.parse(this.allUserPosts)
     this.allUserPosts = this.allUserPosts[0]
-    console.log(this.allUserPosts)
+
 
   }
 
@@ -38,10 +38,19 @@ export class ProfileComponent implements OnInit {
     friendsList.style.display = "block"
     postsList.style.display = "none"
   }
+
   showPosts(friendsList: any, postsList: any):void
   {
     friendsList.style.display = "none"
     postsList.style.display = "block"
+  }
+
+  showShared(friendsList: any, postsList: any, sharedList: any):void
+  {
+    friendsList.style.display = "none"
+    postsList.style.display = "none"
+    sharedList.style.display = "block"
+    console.log(this.allUserPosts.shares)
   }
 
 }

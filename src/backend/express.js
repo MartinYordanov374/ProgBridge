@@ -118,7 +118,6 @@ async function start()
 
         targetSharer.shares.push(postID)
         await targetSharer.save()
-        console.log(targetSharer.shares)
     })
     
     app.listen(3000, () => {

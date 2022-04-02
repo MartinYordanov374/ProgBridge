@@ -15,7 +15,10 @@
                         <p>Friends</p>
                     </span>
                     <span class="posts" (click)="showPosts(FriendsList, PostsList)">
-                        <p>Posts</p>
+                        <p>Feed</p>
+                    </span>
+                    <span class="posts" (click)="showShared(FriendsList, PostsList, SharedList)">
+                        <p>Shared</p>
                     </span>
                     <span class="about">
                         <p>About</p>
@@ -49,6 +52,24 @@
                         <div class="usernamePostSection" > 
                           <div ngbDropdown>
                              <a href="/profile/{{post.Author}}" class="profileLink "> {{allUserPosts.username}}  </a>    
+                             <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author == userData._id"></i>  
+                             <div ngbDropdownMenu>
+                               <a ngbDropdownItem > <i class="bi bi-trash-fill"></i> Delete </a>
+                               <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
+             
+                             </div>
+                        </div>
+                       </div> 
+                         <div class="card-body">
+                           <p class="card-text">{{post.Content}}</p>
+                         </div>
+                     </div>
+                </div>
+                <div class="SharedPostsList"style="display: none" #SharedList >
+                    <div class="card" *ngFor="let post of allUserPosts.shares" id="{{post._id}}" #card>
+                        <div class="usernamePostSection" > 
+                          <div ngbDropdown>
+                             <a href="/profile/{{post.Author}}" class="profileLink "> {{post.Author}}  </a>    
                              <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author == userData._id"></i>  
                              <div ngbDropdownMenu>
                                <a ngbDropdownItem > <i class="bi bi-trash-fill"></i> Delete </a>
