@@ -6,11 +6,16 @@ body, html{
 }
 .container{
     padding-top: 10%;
+    text-align: center;;
+
     .form-group
     {
         text-align: center;
         display: block;
         .form-control{
         }
+    }
+    .btn{
+        width:100%;
     }
 }
