@@ -49,16 +49,23 @@ async function start()
         let username = req.body.username
         let pass = req.body.pass
         let repass = req.body.repass
-        try
+        if(pass === repass)
         {
-            let user = await register(username, pass, 'SOME RANDOM STRING FOR THE SAKE OF IT')
-            res.status(200).send(user)
-            return res.status(200).send(user)
+            try
+            {
+                let user = await register(username, pass, 'SOME RANDOM STRING FOR THE SAKE OF IT')
+                res.status(200).send(user)
+                return res.status(200).send(user)
+            }
+            catch(err)
+            {
+                res.status(401).send(err.message)
+    
+            }
         }
-        catch(err)
+        else
         {
-            res.status(401).send(err.message)
-
+            res.status(401).send('Passwords do not match !')
         }
     })
 
