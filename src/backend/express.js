@@ -73,7 +73,7 @@ async function start()
         let postContent = req.body['content']
         let postOwner = req.body['owner']
 
-        if(postContent != '')
+        if(postContent.trim().length > 0)
         {
             await createPost(postContent, postOwner)
         }
@@ -113,6 +113,10 @@ async function start()
         if(targetPost.Likes.includes(likeGiverID) == false)
         {
             targetPost.Likes.push(likeGiverID)
+        }
+        else
+        {
+            targetPost.Likes.filter(likeGiverID)
         }
 
         await targetPost.save()
