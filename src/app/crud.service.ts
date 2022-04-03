@@ -40,15 +40,13 @@ export class CRUDService {
 
   getAllPosts(){
     let result = this.http.get(this.getAllPostsUrl).subscribe(
-      (res) => { 
-        this.zone.run(() =>{
-
+      (res) => {
+        this.zone.run( () => { 
           this.data = res
-  
+
           localStorage.removeItem('posts')
           localStorage.setItem('posts', JSON.stringify([this.data]))
         })
-
       },
       (error) => { console.log(error);
 
@@ -68,7 +66,7 @@ export class CRUDService {
       (res) => {
         this.data = res
         
-      }
+        }
       )
     }
 
