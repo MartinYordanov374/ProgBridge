@@ -83,9 +83,6 @@ export class HomeComponent implements OnInit {
     let postID = post.id
     let likeGiver = this.isUser[0]._id
     this.service.addLike(likeGiver,postID)
-    this.getAllPosts()
-
-
   }
 
   showComments(comment: any)
@@ -110,6 +107,7 @@ export class HomeComponent implements OnInit {
       this.allPosts = this.allPosts[0]
       this.cdr.detectChanges();
     }
+    console.log(this.allPosts.sort((a:any, b:any) => b.Likes.length - a.Likes.length) )
   }
 
   SharePost(card: any)
