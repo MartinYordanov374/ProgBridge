@@ -90,7 +90,14 @@ async function start()
         let commAuthor = req.body['commentAuthor']
 
         let commentObj = {content: commContent, author: commAuthor, postID: req.params.id }
-        let result = await addPostComment(commentObj)
+        if(commContent != '')
+        {
+            let result = await addPostComment(commentObj)
+        }
+        else
+        {
+            res.json({error: 'Your comment cannot be empty !'})
+        }
     })
 
     app.post('/likePost/:id', async (req,res) => {

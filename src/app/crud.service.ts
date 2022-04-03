@@ -82,7 +82,10 @@ export class CRUDService {
   {
     let commentData = {content: commentContent, targetPost: postID, commentAuthor: ownerID}
     this.zone.run(() => {
-      this.http.post(this.addCommentURL + postID, commentData).subscribe()
+      this.http.post(this.addCommentURL + postID, commentData).subscribe((res) => {
+        this.data = res;
+        alert(this.data['error'])
+      })
          
     })
   }
