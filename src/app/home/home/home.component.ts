@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { CRUDService } from 'src/app/crud.service';
 import {AuthService}  from '../../../auth.service'
 import {Router} from '@angular/router'
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
               private service: CRUDService, 
               private router: Router, 
               private cdr:ChangeDetectorRef, 
-              private mdService: NgbModal) {}
+              private zone: NgZone) {}
   
   isUser: any;
   charactersLeft: number = 120;
@@ -82,7 +82,10 @@ export class HomeComponent implements OnInit {
   {
     let postID = post.id
     let likeGiver = this.isUser[0]._id
-    this.service.addLike(likeGiver,postID)
+    this.zone.run(() => {
+      this.service.addLike(likeGiver,postID)
+      this.router.navigateByUrl('/')
+    })
   }
 
   showComments(comment: any)

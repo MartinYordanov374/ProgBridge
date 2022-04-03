@@ -107,7 +107,6 @@ async function start()
 
     app.post('/likePost/:id', async (req,res) => {
 
-        console.log('liking')
         let targetPost = await findPostByID(req.params.id)
         let likeGiverID = req.body.likeGiverID
         
