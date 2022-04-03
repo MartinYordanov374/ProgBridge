@@ -27,11 +27,15 @@ export class CRUDService {
   private data: any;
   createPost(postData: any)
   { 
-    this.http.post(this.createPostURL, postData).subscribe((res) => { 
-      this.data = res
+    this.http.post(this.createPostURL, postData).subscribe(
+      (res) => { 
+        this.zone.run(() => {
+          this.data = res
+    
+          localStorage.removeItem('posts')
+          localStorage.setItem('posts', JSON.stringify([this.data]))
 
-      localStorage.removeItem('posts')
-      localStorage.setItem('posts', JSON.stringify([this.data]))
+        })
 
     },
     (error) => { console.log(error)})
@@ -55,9 +59,13 @@ export class CRUDService {
 
   getAllUserPosts(userID: any)
   {
-    this.http.get(this.getAllUserPostsUrl+userID, {}).subscribe((res)=> {
-      this.data = res;
-      localStorage.setItem('userPosts', JSON.stringify([this.data]))
+    
+    this.http.get(this.getAllUserPostsUrl+userID, {}).subscribe(
+      (res)=> {
+        this.zone.run(() => {
+          this.data = res;
+          localStorage.setItem('userPosts', JSON.stringify([this.data]))
+        })
     })
   }
 
@@ -73,29 +81,37 @@ export class CRUDService {
   addComment(commentContent: any, postID:any, ownerID: any)
   {
     let commentData = {content: commentContent, targetPost: postID, commentAuthor: ownerID}
-    this.http.post(this.addCommentURL + postID, commentData).subscribe()
+    this.zone.run(() => {
+      this.http.post(this.addCommentURL + postID, commentData).subscribe()
+         
+    })
   }
 
   addLike(likeGiverID: any, postID: any)
   {    
     let likeData = {likeGiverID: likeGiverID, targetPost: postID}
-
-    this.http.post(this.addLikeURL + postID, likeData).subscribe()
+    this.zone.run(() => {
+      this.http.post(this.addLikeURL + postID, likeData).subscribe()
+    })
   }
 
   getUserById(userID: any)
   {
     this.http.get(this.getUserByID_URL+userID).subscribe(
       (res)=>{
-        this.data = res
-        localStorage.setItem('profileData', JSON.stringify([this.data]))
+        this.zone.run(() => {
+          this.data = res
+          localStorage.setItem('profileData', JSON.stringify([this.data]))
+        })
       }
     )
   }
 
   sharePost(sharedPostObj: any)
   {
-    this.http.post(this.sharePostURL + sharedPostObj['post'], sharedPostObj).subscribe()
+    this.zone.run(() => {
+      this.http.post(this.sharePostURL + sharedPostObj['post'], sharedPostObj).subscribe()
+    })
   }
 
 

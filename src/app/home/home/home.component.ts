@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CRUDService } from 'src/app/crud.service';
 import {AuthService}  from '../../../auth.service'
 import {Router} from '@angular/router'
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,21 +10,21 @@ import {Router} from '@angular/router'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private src: AuthService, private service: CRUDService, private router: Router, private cdr:ChangeDetectorRef) 
-  {
-
-  }
+  constructor(private src: AuthService, 
+              private service: CRUDService, 
+              private router: Router, 
+              private cdr:ChangeDetectorRef, 
+              private mdService: NgbModal) {}
+  
   isUser: any;
   charactersLeft: number = 120;
   allPosts: any = [];
+
   ngOnInit(): void {
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)
     this.getAllPosts();
 
-  //   setInterval(() => {
-  //     this.getAllPosts();
-  // }, 1000);
   }
   keyup(textarea: any): void{
     this.charactersLeft =  120 - textarea.value.length
@@ -83,7 +84,6 @@ export class HomeComponent implements OnInit {
     let likeGiver = this.isUser[0]._id
     this.service.addLike(likeGiver,postID)
     this.getAllPosts()
-    this.router.navigateByUrl('/')
 
 
   }
@@ -122,6 +122,7 @@ export class HomeComponent implements OnInit {
     let sharePostObj ={sharer: postSharerID, post: sharedPostID}
     
     this.service.sharePost(sharePostObj)
+    alert('You successfully shared this post !')
   }
 
 
