@@ -72,7 +72,12 @@ async function start()
     app.post('/createPost', async (req,res) => {
         let postContent = req.body['content']
         let postOwner = req.body['owner']
-        await createPost(postContent, postOwner)
+
+        if(postContent != '')
+        {
+            await createPost(postContent, postOwner)
+        }
+
     })
 
     app.get('/getAllPosts', async (req,res) => {
