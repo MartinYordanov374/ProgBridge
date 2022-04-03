@@ -107,16 +107,18 @@ async function start()
 
     app.post('/likePost/:id', async (req,res) => {
 
+        console.log('liking')
         let targetPost = await findPostByID(req.params.id)
         let likeGiverID = req.body.likeGiverID
-
+        
         if(targetPost.Likes.includes(likeGiverID) == false)
         {
             targetPost.Likes.push(likeGiverID)
         }
         else
         {
-            targetPost.Likes.filter(likeGiverID)
+            const index = targetPost.Likes.indexOf(likeGiverID)
+            targetPost.Likes.splice(index, 1)
         }
 
         await targetPost.save()
