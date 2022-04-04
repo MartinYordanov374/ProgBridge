@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     }
     this.service.createPost(postData)
     this.getAllPosts()
-    // location.reload()
+    location.reload()
 
   }
 
@@ -88,6 +88,7 @@ export class HomeComponent implements OnInit {
     let ownerID = this.isUser[0].username
     this.service.addComment(commentContent, commentPostID, ownerID)
     this.getAllPosts();
+    location.reload()
     
   }
 
