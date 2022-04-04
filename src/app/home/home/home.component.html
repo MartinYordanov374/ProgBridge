@@ -71,12 +71,14 @@
                 <div class="commentsWrapper" #commentWrapper style="display: none" >
 
                   <div class="Comment" *ngFor="let comment of post.Comments" >
-                    <div class="userData">
-                      <img class="userPfp" src="{{post.Author.profilePicture}}">
+                    <div class="userData" >
+                      <a href="/profile/{{post.Author['_id']}}">
+                        <img class="userPfp" src="{{post.Author.profilePicture}}" >
+                      </a>
                     </div>
                     <div class="userComment">
                       <div class="commentArea">
-                        <a class="userCommentAuthor">{{comment.Author}}</a>
+                        <a class="userCommentAuthor" href="/profile/{{post.Author['_id']}}">{{comment.Author}}</a>
 
                         <p class="commentContent">{{comment.Content}}</p>
                       </div>
