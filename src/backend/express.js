@@ -146,7 +146,12 @@ async function start()
     })
 
     app.post('/changePFP/:id', async(req,res) => {
-        console.log('changing pfp')
+        let targetUser = await getUserByID(req.params.id)
+        let newPFP = req.body.img
+        targetUser.profilePicture = newPFP
+        targetUser.save()
+
+        res.status(200).send(targetUser)
     })
     
     app.listen(3000, () => {

@@ -6,9 +6,13 @@
   </head>
     <body >
         <div class="profilePageWrapper">
+            <div class="imageLink card" #uploadImageContainer>
+                <input class="form-control" type="text" #ImageInput>
+                <button class="btn btn-lg btn-primary" (click)="changePFP(userData._id, ImageInput.value)">Update image</button>
+            </div>
             <div class="profileHeader">
                 <img class="userPfp" src={{userData.profilePicture}}>     
-                <i class="bi bi-camera" *ngIf='isOwner' (click) = 'changePFP(userData._id,1)'></i>         
+                <i class="bi bi-camera" *ngIf='isOwner' (click) = 'showChangePFP(uploadImageContainer)'></i>         
                 <p class="username">{{userData.username}}</p>
                 <hr>
                 <div class="profileNavigation">

@@ -1,4 +1,5 @@
 $hover-color: #e8e5e7;
+
 .profilePageWrapper{
     background-color: #f0eff0;
     .profileHeader{
@@ -230,4 +231,9 @@ $hover-color: #e8e5e7;
             }
         }
     }
+}
+
+.imageLink{
+    display: none;
+    // background-color: white;
 }

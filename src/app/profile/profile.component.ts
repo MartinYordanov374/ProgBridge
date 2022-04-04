@@ -42,6 +42,8 @@ export class ProfileComponent implements OnInit {
       this.isOwner = true;
     }
 
+    console.log(this.userData)
+
   }
 
   showFriends(friendsList: any, postsList: any,sharedList: any):void
@@ -79,8 +81,15 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  changePFP(userID: any, image: any)
+  showChangePFP(container: any)
   {
-    this.service.changePFP(userID, image)
+    container.style.display='block'
+    // this.service.changePFP(userID)
+  }
+
+  changePFP(userData: any, imageLink: any)
+  {
+    console.log('changing profile pic')
+    this.service.changePFP(userData, imageLink)
   }
 }
