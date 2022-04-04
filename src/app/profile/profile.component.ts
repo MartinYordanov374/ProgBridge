@@ -56,4 +56,15 @@ export class ProfileComponent implements OnInit {
     sharedList.style.display = "block"
   }
 
+  addLike(card: any)
+  {
+
+  }
+  showComments(commWrapper: any){
+
+  }
+  addComment(content: any)
+  {
+
+  }
 }

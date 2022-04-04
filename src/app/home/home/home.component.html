@@ -7,6 +7,7 @@
     <body >
         <div class="HomeWrapper">
 
+
           <div class="makePost" *ngIf="isUser">
             <div class="card postWrapper">
               <div class="card-body" *ngFor="let userData of isUser">
@@ -27,71 +28,72 @@
             </div>
           </div>
 
-          <div class="card" *ngFor="let post of allPosts" id="{{post._id}}" #card>
-           <div class="usernamePostSection" > 
-             <div ngbDropdown>
-                <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
-                <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author['_id'] == isUser[0]._id"></i>  
-                <div ngbDropdownMenu>
-                  <a ngbDropdownItem (click)="deletePost(post)"> <i class="bi bi-trash-fill"></i> Delete </a>
-                  <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
+          <div class="card" *ngFor="let post of allPosts " id="{{post._id}}" #card>
+            <div class="usernamePostSection" > 
+              <div ngbDropdown>
+                  <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
+                  <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author['_id'] == isUser[0]._id"></i>  
+                  <div ngbDropdownMenu>
+                    <a ngbDropdownItem (click)="deletePost(post)"> <i class="bi bi-trash-fill"></i> Delete </a>
+                    <a ngbDropdownItem> <i class="bi bi-pencil-fill"></i> Edit </a>
 
+                  </div>
                 </div>
-           </div>
-          </div> 
+              </div> 
             
 
-            <div class="card-body">
-              <p class="card-text">{{post.Content}}</p>
-            </div>
-            <span  *ngIf="isUser">
-              <div class="postStats">
-                <p class="likeStats">{{post.Likes.length}} likes</p>
-                <p class="commentStats">{{post.Comments.length}} Comments</p>
+              <div class="card-body">
+                <p class="card-text">{{post.Content}}</p>
               </div>
+              <span  *ngIf="isUser">
+                <div class="postStats">
+                  <p class="likeStats">{{post.Likes.length}} likes</p>
+                  <p class="commentStats">{{post.Comments.length}} Comments</p>
+                </div>
 
-              <hr>
-              <div class="postInteractionButtons" >
-                <div class="like" (click)="addLike(card)" *ngIf="!post.Likes.includes(isUser[0]._id)">
-                  <i class="bi bi-hand-thumbs-up"></i>  <span >Like {{post.Likes.length}}</span>
-                </div>
-                <div class="like Liked"  *ngIf="post.Likes.includes(isUser[0]._id)" (click)="addLike(card)">
-                  <i class="bi bi-hand-thumbs-up"></i>  <span > Liked! {{post.Likes.length}} </span>
-                </div>
-                <div class="commentSection" (click)="showComments(commentWrapper)" >
-                  <i class="bi bi-chat-left"></i> <span>Comments</span>
-                </div>
-                <div class="share" (click)="SharePost(card)" >
-                  <i class="bi bi-share"></i>  <span>Share</span>
-                </div>
-              </div>
-
-              <div class="commentsWrapper" #commentWrapper style="display: none" >
-
-                <div class="Comment" *ngFor="let comment of post.Comments" >
-                  <div class="userData">
-                    <i class="bi bi-person-circle userImage"></i>
+                <hr>
+                <div class="postInteractionButtons" >
+                  <div class="like" (click)="addLike(card)" *ngIf="!post.Likes.includes(isUser[0]._id)">
+                    <i class="bi bi-hand-thumbs-up"></i>  <span >Like {{post.Likes.length}}</span>
                   </div>
-                  <div class="userComment">
-                    <div class="commentArea">
-                      <a class="userCommentAuthor">{{comment.Author}}</a>
-
-                      <p class="commentContent">{{comment.Content}}</p>
-                    </div>
-                    <div class="commentInteractButtons">
-                      <a class="commentLikeButton" href="#"> Like </a>
-                      <a class="commentReplyButton" href="#"> Reply </a>
-                    </div>
+                  <div class="like Liked"  *ngIf="post.Likes.includes(isUser[0]._id)" (click)="addLike(card)">
+                    <i class="bi bi-hand-thumbs-up"></i>  <span > Liked! {{post.Likes.length}} </span>
+                  </div>
+                  <div class="commentSection" (click)="showComments(commentWrapper)" >
+                    <i class="bi bi-chat-left"></i> <span>Comments</span>
+                  </div>
+                  <div class="share" (click)="SharePost(card)" >
+                    <i class="bi bi-share"></i>  <span>Share</span>
                   </div>
                 </div>
 
-                <div class="addComment">
-                  <input #commentInput class="form-control commentField" placeholder="Write your comment here" id="{{post._id}}">
-                  <a class="makeCommentButton" (click)="addComment(commentInput)"> <i class="bi bi-send-fill"></i> </a>
+                <div class="commentsWrapper" #commentWrapper style="display: none" >
+
+                  <div class="Comment" *ngFor="let comment of post.Comments" >
+                    <div class="userData">
+                      <i class="bi bi-person-circle userImage"></i>
+                    </div>
+                    <div class="userComment">
+                      <div class="commentArea">
+                        <a class="userCommentAuthor">{{comment.Author}}</a>
+
+                        <p class="commentContent">{{comment.Content}}</p>
+                      </div>
+                      <div class="commentInteractButtons">
+                        <a class="commentLikeButton" href="#"> Like </a>
+                        <a class="commentReplyButton" href="#"> Reply </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="addComment">
+                    <input #commentInput class="form-control commentField" placeholder="Write your comment here" id="{{post._id}}">
+                    <a class="makeCommentButton" (click)="addComment(commentInput)"> <i class="bi bi-send-fill"></i> </a>
+                  </div>
                 </div>
-              </div>
-          </span>
+            </span>
           </div>
+          
           <div *ngIf="allPosts.length == 0" class="loading-dots">
             <div class="spinner-grow text-primary" role="status">
               <span class="visually-hidden">Loading...</span>

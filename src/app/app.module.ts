@@ -15,6 +15,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { StoreModule } from '@ngrx/store';''
+import { reducer } from './reducers/post.reducers';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    StoreModule.forRoot({
+      post: reducer
+    })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

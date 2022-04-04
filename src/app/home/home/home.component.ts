@@ -3,6 +3,13 @@ import { CRUDService } from 'src/app/crud.service';
 import {AuthService}  from '../../../auth.service'
 import {Router} from '@angular/router'
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap'
+import { Observable } from 'rxjs';
+import { Post } from 'src/app/models/post.model';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import * as postActions from './../../actions/crud.actions'
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,17 +17,26 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private src: AuthService, 
-              private service: CRUDService, 
-              private router: Router, 
-              private cdr:ChangeDetectorRef, 
-              private zone: NgZone) {}
+  posts: Observable<Post[]>
   
   isUser: any;
   charactersLeft: number = 120;
   allPosts: any = [];
 
+  constructor(private src: AuthService, 
+              private service: CRUDService, 
+              private router: Router, 
+              private cdr:ChangeDetectorRef, 
+              private zone: NgZone,
+              private store: Store<AppState>) {
+                this.posts = this.store.select('post')
+                this.posts.forEach(x => this.allPosts = x[1] )
+                // console.log(this.allPosts)
+
+              }
+
   ngOnInit(): void {
+    // console.log(this.posts)
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)
     this.getAllPosts();
@@ -42,21 +58,18 @@ export class HomeComponent implements OnInit {
     this.service.createPost(postData)
     this.getAllPosts()
     location.reload()
-    this.getAllPosts()
 
   }
 
   deletePost(post: any)
   {
     let postData = post
-    console.log(postData)
     let postID = postData['_id']
     let ownerID = postData['Author']['_id']
     let userID = this.isUser[0]['_id']
     if(userID == ownerID)
     {
       this.service.deletePost(postID)
-      // console.log('owner confirmed')
       this.getAllPosts()
       location.reload()
     }
@@ -84,7 +97,8 @@ export class HomeComponent implements OnInit {
     let likeGiver = this.isUser[0]._id
     this.zone.run(() => {
       this.service.addLike(likeGiver,postID)
-      this.router.navigateByUrl('/')
+      location.reload()
+
     })
   }
 
@@ -102,15 +116,9 @@ export class HomeComponent implements OnInit {
   }
   getAllPosts()
   {
-    this.service.getAllPosts()
-    if(localStorage.getItem('posts'))
-    {
-      this.allPosts = localStorage.getItem('posts')
-      this.allPosts = JSON.parse(this.allPosts)
-      this.allPosts = this.allPosts[0]
-      this.cdr.detectChanges();
-    }
-    console.log(this.allPosts.sort((a:any, b:any) => b.Likes.length - a.Likes.length) )
+    let res = this.service.getAllPosts()
+    this.posts = this.store.select('post')
+    this.posts.forEach(x => this.allPosts = x[1] )
   }
 
   SharePost(card: any)
@@ -125,8 +133,5 @@ export class HomeComponent implements OnInit {
     this.service.sharePost(sharePostObj)
     alert('You successfully shared this post !')
   }
-
-
-
 
 }

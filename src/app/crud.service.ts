@@ -1,18 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as postActions from './actions/crud.actions'
 
 @Injectable({
   providedIn: 'root'
 })
 export class CRUDService {
 
-  constructor(private http: HttpClient, private router: Router, private zone:NgZone) 
+  constructor(private http: HttpClient, private router: Router, private zone:NgZone, private store: Store) 
   { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
   }
+  //#region URLS
   public createPostURL = 'http://localhost:3000/createPost'
   public getAllPostsUrl = 'http://localhost:3000/getAllPosts'
   public getAllUserPostsUrl = 'http://localhost:3000/getAllUserPosts/'
@@ -23,7 +26,7 @@ export class CRUDService {
   public removeLikeURL = 'http://localhost:3000/removeLike/'
   public getUserByID_URL = 'http://localhost:3000/getUserByID/'
   public sharePostURL = 'http://localhost:3000/sharePost/'
-
+  //#endregion
   private data: any;
   createPost(postData: any)
   { 
@@ -47,9 +50,9 @@ export class CRUDService {
       (res) => {
         this.zone.run( () => { 
           this.data = res
-
-          localStorage.removeItem('posts')
-          localStorage.setItem('posts', JSON.stringify([this.data]))
+          this.store.dispatch(new postActions.AddPost(this.data))
+          // localStorage.removeItem('posts')
+          // localStorage.setItem('posts', JSON.stringify([this.data]))
         })
       },
       (error) => { console.log(error);
@@ -70,13 +73,10 @@ export class CRUDService {
   }
 
   deletePost(postID: any){
-    this.http.post(this.deletePostUrl + postID, {}).subscribe(
-      (res) => {
-        this.data = res
-        
-        }
-      )
-    }
+
+    this.http.post(this.deletePostUrl + postID, {}).subscribe()
+  }
+    
 
   addComment(commentContent: any, postID:any, ownerID: any)
   {
