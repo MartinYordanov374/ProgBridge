@@ -144,6 +144,10 @@ async function start()
         targetSharer.shares.push(postID)
         await targetSharer.save()
     })
+
+    app.post('/changePFP/:id', async(req,res) => {
+        console.log('changing pfp')
+    })
     
     app.listen(3000, () => {
         console.log('server working')

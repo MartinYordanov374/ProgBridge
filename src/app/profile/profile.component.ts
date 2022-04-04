@@ -78,4 +78,9 @@ export class ProfileComponent implements OnInit {
   {
 
   }
+
+  changePFP(userID: any, image: any)
+  {
+    this.service.changePFP(userID, image)
+  }
 }

@@ -8,7 +8,7 @@
         <div class="profilePageWrapper">
             <div class="profileHeader">
                 <img class="userPfp" src={{userData.profilePicture}}>     
-                <i class="bi bi-camera" *ngIf='isOwner' onClick="changeImage"></i>         
+                <i class="bi bi-camera" *ngIf='isOwner' (click) = 'changePFP(userData._id,1)'></i>         
                 <p class="username">{{userData.username}}</p>
                 <hr>
                 <div class="profileNavigation">

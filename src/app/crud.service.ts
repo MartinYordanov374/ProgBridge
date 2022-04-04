@@ -26,6 +26,7 @@ export class CRUDService {
   public removeLikeURL = 'http://localhost:3000/removeLike/'
   public getUserByID_URL = 'http://localhost:3000/getUserByID/'
   public sharePostURL = 'http://localhost:3000/sharePost/'
+  public changePFP_URL = 'http://localhost:3000/changePFP/'
   //#endregion
   private data: any;
   createPost(postData: any)
@@ -113,6 +114,10 @@ export class CRUDService {
     this.zone.run(() => {
       this.http.post(this.sharePostURL + sharedPostObj['post'], sharedPostObj).subscribe()
     })
+  }
+
+  changePFP(userID: any, image: any){
+    this.http.post(this.changePFP_URL + userID, {image: image}).subscribe()
   }
 
 
