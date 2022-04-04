@@ -56,8 +56,10 @@ export class AuthService {
         this.data = res
         if( this.data ) {
           localStorage.setItem('user', JSON.stringify([this.data]))
-          this.router.navigate(['/'])
-          location.reload();
+          if(localStorage.getItem('user'))
+          {
+            this.router.navigateByUrl('/')
+          }
           
         }
         else

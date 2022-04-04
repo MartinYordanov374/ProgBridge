@@ -13,7 +13,9 @@ export class ProfileComponent implements OnInit {
   constructor(private service: CRUDService, private router: Router) { }
   userData: any;
   allUserPosts: any;
-  
+  ownerID: any;
+  isOwner: any;
+
   ngOnInit(): void {
     let userID = this.router.url.split('/')[2]
 
@@ -30,6 +32,15 @@ export class ProfileComponent implements OnInit {
     this.allUserPosts = JSON.parse(this.allUserPosts)
     this.allUserPosts = this.allUserPosts[0]
 
+    let profileUserID = this.userData._id
+    this.ownerID = localStorage.getItem('user')
+    this.ownerID = JSON.parse(this.ownerID)
+    this.ownerID = this.ownerID[0]._id
+
+    if(this.ownerID == userID)
+    {
+      this.isOwner = true;
+    }
 
   }
 
