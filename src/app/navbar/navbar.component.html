@@ -25,6 +25,7 @@
                     <a class="nav-link" href="logout">Logout</a>
                   </li>
                   <li class="nav-item profileLink" *ngFor="let userData of isUser ">
+                    <img class="usernamePfp" src={{userData.profilePicture}}>
                     <a class="nav-link" href="/profile/{{userData._id}}"> {{userData.username}}</a>
                     <div class="profileIconsWrapper">
                       <i class="bi bi-chat-fill"></i>

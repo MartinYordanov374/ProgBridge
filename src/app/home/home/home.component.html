@@ -31,6 +31,7 @@
           <div class="card" *ngFor="let post of allPosts " id="{{post._id}}" #card>
             <div class="usernamePostSection" > 
               <div ngbDropdown>
+                <img class='userPfp' src={{post.Author.profilePicture}}>
                   <a href="/profile/{{post.Author['_id']}}" class="profileLink "> {{post.Author['username']}}  </a>    
                   <i class="bi bi-three-dots" ngbDropdownToggle *ngIf="post.Author['_id'] == isUser[0]._id"></i>  
                   <div ngbDropdownMenu>
