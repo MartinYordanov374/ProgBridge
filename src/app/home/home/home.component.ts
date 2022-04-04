@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     }
     this.service.createPost(postData)
     this.getAllPosts()
-    location.reload()
+    // location.reload()
 
   }
 

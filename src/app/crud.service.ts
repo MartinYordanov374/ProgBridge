@@ -34,9 +34,8 @@ export class CRUDService {
       (res) => { 
         this.zone.run(() => {
           this.data = res
-    
-          localStorage.removeItem('posts')
-          localStorage.setItem('posts', JSON.stringify([this.data]))
+          this.store.dispatch(new postActions.AddPost(this.data))
+
 
         })
 
@@ -51,8 +50,7 @@ export class CRUDService {
         this.zone.run( () => { 
           this.data = res
           this.store.dispatch(new postActions.AddPost(this.data))
-          // localStorage.removeItem('posts')
-          // localStorage.setItem('posts', JSON.stringify([this.data]))
+
         })
       },
       (error) => { console.log(error);
