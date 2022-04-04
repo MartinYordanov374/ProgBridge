@@ -1,14 +1,17 @@
 $hover-color: #e8e5e7;
-
 .profilePageWrapper{
     background-color: #f0eff0;
     .profileHeader{
         text-align: center;
-        .bi-person-circle{
-            font-size: 14rem;
+        .userPfp{
+            margin-top: 2%;
+            width: 14rem;
+            height: 14rem;
+            border-radius: 100%;
         }
+
         .username{
-            margin-top: -2%;
+            margin-top: 1%;
             font-size: 2rem;
         }
     }
