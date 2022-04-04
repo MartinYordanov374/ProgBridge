@@ -66,6 +66,7 @@ async function getAllUserPosts(userID)
     return allUserPosts
 }
 
+
 module.exports = {
     createPost,
     getAllPosts,

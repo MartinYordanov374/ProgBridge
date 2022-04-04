@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   isUser: any;
   charactersLeft: number = 120;
   allPosts: any = [];
+  editedPostID: any = '';
 
   constructor(private src: AuthService, 
               private service: CRUDService, 
@@ -133,6 +134,35 @@ export class HomeComponent implements OnInit {
     
     this.service.sharePost(sharePostObj)
     alert('You successfully shared this post !')
+  }
+
+  showEditPostField(editPostField: any, editedPost: any, darkOverlay: any)
+  {
+    this.editedPostID = editedPost.id
+    
+    editPostField.style.display = 'block'
+    darkOverlay.style.display = 'block'
+
+    let allPostContainers = document.querySelectorAll('.card')
+
+    let allPostContainersArray = Array.prototype.slice.call(allPostContainers,2)
+
+    allPostContainersArray.forEach(post => post.style.opacity = 0.45)
+
+    let editedPostContent = editedPost.children[1].children[0].innerText
+
+    editPostField.children[0].value = editedPostContent
+
+  }
+
+  editPost(editInput: any)
+  {
+      let editedPostContent = editInput.value
+
+      this.service.editPost(this.editedPostID, editedPostContent)
+
+      location.reload()
+
   }
 
 }

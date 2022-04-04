@@ -20,13 +20,14 @@ export class CRUDService {
   public getAllPostsUrl = 'http://localhost:3000/getAllPosts'
   public getAllUserPostsUrl = 'http://localhost:3000/getAllUserPosts/'
   public deletePostUrl = 'http://localhost:3000/deletePost/'
-
   public addCommentURL = 'http://localhost:3000/addComment/'
   public addLikeURL = 'http://localhost:3000/likePost/'
   public removeLikeURL = 'http://localhost:3000/removeLike/'
   public getUserByID_URL = 'http://localhost:3000/getUserByID/'
   public sharePostURL = 'http://localhost:3000/sharePost/'
   public changePFP_URL = 'http://localhost:3000/changePFP/'
+  public editPost_URL = 'http://localhost:3000/edit/'
+
   //#endregion
   private data: any;
   createPost(postData: any)
@@ -124,6 +125,13 @@ export class CRUDService {
           localStorage.setItem('user', JSON.stringify([this.data]))
         })
       })
+  }
+
+  editPost(postID: any, updatedPostContent: any)
+  {
+    this.http.post(this.editPost_URL+postID, {updated: updatedPostContent}).subscribe()
+
+
   }
 
 

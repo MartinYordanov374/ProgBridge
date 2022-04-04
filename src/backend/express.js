@@ -15,7 +15,7 @@ async function start()
 
     
     const app = express()
-    app.use(cors()) // Use this after the variable declaration
+    app.use(cors())
     
     
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -86,6 +86,7 @@ async function start()
     })
 
     app.post('/deletePost/:id', async (req,res) => {
+        //TODO ADD CHECK BEFORE DELETING !
         let result = await deletePost(req.params.id)
         // res.status(200)
     })
@@ -146,12 +147,26 @@ async function start()
     })
 
     app.post('/changePFP/:id', async(req,res) => {
+        // TODO ADD CHECK BEFORE CHANGING PFP
         let targetUser = await getUserByID(req.params.id)
         let newPFP = req.body.img
         targetUser.profilePicture = newPFP
         targetUser.save()
 
         res.status(200).send(targetUser)
+    })
+
+    app.post('/edit/:id', async(req,res) => {
+        // TODO ADD CHECK BEFORE EDITING POST
+        let targetPost = await findPostByID(req.params.id)
+
+        let updatedContent = req.body.updated
+
+        targetPost.Content = updatedContent
+
+        await targetPost.save()
+
+        res.status(200).send(targetPost)
     })
     
     app.listen(3000, () => {
