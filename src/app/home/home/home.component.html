@@ -72,7 +72,7 @@
 
                   <div class="Comment" *ngFor="let comment of post.Comments" >
                     <div class="userData">
-                      <i class="bi bi-person-circle userImage"></i>
+                      <img class="userPfp" src="{{post.Author.profilePicture}}">
                     </div>
                     <div class="userComment">
                       <div class="commentArea">

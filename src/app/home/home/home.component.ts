@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
               private store: Store<AppState>) {
                 this.posts = this.store.select('post')
                 this.posts.forEach(x => this.allPosts = x[1] )
-                // console.log(this.allPosts)
+                this.posts.forEach(x =>  console.log(x[1]) )
 
               }
 
