@@ -120,7 +120,8 @@ export class CRUDService {
     this.http.post(this.changePFP_URL + userID, {img: imageLink}).subscribe(
       (res) => {
         this.zone.run(() => {
-          localStorage.setItem('user', JSON.stringify([res]))
+          this.data=res
+          localStorage.setItem('user', JSON.stringify([this.data]))
         })
       })
   }

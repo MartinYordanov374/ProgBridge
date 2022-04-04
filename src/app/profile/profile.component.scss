@@ -233,7 +233,32 @@ $hover-color: #e8e5e7;
     }
 }
 
+
 .imageLink{
     display: none;
-    // background-color: white;
+    background-color: white;
+    position:absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 12.5%;
+    text-align: center;
+    margin-bottom: 0.5%;
+    width: 30rem !important;
+    margin-left: 38.9%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+
+}
+.dark-overlay{
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    min-height:100%; 
+
+
 }

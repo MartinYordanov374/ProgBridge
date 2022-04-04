@@ -11,11 +11,9 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private service: CRUDService) { }
   isUser: any ;
   ngOnInit(): void {
-    setTimeout(() => {
       this.isUser = localStorage.getItem('user')
       this.isUser = JSON.parse(this.isUser)
-      console.log(this.isUser)
-    }, 1000);
+      
   }
 
 }

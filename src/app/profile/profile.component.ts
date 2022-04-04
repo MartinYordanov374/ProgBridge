@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router,ActivatedRoute} from '@angular/router'
 import { AuthService } from 'src/auth.service';
 import { CRUDService } from '../crud.service';
 
@@ -10,7 +10,7 @@ import { CRUDService } from '../crud.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private service: CRUDService, private router: Router) { }
+  constructor(private service: CRUDService, private router: Router, private route: ActivatedRoute) { }
   userData: any;
   allUserPosts: any;
   ownerID: any;
@@ -32,7 +32,6 @@ export class ProfileComponent implements OnInit {
     this.allUserPosts = JSON.parse(this.allUserPosts)
     this.allUserPosts = this.allUserPosts[0]
 
-    let profileUserID = this.userData._id
     this.ownerID = localStorage.getItem('user')
     this.ownerID = JSON.parse(this.ownerID)
     this.ownerID = this.ownerID[0]._id
@@ -42,7 +41,6 @@ export class ProfileComponent implements OnInit {
       this.isOwner = true;
     }
 
-    console.log(this.userData)
 
   }
 
@@ -81,15 +79,19 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  showChangePFP(container: any)
+  showChangePFP(container: any, darkOverlay: any, ICam: any)
   {
     container.style.display='block'
-    // this.service.changePFP(userID)
+    darkOverlay.style.display='block'
+    ICam.style.display='none'
+    
   }
 
   changePFP(userData: any, imageLink: any)
   {
     console.log('changing profile pic')
     this.service.changePFP(userData, imageLink)
+    let profileID = this.route.snapshot.params['id']
+    this.router.navigateByUrl('/profile/'+profileID)
   }
 }
