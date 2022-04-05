@@ -168,7 +168,36 @@ async function start()
 
         res.status(200).send(targetPost)
     })
+
+    app.post('/addFollowing/:id',  async(req,res)=>{
+        // TODO ADD CHECK IF ALREADY FOLLOWING 
+
+        // add target ID to owner's following
+        let targetID = req.body.targetUserID
+        let ownerID = req.params.id
+
+        let ownerProfile = await getUserByID(ownerID)
+        ownerProfile.following.push(targetID)
+
+        await ownerProfile.save()
+        res.status(200).send(ownerProfile)
+        
+    })
     
+    app.post('/addFollower/:id',  async(req,res)=>{
+        // TODO ADD CHECK IF ALREADY FOLLOWING 
+
+        // add OWNER ID to Target's followers
+        let ownerID = req.body.ownerID
+        let targetID = req.params.id
+
+        let targetProfile = await getUserByID(targetID)
+        targetProfile.followers.push(ownerID)
+        
+        await targetProfile.save()
+        res.status(200).send(targetProfile)
+    })
+
     app.listen(3000, () => {
         console.log('server working')
     })

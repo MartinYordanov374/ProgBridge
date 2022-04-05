@@ -97,7 +97,12 @@ export class ProfileComponent implements OnInit {
 
   FollowUser(card: any)
   {
-    let targetUserID = card._id
+    let targetUserID = card._id // ADD TO OWNER'S FOLLOWING
+    let currentUserID = this.ownerID // ADD TO TARGET'S FOLLOWERS
+
+    this.service.addFollower(targetUserID, this.ownerID)
+    this.service.addFollowing(currentUserID, targetUserID)
+    
     
   }
 }

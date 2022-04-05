@@ -27,6 +27,8 @@ export class CRUDService {
   public sharePostURL = 'http://localhost:3000/sharePost/'
   public changePFP_URL = 'http://localhost:3000/changePFP/'
   public editPost_URL = 'http://localhost:3000/edit/'
+  public addFollowing_URL = 'http://localhost:3000/addFollowing/'
+  public addFollower_URL = 'http://localhost:3000/addFollower/'
 
   //#endregion
   private data: any;
@@ -130,8 +132,16 @@ export class CRUDService {
   editPost(postID: any, updatedPostContent: any)
   {
     this.http.post(this.editPost_URL+postID, {updated: updatedPostContent}).subscribe()
+  }
 
+  addFollowing(ownerID: any, targetUserID: any)
+  {
+    this.http.post(this.addFollowing_URL + ownerID, {targetUserID: targetUserID}).subscribe()
+  }
 
+  addFollower(targetUserID: any, ownerID: any)
+  {
+    this.http.post(this.addFollower_URL + targetUserID, {ownerID: ownerID}).subscribe()
   }
 
 
