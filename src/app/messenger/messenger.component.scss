@@ -8,6 +8,7 @@ $hover-color: #e8e5e7;
     height: 95vh;
     .contacts{
         display: block;
+        font-size: x-large;
         .messenger-contacts{
             display: flex;
 
@@ -25,5 +26,56 @@ $hover-color: #e8e5e7;
     // border-style: solid;
     // margin-left: 15%;
     width: 80%;
+    margin-bottom: 0%;
+    .contact-info{
+        display: flex;
+        font-size: x-large;
+        .username
+        {
+            margin-left: 1%;
+        }
+    }
+
+    .messageInteraction{
+        .message-input{
+            position: absolute;
+            bottom:0;
+            width: 76%;
+    
+    
+            border-radius: 4px !important;
+            font-size: medium;
+            transition: 0.05s linear;
+            resize: none;
+    
+            border-left: none;
+            border-top: none;
+            border-right: none;
+    
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            
+        }
+        .sendBtn{
+            width: 4%;
+            position: absolute;
+            bottom: 0;
+            right:0;
+            border-radius: 4px;
+            height: 70px;
+            font-size: 3rem;
+            .bi{
+                margin-left: 15% !important;
+            }
+            &:hover{
+                cursor: pointer;
+                background-color: $hover-color;
+            }
+            &:active{
+                background-color: #2568fb;
+                color: orange;
+            }
+        }
+    }
+    
 }
 

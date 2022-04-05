@@ -8,6 +8,7 @@
 
 .messengerWrapper .contacts {
   display: block;
+  font-size: x-large;
 }
 
 .messengerWrapper .contacts .messenger-contacts {
@@ -25,5 +26,57 @@
 .message-user {
   float: left;
   width: 80%;
+  margin-bottom: 0%;
+}
+
+.message-user .contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: x-large;
+}
+
+.message-user .contact-info .username {
+  margin-left: 1%;
+}
+
+.message-user .messageInteraction .message-input {
+  position: absolute;
+  bottom: 0;
+  width: 76%;
+  border-radius: 4px !important;
+  font-size: medium;
+  -webkit-transition: 0.05s linear;
+  transition: 0.05s linear;
+  resize: none;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.message-user .messageInteraction .sendBtn {
+  width: 4%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 4px;
+  height: 70px;
+  font-size: 3rem;
+}
+
+.message-user .messageInteraction .sendBtn .bi {
+  margin-left: 15% !important;
+}
+
+.message-user .messageInteraction .sendBtn:hover {
+  cursor: pointer;
+  background-color: #e8e5e7;
+}
+
+.message-user .messageInteraction .sendBtn:active {
+  background-color: #2568fb;
+  color: orange;
 }
 /*# sourceMappingURL=messenger.component.css.map */
