@@ -29,16 +29,16 @@
 
                 <hr>
                 <div class="profileNavigation">
-                    <span class="friends "  (click)="showFriends(FriendsList, PostsList, SharedList)">
-                        <p>Following</p>
-                    </span>
-                    <span class="friends "  (click)="showFriends(FriendsList, PostsList, SharedList)">
+                    <span class="friends "  (click)="showFriends(FriendsList, PostsList, SharedList, FollowingList)">
                         <p>Followers</p>
                     </span>
-                    <span class="posts" (click)="showPosts(FriendsList, PostsList,SharedList)">
+                    <span class="friends "  (click)="showFollowing(FriendsList, PostsList, SharedList, FollowingList)">
+                        <p>Following</p>
+                    </span>
+                    <span class="posts" (click)="showPosts(FriendsList, PostsList,SharedList, FollowingList)">
                         <p>Feed</p>
                     </span>
-                    <span class="posts" (click)="showShared(FriendsList, PostsList, SharedList)">
+                    <span class="posts" (click)="showShared(FriendsList, PostsList, SharedList, FollowingList)">
                         <p>Shared</p>
                     </span>
                     <span class="about">
@@ -46,26 +46,23 @@
                     </span>
                 </div>
                 <div class="FriendsList" #FriendsList >
-                    <div class="Friend">
-                        <i class="bi bi-person-circle"></i>
-                        <p class="FriendName"> Friend Name </p>
+                    <div *ngFor="let follower of userData.followers">
+                        <div class="Friend">
+                            <img class="followerPfp" src={{follower.profilePicture}}>
+                            <p class="FriendName" style="margin-top:0%"> {{follower.username}} </p>
+                        </div>
                     </div>
-                    <div class="Friend">
-                        <i class="bi bi-person-circle"></i>
-                        <p class="FriendName"> Friend Name </p>
+
+                </div>
+
+                <div class="FriendsList" #FollowingList >
+                    <div *ngFor="let follower of userData.following">
+                        <div class="Friend">
+                            <img class="followerPfp" src={{follower.profilePicture}}>
+                            <p class="FriendName" style="margin-top:0%"> {{follower.username}} </p>
+                        </div>
                     </div>
-                    <div class="Friend">
-                        <i class="bi bi-person-circle"></i>
-                        <p class="FriendName"> Friend Name </p>
-                    </div>
-                    <div class="Friend">
-                        <i class="bi bi-person-circle"></i>
-                        <p class="FriendName"> Friend Name </p>
-                    </div>
-                    <div class="Friend">
-                        <i class="bi bi-person-circle"></i>
-                        <p class="FriendName"> Friend Name </p>
-                    </div>
+
                 </div>
 
                 <div class="userPostsList"style="display: none" #PostsList >

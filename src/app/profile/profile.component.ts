@@ -21,10 +21,12 @@ export class ProfileComponent implements OnInit {
 
     this.userData = this.service.getUserById(userID)
 
+    
     this.userData = localStorage.getItem('profileData')
     this.userData = JSON.parse(this.userData)
     this.userData = this.userData[0]
-
+    
+    console.log(this.userData)
 
     this.service.getAllUserPosts(this.userData['_id'])
 
@@ -44,27 +46,39 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  showFriends(friendsList: any, postsList: any,sharedList: any):void
+  showFriends(friendsList: any, postsList: any,sharedList: any, FollowingList: any) : void
   {
     friendsList.style.display = "block"
     postsList.style.display = "none"
     sharedList.style.display = "none"
-
+    FollowingList.style.display="none"
   }
 
-  showPosts(friendsList: any, postsList: any, sharedList: any):void
+  showFollowing(friendsList: any, postsList: any,sharedList: any, FollowingList: any) : void
+  {
+    friendsList.style.display = "none"
+    postsList.style.display = "none"
+    sharedList.style.display = "none"
+    FollowingList.style.display="block"
+    console.log(FollowingList)
+  }
+
+  showPosts(friendsList: any, postsList: any, sharedList: any, FollowingList: any):void
   {
     friendsList.style.display = "none"
     postsList.style.display = "block"
     sharedList.style.display = "none"
+    FollowingList.style.display="none"
 
   }
 
-  showShared(friendsList: any, postsList: any, sharedList: any):void
+  showShared(friendsList: any, postsList: any, sharedList: any, FollowingList: any):void
   {
     friendsList.style.display = "none"
     postsList.style.display = "none"
     sharedList.style.display = "block"
+    FollowingList.style.display="none"
+
   }
 
   addLike(card: any)
@@ -103,7 +117,6 @@ export class ProfileComponent implements OnInit {
     this.service.addFollower(targetUserID, this.ownerID)
     this.service.addFollowing(currentUserID, targetUserID)
 
-    
     
   }
 }
