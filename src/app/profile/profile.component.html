@@ -22,8 +22,8 @@
                 <p class="username">{{userData.username}}</p>
 
                 <div class="followUser">
-                    <button class="btn btn-primary" (click)="FollowUser(userData)"> <i class="bi bi-person-plus-fill"></i> Follow</button>
-                    <button class="btn btn-primary "> <i class="bi bi-person-dash-fill"></i> Unfollow</button>
+                    <button class="btn btn-primary" (click)="FollowUser(userData)" *ngIf="!userData.followers.includes(ownerID)"> <i class="bi bi-person-plus-fill"></i> Follow</button>
+                    <button class="btn btn-primary" *ngIf="userData.followers.includes(ownerID)"> <i class="bi bi-person-dash-fill"></i> Unfollow</button>
 
                 </div>
 
