@@ -7,6 +7,7 @@ import { HomeGuard } from './home.guard';
 import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { MessengerComponent } from './messenger/messenger.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'logout', component: LogoutComponent},
   {path: 'profile/:id', component: ProfileComponent, canActivate: [ProfileGuard]},
+  {path: 'messenger', component: MessengerComponent, canActivate: [ProfileGuard]},
   {path: '**', component: ErrorComponent}
 
 

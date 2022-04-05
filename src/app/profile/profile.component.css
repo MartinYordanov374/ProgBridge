@@ -6,13 +6,41 @@
   text-align: center;
 }
 
-.profilePageWrapper .profileHeader .bi-person-circle {
-  font-size: 14rem;
+.profilePageWrapper .profileHeader .userPfp {
+  margin-top: 2%;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 100%;
+}
+
+.profilePageWrapper .profileHeader .bi-camera {
+  font-size: 2rem;
+  position: absolute;
+  left: 53%;
+  top: 28%;
+  color: black;
+  background-color: #e9e9e9;
+  border-radius: 50%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.profilePageWrapper .profileHeader .bi-camera:hover {
+  background-color: white;
+  cursor: pointer;
 }
 
 .profilePageWrapper .profileHeader .username {
-  margin-top: -2%;
+  margin-top: 1%;
   font-size: 2rem;
+}
+
+.profilePageWrapper .profileHeader .followUser {
+  text-align: left;
+}
+
+.profilePageWrapper .profileHeader .followUser .btn {
+  margin-left: 2%;
 }
 
 .profilePageWrapper hr {
@@ -273,5 +301,43 @@
   cursor: pointer;
   -webkit-transition: 0.05s linear;
   transition: 0.05s linear;
+}
+
+.imageLink {
+  display: none;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12.5%;
+  text-align: center;
+  margin-bottom: 0.5%;
+  width: 30rem !important;
+  margin-left: 38.9%;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.followerPfp {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
+
+.followerStyle {
+  text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=profile.component.css.map */

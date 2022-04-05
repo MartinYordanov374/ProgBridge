@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { StoreModule } from '@ngrx/store';''
 import { reducer } from './reducers/post.reducers';
+import { MessengerComponent } from './messenger/messenger.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { reducer } from './reducers/post.reducers';
     ErrorComponent,
     FooterComponent,
     ProfileComponent,
+    MessengerComponent,
     
   ],
   imports: [

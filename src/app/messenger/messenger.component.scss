@@ -1,0 +1,29 @@
+$hover-color: #e8e5e7;
+
+.messengerWrapper{
+    display: inline-block;
+    float: left;
+    width: 20%;
+    border-right-style: solid;
+    height: 95vh;
+    .contacts{
+        display: block;
+        .messenger-contacts{
+            display: flex;
+
+            margin-top: 0.5%;
+
+            &:hover{
+                background-color: $hover-color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.message-user{
+    float: left;
+    // border-style: solid;
+    // margin-left: 15%;
+    width: 80%;
+}
+
