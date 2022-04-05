@@ -103,7 +103,6 @@ export class ProfileComponent implements OnInit {
     this.service.addFollower(targetUserID, this.ownerID)
     this.service.addFollowing(currentUserID, targetUserID)
 
-    console.log(this.userData)
     
     
   }

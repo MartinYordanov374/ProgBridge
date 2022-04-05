@@ -177,7 +177,17 @@ async function start()
         let ownerID = req.params.id
 
         let ownerProfile = await getUserByID(ownerID)
-        ownerProfile.following.push(targetID)
+
+        if(!ownerProfile.following.includes(targetID))
+        {
+            ownerProfile.following.push(targetID)
+        }
+        else
+        {
+            let index = ownerProfile.following.indexOf(targetID)
+            ownerProfile.following.splice(index,1)
+        }
+
 
         await ownerProfile.save()
         res.status(200).send(ownerProfile)
@@ -192,9 +202,19 @@ async function start()
         let targetID = req.params.id
 
         let targetProfile = await getUserByID(targetID)
-        targetProfile.followers.push(ownerID)
-        
+
+        if(!targetProfile.followers.includes(ownerID))
+        {
+            targetProfile.followers.push(ownerID)
+            
+        }
+        else
+        {
+            let index = targetProfile.followers.indexOf(ownerID)
+            targetProfile.followers.splice(index,1)
+        }
         await targetProfile.save()
+        
         res.status(200).send(targetProfile)
     })
 
