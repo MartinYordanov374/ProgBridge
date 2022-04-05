@@ -24,6 +24,14 @@ const userSchema = new Schema({
     shares:{
         type: [ObjectId],
         ref: 'post'
+    },
+    followers:{
+        type: [ObjectId],
+        ref: 'user'
+    },
+    following:{
+        type: [ObjectId],
+        ref: 'user'
     }
 })
 
