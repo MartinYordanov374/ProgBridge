@@ -36,10 +36,10 @@
                         <p>Following {{userData.following.length}}</p>
                     </span>
                     <span class="posts" (click)="showPosts(FriendsList, PostsList,SharedList, FollowingList)">
-                        <p>Feed</p>
+                        <p>Feed {{userData.posts.length}}</p>
                     </span>
                     <span class="posts" (click)="showShared(FriendsList, PostsList, SharedList, FollowingList)">
-                        <p>Shared</p>
+                        <p>Shared {{userData.shares.length}}</p>
                     </span>
                     <span class="about">
                         <p>About</p>
