@@ -30,10 +30,10 @@
                 <hr>
                 <div class="profileNavigation">
                     <span class="friends "  (click)="showFriends(FriendsList, PostsList, SharedList, FollowingList)">
-                        <p>Followers</p>
+                        <p>Followers {{userData.followers.length}}</p>
                     </span>
                     <span class="friends "  (click)="showFollowing(FriendsList, PostsList, SharedList, FollowingList)">
-                        <p>Following</p>
+                        <p>Following {{userData.following.length}}</p>
                     </span>
                     <span class="posts" (click)="showPosts(FriendsList, PostsList,SharedList, FollowingList)">
                         <p>Feed</p>
