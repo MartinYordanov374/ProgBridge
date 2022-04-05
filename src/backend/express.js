@@ -178,7 +178,7 @@ async function start()
 
         let ownerProfile = await getUserByID(ownerID)
 
-        if(!ownerProfile.following.includes(targetID))
+        if(!ownerProfile.following.some((user) => user._id == targetID))
         {
             ownerProfile.following.push(targetID)
         }
@@ -203,7 +203,8 @@ async function start()
 
         let targetProfile = await getUserByID(targetID)
 
-        if(!targetProfile.followers.includes(ownerID))
+        // console.log(targetProfile.followers)
+        if(!targetProfile.followers.some((user) => user._id == ownerID))
         {
             targetProfile.followers.push(ownerID)
             

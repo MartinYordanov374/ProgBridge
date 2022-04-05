@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   allUserPosts: any;
   ownerID: any;
   isOwner: any;
+  isFollowing: any;
 
   ngOnInit(): void {
     let userID = this.router.url.split('/')[2]
@@ -26,7 +27,7 @@ export class ProfileComponent implements OnInit {
     this.userData = JSON.parse(this.userData)
     this.userData = this.userData[0]
     
-    console.log(this.userData)
+    console.log(this.userData.followers)
 
     this.service.getAllUserPosts(this.userData['_id'])
 
@@ -37,6 +38,9 @@ export class ProfileComponent implements OnInit {
     this.ownerID = localStorage.getItem('user')
     this.ownerID = JSON.parse(this.ownerID)
     this.ownerID = this.ownerID[0]._id
+
+    this.isFollowing = this.userData.followers.some((user: any) => user._id == this.ownerID)
+    // console.log(this.isFollowing)
 
     if(this.ownerID == userID)
     {
