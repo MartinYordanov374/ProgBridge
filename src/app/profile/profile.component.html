@@ -47,20 +47,25 @@
                 </div>
                 <div class="FriendsList" #FriendsList >
                     <div *ngFor="let follower of userData.followers">
-                        <div class="Friend">
-                            <img class="followerPfp" src={{follower.profilePicture}}>
-                            <p class="FriendName" style="margin-top:0%"> {{follower.username}} </p>
-                        </div>
+                        <a  href='/profile/{{follower._id}}' class="followerStyle">
+                            <div class="Friend">
+                                <img class="followerPfp" src={{follower.profilePicture}}>
+                                <p class="FriendName" style="margin-top:0%"> {{follower.username}} </p>
+                            </div>
+                        </a>
+
                     </div>
 
                 </div>
 
                 <div class="FriendsList" #FollowingList >
                     <div *ngFor="let follower of userData.following">
-                        <div class="Friend">
-                            <img class="followerPfp" src={{follower.profilePicture}}>
-                            <p class="FriendName" style="margin-top:0%"> {{follower.username}} </p>
-                        </div>
+                        <a  href='/profile/{{follower._id}}' class="followerStyle">
+                            <div class="Friend">
+                                <img class="followerPfp" src={{follower.profilePicture}}>
+                                <p class="FriendName" style="margin-top:0%"> {{follower.username}} </p>
+                            </div>
+                        </a>
                     </div>
 
                 </div>

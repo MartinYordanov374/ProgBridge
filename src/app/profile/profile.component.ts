@@ -60,7 +60,6 @@ export class ProfileComponent implements OnInit {
     postsList.style.display = "none"
     sharedList.style.display = "none"
     FollowingList.style.display="block"
-    console.log(FollowingList)
   }
 
   showPosts(friendsList: any, postsList: any, sharedList: any, FollowingList: any):void
