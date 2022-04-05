@@ -20,6 +20,13 @@
                 <img class="userPfp" src={{userData.profilePicture}}>     
                 <i class="bi bi-camera" *ngIf='isOwner' (click) = 'showChangePFP(uploadImageContainer,darkOverlay, ICam)' #ICam></i>         
                 <p class="username">{{userData.username}}</p>
+
+                <div class="followUser">
+                    <button class="btn btn-primary" (click)="FollowUser(userData)"> <i class="bi bi-person-plus-fill"></i> Follow</button>
+                    <button class="btn btn-primary "> <i class="bi bi-person-dash-fill"></i> Unfollow</button>
+
+                </div>
+
                 <hr>
                 <div class="profileNavigation">
                     <span class="friends "  (click)="showFriends(FriendsList, PostsList, SharedList)">
@@ -95,6 +102,7 @@
                      </div>
                 </div>
             </div>
+
             <div class="profileDetails">
 
             </div>

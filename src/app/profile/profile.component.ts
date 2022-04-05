@@ -94,4 +94,10 @@ export class ProfileComponent implements OnInit {
     let profileID = this.route.snapshot.params['id']
     this.router.navigateByUrl('/profile/'+profileID)
   }
+
+  FollowUser(card: any)
+  {
+    let targetUserID = card._id
+    
+  }
 }
