@@ -7,29 +7,25 @@ var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
 const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts } = require('./services/CRUD_Service')
-
-
+const io = require('socket.io')
 
 async function start()
 {
-
     
+    //#region config
     const app = express()
+    const server = require('http').createServer(app)
+    const io = require('socket.io')(server)
+
     app.use(cors())
-    
     
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-
+    
     app.use(cookieParser());
-
-
     await databaseConfig(app)
-
-    // app.use(express.urlencoded({
-    //     extended: true
-    // }))
- 
+    //#endregion config
+    //#region endpoints 
     app.post('/login', async (req,res) => {
         let username = req.body.username
         let pass = req.body.pass
@@ -218,10 +214,22 @@ async function start()
         
         res.status(200).send(targetProfile)
     })
-
-    app.listen(3000, () => {
+    //#endregion endpoints
+    
+    server.listen(3000, () => {
         console.log('server working')
     })
+    
+
+    io.on('connection',(socket)=>{
+        console.log('socket worked')
+        
+        socket.on('disconnect', function () {
+            console.log('A user disconnected');
+         });
+    })
+ 
 }
+
 
 start()

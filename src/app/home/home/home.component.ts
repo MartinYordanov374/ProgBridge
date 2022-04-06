@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
     this.getAllPosts();
 
   }
+
   keyup(textarea: any): void{
     this.charactersLeft =  120 - textarea.value.length
 
@@ -116,9 +117,11 @@ export class HomeComponent implements OnInit {
   }
   getAllPosts()
   {
-    let res = this.service.getAllPosts()
-    this.posts = this.store.select('post')
-    this.posts.forEach(x => this.allPosts = x[1] )
+      let res = this.service.getAllPosts()
+      this.posts = this.store.select('post')
+      this.posts.forEach(x => this.allPosts = x[1] )
+      
+    
   }
 
   SharePost(card: any)
