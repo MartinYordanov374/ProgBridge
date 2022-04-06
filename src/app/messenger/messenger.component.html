@@ -5,19 +5,12 @@
         
         
         <div class="messengerWrapper">
-            <div class="contacts">
-                <div class="messenger-contacts ">
+            <div class="contacts" *ngFor="let follower of userFollowers">
+                <div class="messenger-contacts" id={{follower._id}}>
                     <i class="bi bi-person-circle"></i>   
-                    <p>Username</p> 
+                    <p>{{follower.username}}</p> 
                 </div>   
-                <div class="messenger-contacts ">
-                    <i class="bi bi-person-circle"></i>   
-                    <p>Username</p> 
-                </div>   
-                <div class="messenger-contacts ">
-                    <i class="bi bi-person-circle"></i>   
-                    <p>Username</p> 
-                </div>   
+
             </div>
         </div>
     

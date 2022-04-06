@@ -222,11 +222,15 @@ async function start()
     
 
     io.on('connection',(socket)=>{
-        console.log('socket worked')
+        // console.log('socket worked')
         
         socket.on('disconnect', function () {
-            console.log('A user disconnected');
+            // console.log('A user disconnected');
          });
+
+         socket.on('senderID', (data)=>{
+             console.log(data)
+         })
     })
  
 }
