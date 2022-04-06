@@ -6,7 +6,7 @@ const { login, register, getUserByID } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo } = require('./services/CRUD_Service')
 const io = require('socket.io')
 
 async function start()
@@ -213,6 +213,11 @@ async function start()
         await targetProfile.save()
         
         res.status(200).send(targetProfile)
+    })
+
+    app.post('/getConvo', async (req,res) => {
+        let targetConvo = await getConvo(req.body.receiverID, req.body.senderID)
+        res.status(200).send(targetConvo)
     })
     //#endregion endpoints
     

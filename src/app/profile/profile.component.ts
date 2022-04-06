@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
     this.allUserPosts = JSON.parse(this.allUserPosts)
     this.allUserPosts = this.allUserPosts[0]
 
+
     this.ownerID = localStorage.getItem('user')
     this.ownerID = JSON.parse(this.ownerID)
     this.ownerID = this.ownerID[0]._id

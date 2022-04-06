@@ -104,12 +104,16 @@ async function createConversation(messageData)
         await convo.save()
     }
 
-    // let message = new messageModel({
-    //     Sender: messageData.senderID,
-    //     Receiver: messageData.receiverID,
-    //     ConvoID: '',
-    //     Content: messageData.content
-    // })
+}
+
+async function getConvo(receiverID, senderID)
+{
+    let targetConvo = await convoModel.find({
+        Sender: { $in: [ObjectID(senderID)] },
+        Receiver: {$in: [ObjectID(receiverID)]}
+    }).populate('Messages Sender Receiver')
+    return targetConvo[0]
+
 }
 //#endregion chatFunctions
 module.exports = {
@@ -119,5 +123,6 @@ module.exports = {
     findPostByID,
     addPostComment,
     getAllUserPosts,
-    createConversation
+    createConversation,
+    getConvo
 }

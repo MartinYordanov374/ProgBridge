@@ -15,19 +15,21 @@ export class MessengerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: CRUDService) { }
   
   userFollowers: any;
-  contactData: any;
+  contactData: any = '';
   senderId: any;
   receiverId: any;
+  messages: any = '';
 
   ngOnInit(): void {
     
     let userID = this.route.snapshot.params['id']
-    this.service.getUserById(userID)
+    
+    this.service.getFollowersByID(userID)
     this.senderId = userID;
     
-    this.userFollowers = localStorage.getItem('profileData')
+    this.userFollowers = localStorage.getItem('followers')
     this.userFollowers = JSON.parse(this.userFollowers)
-    this.userFollowers = this.userFollowers[0].followers
+    console.log(this.userFollowers)
 
     socket.on('connect', () => {
       console.log('Successfully connected!');
@@ -39,17 +41,25 @@ export class MessengerComponent implements OnInit {
   showChatBox(contact: any, chatBox: any, defaultMessage: any)
   {
     let contactID = contact.id
-    this.service.getContactById(contactID)
+    this.service.getContactDataByID(contactID)
     
     this.contactData = localStorage.getItem('contactData')
     this.contactData = JSON.parse(this.contactData)
     this.contactData = this.contactData[0]
+
+    console.log(this.contactData)
 
     this.receiverId = this.contactData._id
     
     chatBox.style.display = 'block'
     defaultMessage.style.display = 'none'
 
+    this.service.getConvo(this.receiverId, this.senderId)
+
+    this.messages = localStorage.getItem('messages')
+    this.messages = JSON.parse(this.messages)
+    this.messages = this.messages[0]
+    console.log(this.messages.Messages)
   }
 
   sendMsg(msgContent: any)

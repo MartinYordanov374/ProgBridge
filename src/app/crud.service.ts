@@ -29,7 +29,7 @@ export class CRUDService {
   public editPost_URL = 'http://localhost:3000/edit/'
   public addFollowing_URL = 'http://localhost:3000/addFollowing/'
   public addFollower_URL = 'http://localhost:3000/addFollower/'
-
+  public getConvo_URL = 'http://localhost:3000/getConvo'
   //#endregion
   private data: any;
   createPost(postData: any)
@@ -112,7 +112,7 @@ export class CRUDService {
     )
   }
 
-  getContactById(userID: any)
+  getContactDataByID(userID: any)
   {
     this.http.get(this.getUserByID_URL+userID).subscribe(
       (res)=>{
@@ -122,6 +122,25 @@ export class CRUDService {
         })
       }
     )
+  }
+  getFollowersByID(userID: any)
+  {
+    this.http.get(this.getUserByID_URL+userID).subscribe(
+      (res)=>{
+        this.zone.run(() => {
+          this.data = res
+          localStorage.setItem('followers', JSON.stringify(this.data.followers))
+        })
+      }
+    )
+  }
+
+
+  getConvo(receiverID: any, senderID: any)
+  {
+    this.http.post(this.getConvo_URL, {receiverID: receiverID, senderID: senderID}).subscribe((res)=>{
+      localStorage.setItem('messages', JSON.stringify([res]))
+    })
   }
 
   sharePost(sharedPostObj: any)
