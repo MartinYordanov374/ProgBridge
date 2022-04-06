@@ -31,10 +31,7 @@ $hover-color: #e8e5e7;
     .contact-info{
         display: flex;
         font-size: x-large;
-        .username
-        {
-            margin-left: 1%;
-        }
+
     }
 
     .messageInteraction{
@@ -84,4 +81,8 @@ $hover-color: #e8e5e7;
     height: 64px;
     border-radius: 100%;
 }
-
+.username
+{
+    margin-top: 1%;
+    margin-left: 1%;
+}

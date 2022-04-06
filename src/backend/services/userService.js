@@ -58,7 +58,6 @@ async function getUserByUsername(username)
 async function getUserByID(id)
 {
     let user = await userModel.findById({ _id: id}).populate('followers following')
-    console.log(user)
     return user 
 }
 

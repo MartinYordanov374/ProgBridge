@@ -8,7 +8,7 @@
             <div class="contacts" *ngFor="let follower of userFollowers">
                 <div #contact class="messenger-contacts" id={{follower._id}} (click)="showChatBox(contact, chatBox, defaultMsg)">
                     <img class='userPfp' src={{follower.profilePicture}}>  
-                    <p>{{follower.username}}</p> 
+                    <p class="username">{{follower.username}}</p> 
                 </div>   
 
             </div>

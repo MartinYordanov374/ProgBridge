@@ -223,14 +223,20 @@ async function start()
 
     io.on('connection',(socket)=>{
         // console.log('socket worked')
-        
+
         socket.on('disconnect', function () {
             // console.log('A user disconnected');
          });
 
-         socket.on('senderID', (data)=>{
-             console.log(data)
+         socket.on('receiverID', async (data)=>{
+             let receiverData = await getUserByID(data)
+             
          })
+
+         socket.on('senderID', async (data)=>{
+            let senderData = await getUserByID(data)
+
+        })
     })
  
 }

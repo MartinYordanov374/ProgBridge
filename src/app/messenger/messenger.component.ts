@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as io from 'socket.io-client'
 import { CRUDService } from '../crud.service';
+
+const socket = io.connect('http://localhost:3000/')
+
 @Component({
   selector: 'app-messenger',
   templateUrl: './messenger.component.html',
@@ -13,22 +16,21 @@ export class MessengerComponent implements OnInit {
   
   userFollowers: any;
   contactData: any;
-
+  senderId: any;
   ngOnInit(): void {
+    
     let userID = this.route.snapshot.params['id']
-
     this.service.getUserById(userID)
+    this.senderId = userID;
+    
     this.userFollowers = localStorage.getItem('profileData')
     this.userFollowers = JSON.parse(this.userFollowers)
     this.userFollowers = this.userFollowers[0].followers
 
-    // const socket = io.connect('http://localhost:3000/')
-    // socket.on('connect', () => {
-    //   console.log('Successfully connected!');
-      
-    //   socket.emit('senderID', userID)
+    socket.on('connect', () => {
+      console.log('Successfully connected!');
 
-    // });
+    });
     
   }
   
@@ -39,10 +41,13 @@ export class MessengerComponent implements OnInit {
     this.contactData = localStorage.getItem('contactData')
     this.contactData = JSON.parse(this.contactData)
     this.contactData = this.contactData[0]
-    console.log(this.contactData)
     
     chatBox.style.display = 'block'
     defaultMessage.style.display = 'none'
+
+    socket.emit('receiverID', contactID)
+    socket.emit('senderID', this.senderId)
+
 
   }
 }
