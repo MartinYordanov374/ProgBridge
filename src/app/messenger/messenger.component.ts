@@ -10,14 +10,15 @@ export class MessengerComponent implements OnInit {
   constructor() { }
   
   ngOnInit(): void {
+    
+
     const socket = io.connect('http://localhost:3000/')
     socket.on('connect', () => {
       console.log('Successfully connected!');
       
-      socket.on('disconnect', function () {
-        console.log('A user disconnected');
-     });
+
     });
+
   }
 
 }
