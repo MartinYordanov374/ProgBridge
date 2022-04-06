@@ -112,6 +112,18 @@ export class CRUDService {
     )
   }
 
+  getContactById(userID: any)
+  {
+    this.http.get(this.getUserByID_URL+userID).subscribe(
+      (res)=>{
+        this.zone.run(() => {
+          this.data = res
+          localStorage.setItem('contactData', JSON.stringify([this.data]))
+        })
+      }
+    )
+  }
+
   sharePost(sharedPostObj: any)
   {
     this.zone.run(() => {

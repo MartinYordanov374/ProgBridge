@@ -12,6 +12,7 @@ export class MessengerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: CRUDService) { }
   
   userFollowers: any;
+  contactData: any;
 
   ngOnInit(): void {
     let userID = this.route.snapshot.params['id']
@@ -29,7 +30,18 @@ export class MessengerComponent implements OnInit {
     //   socket.emit('senderID', userID)
 
     // });
-
+    
   }
-
+  
+  showChatBox(contact: any, chatBox: any, defaultMessage: any)
+  {
+    let contactID = contact.id
+    this.service.getContactById(contactID)
+    this.contactData = localStorage.getItem('contactData')
+    this.contactData = JSON.parse(this.contactData)
+    this.contactData = this.contactData[0]
+    
+    chatBox.style.display = 'block'
+    defaultMessage.style.display = 'none'
+  }
 }
