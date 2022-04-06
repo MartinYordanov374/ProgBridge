@@ -74,9 +74,41 @@ async function getAllUserPosts(userID)
 //#region chatFunctions
 async function createConversation(messageData)
 {
-    console.log(messageData)
-    // let conversation = new convoModel({
-        
+    let convoExists = await convoModel.find({
+        Sender: { $in: [ messageData.senderID ] },
+        Receiver: {$in: [messageData.receiverID]}
+    })
+    if(convoExists.length >= 1)
+    {
+        let targetConvo = convoExists
+        let messages = targetConvo[0].Messages
+
+        let message = new messageModel({
+            ConvoID: targetConvo[0]._id,
+            Content: messageData.content
+        })
+        await message.save()
+
+        messages.push(message)
+
+        await targetConvo[0].save()        
+
+    }
+    else
+    {
+        let convo = new convoModel({
+            Sender: ObjectID(messageData.senderID),
+            Receiver: ObjectID(messageData.receiverID),
+            Messages: []
+        })
+        await convo.save()
+    }
+
+    // let message = new messageModel({
+    //     Sender: messageData.senderID,
+    //     Receiver: messageData.receiverID,
+    //     ConvoID: '',
+    //     Content: messageData.content
     // })
 }
 //#endregion chatFunctions

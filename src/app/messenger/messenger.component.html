@@ -6,7 +6,7 @@
         
         <div class="messengerWrapper">
             <div class="contacts" *ngFor="let follower of userFollowers">
-                <div #contact class="messenger-contacts" id={{follower._id}} (click)="showChatBox(contact, chatBox, defaultMsg)">
+                <div #contact class="messenger-contacts" id="{{follower._id}}" (click)="showChatBox(contact, chatBox, defaultMsg)">
                     <img class='userPfp' src={{follower.profilePicture}}>  
                     <p class="username">{{follower.username}}</p> 
                 </div>   
@@ -16,8 +16,8 @@
     
         <div class="message-user" #chatBox>
             <div class="contact-info" >
-                <img class='userPfp' src={{contactData.profilePicture}}>  
-                <p class="username">{{contactData.username}}</p>
+                <!-- <img class='userPfp' src={{contactData.profilePicture}}>  
+                <p class="username">{{contactData.username}}</p> -->
             </div>
             <hr>
             <div class="messageInteraction" >

@@ -39,11 +39,13 @@ export class MessengerComponent implements OnInit {
   showChatBox(contact: any, chatBox: any, defaultMessage: any)
   {
     let contactID = contact.id
-    this.receiverId = contactID
     this.service.getContactById(contactID)
+    
     this.contactData = localStorage.getItem('contactData')
     this.contactData = JSON.parse(this.contactData)
     this.contactData = this.contactData[0]
+
+    this.receiverId = this.contactData._id
     
     chatBox.style.display = 'block'
     defaultMessage.style.display = 'none'
