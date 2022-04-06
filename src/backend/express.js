@@ -6,7 +6,7 @@ const { login, register, getUserByID } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation } = require('./services/CRUD_Service')
 const io = require('socket.io')
 
 async function start()
@@ -228,15 +228,9 @@ async function start()
             // console.log('A user disconnected');
          });
 
-         socket.on('receiverID', async (data)=>{
-             let receiverData = await getUserByID(data)
-             
+         socket.on('sendMSG',  async (msgData)=>{
+             let res = await createConversation(msgData)
          })
-
-         socket.on('senderID', async (data)=>{
-            let senderData = await getUserByID(data)
-
-        })
     })
  
 }

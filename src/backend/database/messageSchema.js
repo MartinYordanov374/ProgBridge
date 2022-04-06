@@ -3,7 +3,11 @@ const { ObjectId } = require('mongodb');
 
 const messageSchema = new Schema({
     Sender:{
-        type: Object,
+        type: ObjectId,
+        ref: 'user'
+    },
+    Receiver:{
+        type: ObjectId,
         ref: 'user'
     },
     ConvoID:{
@@ -15,5 +19,5 @@ const messageSchema = new Schema({
     }
 })
 
-let message = model('convo', messageSchema)
+let message = model('message', messageSchema)
 module.exports =  message

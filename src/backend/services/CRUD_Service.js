@@ -1,8 +1,12 @@
 let postModel = require('../database/postsSchema')
 let commentModel = require('../database/commentSchema')
 let userModel = require('../database/userSchema')
+let convoModel = require('../database/convoSchema')
+let messageModel = require('../database/messageSchema')
+
 const { ObjectID } = require('mongodb');
 
+//#region post functions
 async function createPost(content, owner)
 {
     let post = new postModel({
@@ -65,13 +69,23 @@ async function getAllUserPosts(userID)
     let allUserPosts = await userModel.findById({_id: userID}).populate('posts').populate('shares')
     return allUserPosts
 }
+//#endregion  post functions
 
-
+//#region chatFunctions
+async function createConversation(messageData)
+{
+    console.log(messageData)
+    // let conversation = new convoModel({
+        
+    // })
+}
+//#endregion chatFunctions
 module.exports = {
     createPost,
     getAllPosts,
     deletePost,
     findPostByID,
     addPostComment,
-    getAllUserPosts
+    getAllUserPosts,
+    createConversation
 }

@@ -21,8 +21,8 @@
             </div>
             <hr>
             <div class="messageInteraction" >
-                <textarea class="message-input"></textarea>
-                <span class="sendBtn"> <i class="bi bi-send"></i></span>
+                <textarea class="message-input" #msgBox></textarea>
+                <span class="sendBtn" (click)="sendMsg(msgBox)"> <i class="bi bi-send"></i></span>
             </div>
     
     
