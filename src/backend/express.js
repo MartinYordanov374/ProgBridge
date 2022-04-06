@@ -216,7 +216,12 @@ async function start()
     })
 
     app.post('/getConvo', async (req,res) => {
-        let targetConvo = await getConvo(req.body.receiverID, req.body.senderID)
+
+
+        console.log(req.body)
+        // let targetConvo = await getConvo(req.body.receiverID, req.body.senderID)
+
+
         res.status(200).send(targetConvo)
     })
     //#endregion endpoints

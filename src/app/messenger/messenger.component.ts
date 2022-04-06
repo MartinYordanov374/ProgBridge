@@ -19,7 +19,8 @@ export class MessengerComponent implements OnInit {
   senderId: any;
   receiverId: any;
   messages: any = '';
-
+  receiverName: any = '';
+  senderName: any = '';
   ngOnInit(): void {
     
     let userID = this.route.snapshot.params['id']
@@ -29,7 +30,6 @@ export class MessengerComponent implements OnInit {
     
     this.userFollowers = localStorage.getItem('followers')
     this.userFollowers = JSON.parse(this.userFollowers)
-    console.log(this.userFollowers)
 
     socket.on('connect', () => {
       console.log('Successfully connected!');
@@ -47,8 +47,6 @@ export class MessengerComponent implements OnInit {
     this.contactData = JSON.parse(this.contactData)
     this.contactData = this.contactData[0]
 
-    console.log(this.contactData)
-
     this.receiverId = this.contactData._id
     
     chatBox.style.display = 'block'
@@ -59,7 +57,9 @@ export class MessengerComponent implements OnInit {
     this.messages = localStorage.getItem('messages')
     this.messages = JSON.parse(this.messages)
     this.messages = this.messages[0]
-    console.log(this.messages.Messages)
+
+    this.senderName = this.messages.Sender.username
+    this.receiverName = this.messages.Receiver.username
   }
 
   sendMsg(msgContent: any)

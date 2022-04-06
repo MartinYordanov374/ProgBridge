@@ -74,10 +74,12 @@ async function getAllUserPosts(userID)
 //#region chatFunctions
 async function createConversation(messageData)
 {
-    let convoExists = await convoModel.find({
+    let convoExists = await convoModel.find({$or: {
         Sender: { $in: [ messageData.senderID ] },
         Receiver: {$in: [messageData.receiverID]}
+        }
     })
+
     if(convoExists.length >= 1)
     {
         let targetConvo = convoExists
@@ -96,6 +98,7 @@ async function createConversation(messageData)
     }
     else
     {
+        // TODO SAVE MESSAGE AFTER CREATING CONVO
         let convo = new convoModel({
             Sender: ObjectID(messageData.senderID),
             Receiver: ObjectID(messageData.receiverID),
@@ -108,10 +111,16 @@ async function createConversation(messageData)
 
 async function getConvo(receiverID, senderID)
 {
-    let targetConvo = await convoModel.find({
-        Sender: { $in: [ObjectID(senderID)] },
-        Receiver: {$in: [ObjectID(receiverID)]}
+
+
+    let targetConvo = await convoModel.find({$or: {
+        Sender: { $in: [ ObjectID(senderID) ] },
+        Receiver: {$in: [ ObjectID(receiverID)]}
+        }
     }).populate('Messages Sender Receiver')
+
+    // console.log(targetConvo)
+
     return targetConvo[0]
 
 }
