@@ -22,7 +22,6 @@ export class MessengerComponent implements OnInit {
     this.userFollowers = JSON.parse(this.userFollowers)
     this.userFollowers = this.userFollowers[0].followers
 
-
     // const socket = io.connect('http://localhost:3000/')
     // socket.on('connect', () => {
     //   console.log('Successfully connected!');
@@ -40,8 +39,10 @@ export class MessengerComponent implements OnInit {
     this.contactData = localStorage.getItem('contactData')
     this.contactData = JSON.parse(this.contactData)
     this.contactData = this.contactData[0]
+    console.log(this.contactData)
     
     chatBox.style.display = 'block'
     defaultMessage.style.display = 'none'
+
   }
 }
