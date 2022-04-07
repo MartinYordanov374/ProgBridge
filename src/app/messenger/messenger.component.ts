@@ -52,18 +52,27 @@ export class MessengerComponent implements OnInit {
     chatBox.style.display = 'block'
     defaultMessage.style.display = 'none'
 
-    this.service.getConvo(this.receiverId, this.senderId)
+    // socket.emit('getConvo', ({senderID: this.senderId, receiverID: this.receiverId}))
 
-    this.messages = localStorage.getItem('messages')
-    this.messages = JSON.parse(this.messages)
-    this.messages = this.messages[0]
+    // this.service.getConvo(this.receiverId, this.senderId)
 
-    this.senderName = this.messages.Sender.username
-    this.receiverName = this.messages.Receiver.username
+
+    // this.messages = localStorage.getItem('messages')
+    // this.messages = JSON.parse(this.messages)
+    // this.messages = this.messages[0]
+
+    // this.senderName = this.messages.Sender.username
+    // this.receiverName = this.messages.Receiver.username
   }
 
   sendMsg(msgContent: any)
   {
     socket.emit('sendMSG', ({senderID: this.senderId, receiverID: this.receiverId, content: msgContent.value }))
+
+    socket.on('getMessages', data => {
+      this.messages = data.Messages
+    })
+    console.log(this.messages)
+
   }
 }

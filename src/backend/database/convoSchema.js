@@ -14,7 +14,8 @@ const convoSchema = new Schema({
     },
     Messages: {
         type: [ObjectId],
-        ref: 'message'
+        ref: 'message',
+        default: []
     }
 })
 

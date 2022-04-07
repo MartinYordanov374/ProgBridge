@@ -9,6 +9,8 @@ var cookieParser = require('cookie-parser');
 const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo } = require('./services/CRUD_Service')
 const io = require('socket.io')
 
+const mongoose = require('mongoose')
+
 async function start()
 {
     
@@ -217,10 +219,8 @@ async function start()
 
     app.post('/getConvo', async (req,res) => {
 
-
-        console.log(req.body)
-        // let targetConvo = await getConvo(req.body.receiverID, req.body.senderID)
-
+        let convoData = { receiverID: mongoose.Types.ObjectId(req.body.receiverID), senderID: mongoose.Types.ObjectId(req.body.senderID) }
+        let targetConvo = await getConvo(convoData)
 
         res.status(200).send(targetConvo)
     })
@@ -240,8 +240,14 @@ async function start()
          });
 
          socket.on('sendMSG',  async (msgData)=>{
+            
              let res = await createConversation(msgData)
+
+            socket.emit('getMessages', (res[0]))
          })
+        //  socket.on('getConvo',  async (msgData)=>{
+        //     let res = await getConvo(msgData)
+        // })
     })
  
 }

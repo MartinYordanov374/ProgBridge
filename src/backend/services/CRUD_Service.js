@@ -4,7 +4,7 @@ let userModel = require('../database/userSchema')
 let convoModel = require('../database/convoSchema')
 let messageModel = require('../database/messageSchema')
 
-const { ObjectID } = require('mongodb');
+const mongoose = require('mongoose')
 
 //#region post functions
 async function createPost(content, owner)
@@ -74,53 +74,47 @@ async function getAllUserPosts(userID)
 //#region chatFunctions
 async function createConversation(messageData)
 {
-    let convoExists = await convoModel.find({$or: {
-        Sender: { $in: [ messageData.senderID ] },
-        Receiver: {$in: [messageData.receiverID]}
-        }
-    })
 
-    if(convoExists.length >= 1)
+    let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
+
+    if(targetConvo.length >= 1)
     {
-        let targetConvo = convoExists
         let messages = targetConvo[0].Messages
-
+        
         let message = new messageModel({
             ConvoID: targetConvo[0]._id,
             Content: messageData.content
         })
         await message.save()
-
+        
         messages.push(message)
-
+        
         await targetConvo[0].save()        
-
+        
+        
     }
     else
     {
         // TODO SAVE MESSAGE AFTER CREATING CONVO
         let convo = new convoModel({
-            Sender: ObjectID(messageData.senderID),
-            Receiver: ObjectID(messageData.receiverID),
-            Messages: []
+            Sender: messageData.senderID,
+            Receiver: messageData.receiverID
         })
         await convo.save()
     }
 
+    return targetConvo
+
 }
 
-async function getConvo(receiverID, senderID)
+async function getConvo(convoData)
 {
 
 
-    let targetConvo = await convoModel.find({$or: {
-        Sender: { $in: [ ObjectID(senderID) ] },
-        Receiver: {$in: [ ObjectID(receiverID)]}
-        }
-    }).populate('Messages Sender Receiver')
+    
 
-    // console.log(targetConvo)
-
+    let targetConvo = await convoModel.find({})
+    // console.log('target convo = ', targetConvo)
     return targetConvo[0]
 
 }
