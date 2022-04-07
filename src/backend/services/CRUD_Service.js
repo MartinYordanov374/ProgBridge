@@ -112,8 +112,8 @@ async function createConversation(messageData)
 async function getConvo(convoData)
 {
 
-    let targetConvo = await convoModel.find({"Sender":convoData.senderID, "Receiver": convoData.receiverID}).populate('Messages')
-
+    let targetConvo = await convoModel.find( { }, {"Sender":convoData.senderID, "Receiver": convoData.receiverID}).populate('Sender Receiver Messages')
+    console.log(targetConvo)
     return targetConvo[0]
 
 }

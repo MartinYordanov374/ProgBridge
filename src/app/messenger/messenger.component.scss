@@ -88,7 +88,24 @@ $hover-color: #e8e5e7;
 }
 .userSent{
     text-align: right;
+    background-color: #2568fb;
+    color: white;
+    width: 25%;
+    margin-left: 74%;
 }
 .userReceived{
-    text-align: left;
+
+    text-align: right;
+    background-color: #2568fb;
+    color: white;
+    width: 25%;
+    margin-right: 74%;
+
+}
+.chatbox{
+    overflow: auto;
+    height: 75vh;
+    .messages{
+
+    }
 }

@@ -21,11 +21,13 @@
                 <p class="username">{{contactData.username}}</p>
             </div>
             <hr>
-            <div class="messageInteraction" >
+            <div class="chatbox">
                 <div class="messages" *ngFor="let msg of messages.Messages">
                     <p *ngIf="msg.Sender == senderId" class="userSent">{{msg.Content}}</p>
-                    <p class="msg.Sender != senderId">{{msg.Content}}</p>
+                    <p *ngIf="msg.Sender != senderId" class="userReceived">{{msg.Content}}</p>
                 </div>
+            </div>
+            <div class="messageInteraction" >
                 <textarea class="message-input" #msgBox></textarea>
                 <span class="sendBtn" (click)="sendMsg(msgBox)"> <i class="bi bi-send"></i></span>
             </div>

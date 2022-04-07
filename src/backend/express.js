@@ -247,7 +247,6 @@ async function start()
 
          socket.on('getConvo',  async (msgData)=>{
             let res = await getConvo(msgData)
-
             socket.emit('getMessages', (res))
 
         })

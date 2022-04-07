@@ -25,21 +25,15 @@ export class MessengerComponent implements OnInit {
   ngOnInit(): void {
     
     let userID = this.route.snapshot.params['id']
-    
     this.service.getFollowersByID(userID)
     this.senderId = userID;
-    
     this.userFollowers = localStorage.getItem('followers')
     this.userFollowers = JSON.parse(this.userFollowers)
 
     socket.on('connect', () => {
-
-    socket.on('getMessages', data => {
-      this.messages = data
-
-
-    })
-
+      socket.on('getMessages', data => {
+        this.messages = data
+      })
     });
     
   }
@@ -60,6 +54,11 @@ export class MessengerComponent implements OnInit {
 
 
     socket.emit('getConvo', ({senderID: this.senderId, receiverID: this.receiverId}))
+
+    socket.on('getMessages', data => {
+      this.messages = data
+      console.log('getting messages')
+    })
 
   }
 
