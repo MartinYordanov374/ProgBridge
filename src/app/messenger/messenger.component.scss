@@ -87,12 +87,18 @@ $hover-color: #e8e5e7;
     margin-left: 1%;
 }
 .userSent{
-    text-align: right;
+    text-align: left;
     background-color: #2568fb;
     color: white;
-    width: 25%;
-    margin-left: 74%;
+    width: 10%;
+    margin-left: 90%;
     border-radius: 18px;
+    display: inline-block;
+    padding-top: 8px;
+    padding-right: 12px;
+    word-break: break-word;
+    padding-left: 24px;
+    padding-bottom: 8px;
 
 }
 .userReceived{
