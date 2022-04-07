@@ -241,13 +241,16 @@ async function start()
 
          socket.on('sendMSG',  async (msgData)=>{
             
-             let res = await createConversation(msgData)
-
+            let res = await createConversation(msgData)
             socket.emit('getMessages', (res[0]))
          })
-        //  socket.on('getConvo',  async (msgData)=>{
-        //     let res = await getConvo(msgData)
-        // })
+
+         socket.on('getConvo',  async (msgData)=>{
+            let res = await getConvo(msgData)
+
+            socket.emit('getMessages', (res))
+
+        })
     })
  
 }

@@ -22,8 +22,7 @@
             </div>
             <hr>
             <div class="messageInteraction" >
-                <div class="messages" *ngFor="let msg of messages">
-                    <!-- <p>From: {{senderName}}</p> -->
+                <div class="messages" *ngFor="let msg of messages.Messages">
                     <p>{{msg.Content}}</p>
                 </div>
                 <textarea class="message-input" #msgBox></textarea>

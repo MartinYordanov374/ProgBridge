@@ -81,10 +81,13 @@ async function createConversation(messageData)
     {
         let messages = targetConvo[0].Messages
         
-        let message = new messageModel({
+        let message = await new messageModel({
             ConvoID: targetConvo[0]._id,
+            Sender: messageData.senderID,
+            Receiver: messageData.receiverID,
             Content: messageData.content
-        })
+        }).populate('Sender Receiver')
+
         await message.save()
         
         messages.push(message)
@@ -102,7 +105,6 @@ async function createConversation(messageData)
         })
         await convo.save()
     }
-
     return targetConvo
 
 }
@@ -110,11 +112,8 @@ async function createConversation(messageData)
 async function getConvo(convoData)
 {
 
+    let targetConvo = await convoModel.find({"Sender":convoData.senderID, "Receiver": convoData.receiverID}).populate('Messages')
 
-    
-
-    let targetConvo = await convoModel.find({})
-    // console.log('target convo = ', targetConvo)
     return targetConvo[0]
 
 }
