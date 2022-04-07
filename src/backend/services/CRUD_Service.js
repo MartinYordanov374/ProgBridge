@@ -75,8 +75,13 @@ async function getAllUserPosts(userID)
 async function createConversation(messageData)
 {
 
-    let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
-
+    // let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
+    let targetConvo = await convoModel.find({
+        // Sender: {$in: [messageData.senderID]},
+        Receiver: {$in: [messageData.receiverID]}
+    })
+    console.log('convo found: ')
+    console.log(targetConvo)
     if(targetConvo.length >= 1)
     {
         let messages = targetConvo[0].Messages
@@ -112,8 +117,13 @@ async function createConversation(messageData)
 async function getConvo(convoData)
 {
 
-    let targetConvo = await convoModel.find( { }, {"Sender":convoData.senderID, "Receiver": convoData.receiverID}).populate('Sender Receiver Messages')
-    console.log(targetConvo)
+    // let targetConvo = await convoModel.find( { }, {"Sender":convoData.senderID, "Receiver": convoData.receiverID}).populate('Sender Receiver Messages')
+
+    let targetConvo = await convoModel.find({
+        Sender: {$in: [convoData.senderID]},
+        Receiver: {$in: [convoData.receiverID]}
+    })
+
     return targetConvo[0]
 
 }
