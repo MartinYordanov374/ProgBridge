@@ -9,6 +9,7 @@ var cookieParser = require('cookie-parser');
 const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo } = require('./services/CRUD_Service')
 const io = require('socket.io')
 
+
 const mongoose = require('mongoose')
 
 async function start()
@@ -17,7 +18,11 @@ async function start()
     //#region config
     const app = express()
     const server = require('http').createServer(app)
-    const io = require('socket.io')(server)
+    const io = require('socket.io')(server, {
+        cors: {
+            origin: '*',
+          } 
+    })
 
     app.use(cors())
     
@@ -251,6 +256,8 @@ async function start()
 
         })
     })
+    
+
  
 }
 
