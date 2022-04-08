@@ -126,17 +126,22 @@ body{
                         margin-left: 25px;
                         color: #656765 !important;
                         text-decoration: none;
-    
+                        &:hover{
+                            cursor: pointer;
+                        }
                     }
                     .commentLikeButton{
                         color: #656765 !important;
                         text-decoration: none;
                         margin-left: 5px;
-                        
+                        &:hover{
+                            cursor: pointer;
+                        }
                     }
                     .liked{
                         color:#2568fb !important; 
                     }
+
                 }
             }
         }

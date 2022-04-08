@@ -170,6 +170,7 @@ export class HomeComponent implements OnInit {
     let likerID = this.isUser[0]._id
     let targetCommentID = targetComment._id
     this.service.addCommentLike(targetCommentID,likerID)
+    location.reload()
   }
 
 }
