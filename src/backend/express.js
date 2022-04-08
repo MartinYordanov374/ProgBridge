@@ -161,15 +161,19 @@ async function start()
 
     app.post('/edit/:id', async(req,res) => {
         // TODO ADD CHECK BEFORE EDITING POST
+        const userID = req.body.userID
         let targetPost = await findPostByID(req.params.id)
+        
+        if(userID == targetPost.Author)
+        {
+            let updatedContent = req.body.updated
 
-        let updatedContent = req.body.updated
+            targetPost.Content = updatedContent
 
-        targetPost.Content = updatedContent
+            await targetPost.save()
 
-        await targetPost.save()
-
-        res.status(200).send(targetPost)
+            res.status(200).send(targetPost)
+        }
     })
 
     app.post('/addFollowing/:id',  async(req,res)=>{

@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    console.log(this.posts)
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)
     this.getAllPosts();
@@ -156,11 +155,11 @@ export class HomeComponent implements OnInit {
 
   }
 
-  editPost(editInput: any)
+  editPost(editInput: any, userID: any)
   {
       let editedPostContent = editInput.value
 
-      this.service.editPost(this.editedPostID, editedPostContent)
+      this.service.editPost(this.editedPostID, editedPostContent, userID)
 
       location.reload()
 

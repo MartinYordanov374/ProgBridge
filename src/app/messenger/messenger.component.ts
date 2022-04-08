@@ -58,7 +58,7 @@ export class MessengerComponent implements OnInit {
     socket.on('getMessages', data => {
       this.messages = data
       console.log('getting messages')
-      console.log(this.messages)
+      console.log(this.messages.Messages)
     })
 
   }

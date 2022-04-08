@@ -34,7 +34,7 @@
 
           <div class="editFormField card" #editField >
             <input class="form-control" #editInput>
-            <button class="btn btn-primary" (click)="editPost(editInput)">Edit post</button>
+            <button class="btn btn-primary" (click)="editPost(editInput, isUser[0]._id)">Edit post</button>
           </div>
 
           <div class="card" *ngFor="let post of allPosts" id="{{post._id}}" #card>

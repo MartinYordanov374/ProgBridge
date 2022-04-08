@@ -160,9 +160,9 @@ export class CRUDService {
       })
   }
 
-  editPost(postID: any, updatedPostContent: any)
+  editPost(postID: any, updatedPostContent: any, userID: any)
   {
-    this.http.post(this.editPost_URL+postID, {updated: updatedPostContent}).subscribe()
+    this.http.post(this.editPost_URL+postID, {updated: updatedPostContent, userID: userID}).subscribe()
   }
 
   addFollowing(ownerID: any, targetUserID: any)
