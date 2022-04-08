@@ -10,8 +10,8 @@ body{
     margin-left: 16%;
 }
 .HomeWrapper{
-    display: block;
-    margin-left: 35%;
+    display: flex;
+    // margin-left: 35%;
     // padding-top: 2%;
     .card{
         text-align: left;
@@ -286,6 +286,9 @@ body{
             }
         }
     }
+    .PostsWrapper{
+        margin-left: 14%;
+    }
 }
 .postWrapper{
 
@@ -345,4 +348,36 @@ body{
     min-height:100%; 
 
 
+}
+.SideMenu{
+    // border-style: solid;
+    width:25%;
+    min-height: 100vh;
+    text-decoration: none;
+    .linkWrapper{
+        text-decoration: none;
+    }
+    .myProfileMenu{
+        border-radius: 0.25rem;
+        height: 6vh;
+        .userPfp{
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+        }
+        .username{
+            font-size: 1.8rem;
+            margin-left: 5%;
+            text-decoration: none;
+            color: black;
+        }
+        &:hover{
+            background-color: $hover-color;
+            cursor: pointer;
+        }
+        .bi{
+            font-size: 2rem;
+            color:#2568fb;
+        }
+    }
 }
