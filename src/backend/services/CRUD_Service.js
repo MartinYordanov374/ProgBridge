@@ -69,6 +69,12 @@ async function getAllUserPosts(userID)
     let allUserPosts = await userModel.findById({_id: userID}).populate('posts').populate('shares')
     return allUserPosts
 }
+
+async function getCommentById(id)
+{
+    let targetComment = await commentModel.find({_id: id})
+    return targetComment
+}
 //#endregion  post functions
 
 //#region chatFunctions
@@ -136,5 +142,6 @@ module.exports = {
     addPostComment,
     getAllUserPosts,
     createConversation,
-    getConvo
+    getConvo,
+    getCommentById
 }

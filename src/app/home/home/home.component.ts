@@ -165,4 +165,11 @@ export class HomeComponent implements OnInit {
 
   }
 
+  addCommentLike(targetComment:any)
+  {
+    let likerID = this.isUser[0]._id
+    let targetCommentID = targetComment._id
+    this.service.addCommentLike(targetCommentID,likerID)
+  }
+
 }

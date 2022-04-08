@@ -83,14 +83,19 @@
                         <img class="userPfp" src="{{post.Author.profilePicture}}" >
                       </a>
                     </div>
-                    <div class="userComment">
+                    <div class="userComment" #comment>
                       <div class="commentArea">
+
                         <a class="userCommentAuthor" href="/profile/{{post.Author['_id']}}">{{comment.Author}}</a>
 
                         <p class="commentContent">{{comment.Content}}</p>
                       </div>
                       <div class="commentInteractButtons">
-                        <a class="commentLikeButton" href="#"> Like </a>
+                        <span>
+                          <a (click)="addCommentLike(comment)" class="commentLikeButton" *ngIf="!comment.Likes.includes(isUser[0]._id)"> Like </a>
+                          <a (click)="addCommentLike(comment)" class="commentLikeButton liked" *ngIf="comment.Likes.includes(isUser[0]._id)"> Liked </a>
+                        </span>
+                        
                         <a class="commentReplyButton" href="#"> Reply </a>
                       </div>
                     </div>

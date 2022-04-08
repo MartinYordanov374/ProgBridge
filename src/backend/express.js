@@ -6,7 +6,7 @@ const { login, register, getUserByID } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo, getCommentById } = require('./services/CRUD_Service')
 const io = require('socket.io')
 
 
@@ -233,6 +233,26 @@ async function start()
 
         res.status(200).send(targetConvo)
     })
+
+    app.post('/addCommentLike/:id', async(req,res) => {
+        let targetCommentID = req.params.id
+
+        let targetComment = await getCommentById(targetCommentID)
+        let likerID = req.body.userID
+
+        if(targetComment[0].Likes.includes(likerID))
+        {
+            const index = targetComment[0].Likes.indexOf(likerID)
+            targetComment[0].Likes.splice(index, 1)
+        }
+        else
+        {
+            targetComment[0].Likes.push(likerID)
+        }
+        await targetComment[0].save()
+
+    })
+
     //#endregion endpoints
     
     server.listen(3000, () => {
