@@ -4,9 +4,9 @@ const { ObjectId } = require('mongodb');
 const commentSchema = new Schema({
     Author: 
     { 
-        type: String, 
+        type: ObjectId, 
         required: true,
-        // ref: 'user'
+        ref: 'user'
     },
     Content: 
     { 

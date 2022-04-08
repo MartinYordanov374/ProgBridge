@@ -119,7 +119,6 @@ async function createConversation(messageData)
     //     ]
     // }).populate('Sender Receiver Messages')
     
-    console.log(messageData)
     if(targetConvo.length >= 1)
     {
         let messages = targetConvo[0].Messages
@@ -163,7 +162,6 @@ async function getConvo(messageData)
     //     }).populate('Sender Receiver Messages')
 
 
-    console.log(targetConvo)
 
     return targetConvo[0]
 
