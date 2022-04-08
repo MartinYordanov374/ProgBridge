@@ -31,6 +31,7 @@ export class CRUDService {
   public addFollower_URL = 'http://localhost:3000/addFollower/'
   public getConvo_URL = 'http://localhost:3000/getConvo'
   public addCommentLike_URL = 'http://localhost:3000/addCommentLike/'
+  public addCommentReply_URL = 'http://localhost:3000/addCommentReply/'
 
   //#endregion
   private data: any;
@@ -183,5 +184,9 @@ export class CRUDService {
     this.http.post(this.addCommentLike_URL + targetCommentID, {userID: userID}).subscribe()
   }
 
+  addCommentReply(targetCommentID: any, userID: any, content: any)
+  {
+    this.http.post(this.addCommentReply_URL + targetCommentID, {userID: userID, content: content}).subscribe()
+  }
 
 }

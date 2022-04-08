@@ -6,7 +6,7 @@ const { login, register, getUserByID } = require('./services/userService')
 var bodyParser = require('body-parser')
 
 var cookieParser = require('cookie-parser');
-const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo, getCommentById } = require('./services/CRUD_Service')
+const { createPost, getAllPosts, deletePost, findPostByID, addPostComment, removeLike, getAllUserPosts, createConversation, getConvo, getCommentById, addCommentReply } = require('./services/CRUD_Service')
 const io = require('socket.io')
 
 
@@ -251,6 +251,20 @@ async function start()
         }
         await targetComment[0].save()
 
+    })
+
+    app.post('/addCommentReply/:id', async(req,res) => {
+        let targetCommentID = req.params.id
+
+        let targetComment = await getCommentById(targetCommentID)
+        let userID = req.body.userID
+        let Content = req.body.content
+        
+        
+        let replyObj = {content: Content, author: userID, commentID: targetCommentID}
+
+        let replyRes = await addCommentReply(replyObj)
+        // console.log(targetComment[0].Replies)
     })
 
     //#endregion endpoints

@@ -32,12 +32,15 @@ export class HomeComponent implements OnInit {
               private store: Store<AppState>) {
                 this.posts = this.store.select('post')
                 this.posts.forEach(x => this.allPosts = x[1] )
+                this.posts.forEach(x => console.log(x[1]) )
+
               }
 
   ngOnInit(): void {
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)
     this.getAllPosts();
+
 
   }
 
@@ -171,6 +174,20 @@ export class HomeComponent implements OnInit {
     let targetCommentID = targetComment._id
     this.service.addCommentLike(targetCommentID,likerID)
     location.reload()
+  }
+
+  addCommentReply(targetComment: any, replyContent: any)
+  {
+    let userID = this.isUser[0]._id
+    let targetCommentID = targetComment._id
+    this.service.addCommentReply(targetCommentID, userID,replyContent.value)
+
+    // location.reload()
+
+  }
+  showReplyForm(replyForm: any)
+  {
+    replyForm.style.display='flex'
   }
 
 }

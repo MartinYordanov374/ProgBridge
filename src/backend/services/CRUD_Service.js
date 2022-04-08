@@ -24,7 +24,9 @@ async function createPost(content, owner)
 
 async function getAllPosts()
 {
-    let allPosts = await postModel.find({}).populate('Author Comments')
+    let allPosts = await postModel.find({}).populate('Author Comments Comments.Replies')
+
+    // console.log(allPosts[0].Comments)
     return allPosts
 }
 
@@ -72,8 +74,25 @@ async function getAllUserPosts(userID)
 
 async function getCommentById(id)
 {
-    let targetComment = await commentModel.find({_id: id})
+    let targetComment = await commentModel.find({_id: id}).populate('Replies')
     return targetComment
+}
+
+async function addCommentReply(replyObj)
+{
+
+    let targetComment = await getCommentById(replyObj.commentID)
+
+    // console.log(targetComment)
+    let reply = await commentModel({
+        Author: replyObj.author,
+        Content: replyObj.content
+    })
+    await reply.save()
+
+    targetComment[0].Replies.push(reply)
+    await targetComment[0].save()
+
 }
 //#endregion  post functions
 
@@ -133,6 +152,7 @@ async function getConvo(convoData)
     return targetConvo[0]
 
 }
+
 //#endregion chatFunctions
 module.exports = {
     createPost,
@@ -143,5 +163,6 @@ module.exports = {
     getAllUserPosts,
     createConversation,
     getConvo,
-    getCommentById
+    getCommentById,
+    addCommentReply
 }

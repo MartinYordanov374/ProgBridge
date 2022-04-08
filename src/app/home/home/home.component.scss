@@ -142,7 +142,48 @@ body{
                         color:#2568fb !important; 
                     }
 
+
                 }
+                .replyFormWrapper{
+                    display: none;
+                    .replyForm{
+                        padding-left: 10%;
+                        // padding-right: 10%;
+                        margin-top: 2%;
+                        margin-bottom: 1.5%;
+                        display: flex;
+                        word-break: break-all;
+                        margin-left: 5%;
+                    }
+                    .sendReplyButton{
+                        color: #2568fb;
+                        margin-top: 5%;
+                        // background-color: #f0eff0;
+                        &:hover{
+                            cursor: pointer;
+                            
+                        }
+                    }
+                }
+                .commentReplies{
+                    background-color: #F2F3F5;
+                    border-radius: 10px;
+                    text-align: left;
+                    padding-bottom: 1px;
+                    word-break: break-all;
+                    margin-left: 25%;
+                    .replyContent{
+                        margin-left: 15%;
+                    }
+                    .replyAuthor{
+                        margin-bottom: -10px;
+                        padding-left: 10px;
+                        font-weight: bold;
+                        text-decoration: none;
+                        color: black;
+                    }
+                }
+
             }
         }
 

@@ -78,11 +78,13 @@
                 <div class="commentsWrapper" #commentWrapper style="display: none" >
 
                   <div class="Comment" *ngFor="let comment of post.Comments" >
+
                     <div class="userData" >
                       <a href="/profile/{{post.Author['_id']}}">
                         <img class="userPfp" src="{{post.Author.profilePicture}}" >
                       </a>
                     </div>
+
                     <div class="userComment" #comment>
                       <div class="commentArea">
 
@@ -90,11 +92,25 @@
 
                         <p class="commentContent">{{comment.Content}}</p>
                       </div>
+
                       <div class="commentInteractButtons">
                           <a (click)="addCommentLike(comment)" class="commentLikeButton" *ngIf="!comment.Likes.includes(isUser[0]._id)"> Like </a>
                           <a (click)="addCommentLike(comment)" class="commentLikeButton liked" *ngIf="comment.Likes.includes(isUser[0]._id)"> Liked </a>
                         
-                        <a class="commentReplyButton" href="#"> Reply </a>
+                          <a class="commentReplyButton" (click)="showReplyForm(replyForm)" > Reply </a>
+
+                          <span *ngIf="comment.Replies.length > 0">Replies</span>
+                      </div>
+
+                      <div class="commentReplies" *ngFor="let reply of comment.Replies">
+
+                        <p class="replyAuthor">{{reply.Author}}</p>
+                        <p class="replyContent">{{reply.Content}}</p>
+                      </div>
+
+                      <div class="replyFormWrapper" #replyForm>
+                        <input class="form-control replyForm" placeholder="Write your reply" #reply>
+                        <i class="bi bi-send-fill sendReplyButton" (click)="addCommentReply(comment, reply)"></i>
                       </div>
                     </div>
                   </div>

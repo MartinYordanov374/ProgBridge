@@ -17,10 +17,7 @@ const commentSchema = new Schema({
         type: [ObjectId],
         ref: 'user'
     },
-    Comments:{
-        type: [ObjectId],
-        ref: 'comment'
-    }
+    Replies: [this]
 })
 
 let comment = model('comment', commentSchema)
