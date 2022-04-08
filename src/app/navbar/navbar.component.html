@@ -35,9 +35,9 @@
                       <div ngbDropdown class="myDropdown">
                         <i class="bi bi-caret-down-fill" ngbDropdownToggle ></i>  
                         <div ngbDropdownMenu>
-                          <a ngbDropdownItem > <img class='usernamePfp' src="{{userData.profilePicture}}"> My profile </a>
+                          <a ngbDropdownItem href="/profile/{{userData._id}}"> <img class='usernamePfp' src="{{userData.profilePicture}}"> My profile </a>
                           
-                          <a ngbDropdownItem> <i class="bi bi-box-arrow-right"></i> Logout </a>
+                          <a ngbDropdownItem href="/logout"> <i class="bi bi-box-arrow-right"></i> Logout </a>
       
                         </div>
                       </div>
