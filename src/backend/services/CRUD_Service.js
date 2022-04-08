@@ -24,8 +24,20 @@ async function createPost(content, owner)
 
 async function getAllPosts()
 {
-    let allPosts = await postModel.find({}).populate('Author Comments').populate(({path: 'Comments', populate:[{path: 'Author'}]}))
-    console.log(allPosts[0].Comments)
+    let allPosts = await postModel
+    .find({})
+    .populate('Author Comments')
+    .populate(
+        (
+            {
+                path: 'Comments', 
+                populate:[
+                    {path: 'Author'}
+                ]
+            }
+        )
+    )
+    console.log(allPosts[0].Comments[0])
     return allPosts
 }
 

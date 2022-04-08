@@ -176,7 +176,7 @@ export class HomeComponent implements OnInit {
 
   addCommentReply(targetComment: any, replyContent: any)
   {
-    let userID = this.isUser[0]._id
+    let userID = this.isUser[0].username
     let targetCommentID = targetComment._id
     this.service.addCommentReply(targetCommentID, userID,replyContent.value)
 
