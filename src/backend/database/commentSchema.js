@@ -12,6 +12,14 @@ const commentSchema = new Schema({
     { 
         type: String, 
         required: true 
+    },    
+    Likes:{
+        type: [ObjectId],
+        ref: 'user'
+    },
+    Comments:{
+        type: [ObjectId],
+        ref: 'comment'
     }
 })
 
