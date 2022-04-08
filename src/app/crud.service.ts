@@ -53,6 +53,7 @@ export class CRUDService {
       (res) => {
         this.zone.run( () => { 
           this.data = res
+          this.data.sort((a : any,b : any) => b.Likes.length - a.Likes.length)
           this.store.dispatch(new postActions.AddPost(this.data))
 
         })
