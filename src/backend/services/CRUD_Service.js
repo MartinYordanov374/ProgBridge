@@ -24,9 +24,8 @@ async function createPost(content, owner)
 
 async function getAllPosts()
 {
-    let allPosts = await postModel.find({}).populate('Author Comments Comments.Replies')
-
-    // console.log(allPosts[0].Comments)
+    let allPosts = await postModel.find({}).populate('Author Comments').populate(({path: 'Comments', populate:[{path: 'Author'}]}))
+    console.log(allPosts[0].Comments)
     return allPosts
 }
 
@@ -52,13 +51,14 @@ async function addPostComment(content)
     let commAuthor = content.author
     let commContent = content.content
 
-    let comment = new commentModel({
+    let comment = await new commentModel({
         Author: commAuthor,
         Content: commContent
-    })
+    }).populate('Author')
 
+    
     await comment.save()
-
+    
     targetPost.Comments.push(comment['_id'])
     
     await targetPost.save()

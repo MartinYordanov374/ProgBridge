@@ -40,8 +40,6 @@ export class HomeComponent implements OnInit {
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)
     this.getAllPosts();
-
-
   }
 
   keyup(textarea: any): void{
@@ -87,7 +85,7 @@ export class HomeComponent implements OnInit {
     let commentContent = comment.value
     let commentPostID = comment.id
     
-    let ownerID = this.isUser[0].username
+    let ownerID = this.isUser[0]._id
     this.service.addComment(commentContent, commentPostID, ownerID)
     this.getAllPosts();
     location.reload()
@@ -178,7 +176,7 @@ export class HomeComponent implements OnInit {
 
   addCommentReply(targetComment: any, replyContent: any)
   {
-    let userID = this.isUser[0].username
+    let userID = this.isUser[0]._id
     let targetCommentID = targetComment._id
     this.service.addCommentReply(targetCommentID, userID,replyContent.value)
 
