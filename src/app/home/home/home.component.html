@@ -99,7 +99,7 @@
                         
                           <a class="commentReplyButton" (click)="showReplyForm(replyForm)" > Reply </a>
 
-                          <span  class="commentReplyButton" (click)="showReplies(Replies)" *ngIf="comment.Replies.length > 0">Replies</span>
+                          <span  class="commentReplyButton" (click)="showReplies(Replies)" *ngIf="comment.Replies.length > 0">Replies {{comment.Replies.length}}</span>
                       </div>
                       <div class="repliesWrapper" #Replies>
                         <div class="commentReplies" *ngFor="let reply of comment.Replies" >
