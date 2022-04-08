@@ -178,7 +178,7 @@ export class HomeComponent implements OnInit {
 
   addCommentReply(targetComment: any, replyContent: any)
   {
-    let userID = this.isUser[0]._id
+    let userID = this.isUser[0].username
     let targetCommentID = targetComment._id
     this.service.addCommentReply(targetCommentID, userID,replyContent.value)
 
@@ -188,6 +188,19 @@ export class HomeComponent implements OnInit {
   showReplyForm(replyForm: any)
   {
     replyForm.style.display='flex'
+  }
+
+  showReplies(replies: any)
+  {
+    if(replies.style.display=="none")
+    {
+      replies.style.display = "initial";
+    }
+    else
+    {
+      replies.style.display = "none"
+    }
+    
   }
 
 }

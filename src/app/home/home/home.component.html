@@ -99,13 +99,14 @@
                         
                           <a class="commentReplyButton" (click)="showReplyForm(replyForm)" > Reply </a>
 
-                          <span *ngIf="comment.Replies.length > 0">Replies</span>
+                          <span  class="commentReplyButton" (click)="showReplies(Replies)" *ngIf="comment.Replies.length > 0">Replies</span>
                       </div>
-
-                      <div class="commentReplies" *ngFor="let reply of comment.Replies">
-
-                        <p class="replyAuthor">{{reply.Author}}</p>
-                        <p class="replyContent">{{reply.Content}}</p>
+                      <div class="repliesWrapper" #Replies>
+                        <div class="commentReplies" *ngFor="let reply of comment.Replies" >
+  
+                          <p class="replyAuthor">{{reply.Author}}</p>
+                          <p class="replyContent">{{reply.Content}}</p>
+                        </div>
                       </div>
 
                       <div class="replyFormWrapper" #replyForm>

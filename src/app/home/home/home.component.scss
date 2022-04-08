@@ -165,22 +165,25 @@ body{
                         }
                     }
                 }
-                .commentReplies{
-                    background-color: #F2F3F5;
-                    border-radius: 10px;
-                    text-align: left;
-                    padding-bottom: 1px;
-                    word-break: break-all;
-                    margin-left: 25%;
-                    .replyContent{
-                        margin-left: 15%;
-                    }
-                    .replyAuthor{
-                        margin-bottom: -10px;
-                        padding-left: 10px;
-                        font-weight: bold;
-                        text-decoration: none;
-                        color: black;
+                .repliesWrapper{
+                    display: none;
+                    .commentReplies{
+                        background-color: #F2F3F5;
+                        border-radius: 10px;
+                        text-align: left;
+                        padding-bottom: 1px;
+                        word-break: break-all;
+                        margin-left: 25%;
+                        .replyContent{
+                            margin-left: 15%;
+                        }
+                        .replyAuthor{
+                            margin-bottom: -10px;
+                            padding-left: 10px;
+                            font-weight: bold;
+                            text-decoration: none;
+                            color: black;
+                        }
                     }
                 }
 
