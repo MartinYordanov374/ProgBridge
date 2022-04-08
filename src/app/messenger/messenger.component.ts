@@ -29,6 +29,7 @@ export class MessengerComponent implements OnInit {
     this.senderId = userID;
     this.userFollowers = localStorage.getItem('followers')
     this.userFollowers = JSON.parse(this.userFollowers)
+    
 
     socket.on('connect', () => {
       socket.on('getMessages', data => {
@@ -57,8 +58,6 @@ export class MessengerComponent implements OnInit {
 
     socket.on('getMessages', data => {
       this.messages = data
-      console.log('getting messages')
-      console.log(this.messages.Messages)
     })
 
   }

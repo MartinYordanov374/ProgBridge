@@ -210,7 +210,6 @@ async function start()
 
         let targetProfile = await getUserByID(targetID)
 
-        // console.log(targetProfile.followers)
         if(!targetProfile.followers.some((user) => user._id == ownerID))
         {
             targetProfile.followers.push(ownerID)
@@ -264,7 +263,6 @@ async function start()
         let replyObj = {content: Content, author: userID, commentID: targetCommentID}
 
         let replyRes = await addCommentReply(replyObj)
-        // console.log(targetComment[0].Replies)
     })
 
     //#endregion endpoints
@@ -276,11 +274,10 @@ async function start()
     
 
     io.on('connection',(socket)=>{
-        // console.log('socket worked')
 
         socket.on('disconnect', function () {
-            // console.log('A user disconnected');
-         });
+
+        });
 
          socket.on('sendMSG',  async (msgData)=>{
             

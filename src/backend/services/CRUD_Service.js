@@ -37,7 +37,6 @@ async function getAllPosts()
             }
         )
     )
-    console.log(allPosts[0].Comments[0])
     return allPosts
 }
 
@@ -112,12 +111,15 @@ async function addCommentReply(replyObj)
 async function createConversation(messageData)
 {
 
-    // let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
-    let targetConvo = await convoModel.find({
-        Sender: {$in: [messageData.senderID]},
-        Receiver: {$in: [messageData.receiverID]}
-    }).populate('Sender Receiver Messages')
-
+    let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
+    // let targetConvo = await convoModel.find(
+    // {$or:[
+    //         {Sender: {$in: [messageData.senderID]},
+    //         Receiver: {$in: [messageData.receiverID]}}
+    //     ]
+    // }).populate('Sender Receiver Messages')
+    
+    console.log(messageData)
     if(targetConvo.length >= 1)
     {
         let messages = targetConvo[0].Messages
@@ -140,7 +142,7 @@ async function createConversation(messageData)
     else
     {
         // TODO SAVE MESSAGE AFTER CREATING CONVO
-        let convo = new convoModel({
+        let convo = await new convoModel({
             Sender: messageData.senderID,
             Receiver: messageData.receiverID
         }).populate('Sender Receiver')
@@ -148,18 +150,20 @@ async function createConversation(messageData)
         await convo.save()
     }
     return targetConvo
-
 }
-
-async function getConvo(convoData)
+async function getConvo(messageData)
 {
+    let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
+    
+    // let targetConvo = await convoModel.find({
+    //         $or:[{
+    //                 "Sender": messageData.senderID,
+    //                 "Receiver":  messageData.receiverID
+    //             }]
+    //     }).populate('Sender Receiver Messages')
 
-    // let targetConvo = await convoModel.find( { }, {"Sender":convoData.senderID, "Receiver": convoData.receiverID}).populate('Sender Receiver Messages')
 
-    let targetConvo = await convoModel.find({
-        Sender: {$in: [convoData.senderID]},
-        Receiver: {$in: [convoData.receiverID]}
-    }).populate('Sender Receiver Messages')
+    console.log(targetConvo)
 
     return targetConvo[0]
 
