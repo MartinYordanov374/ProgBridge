@@ -46,3 +46,18 @@ $color-bottom: #fecd45;
     height: 32px;
     border-radius: 100%;
 }
+.dropdown-menu{
+    top: 40px !important;
+    left: -110px !important;
+    .bi{
+        color: black !important;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+
+}
+.dropdown-toggle:after 
+{ 
+    content: none 
+}

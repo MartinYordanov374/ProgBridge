@@ -32,7 +32,15 @@
                     <div class="profileIconsWrapper">
                       <a href="messenger/{{userData._id}}"> <i class="bi bi-chat-fill"></i> </a>
                       <i class="bi bi-bell-fill"></i>
-                      <i class="bi bi-caret-down-fill"></i>
+                      <div ngbDropdown class="myDropdown">
+                        <i class="bi bi-caret-down-fill" ngbDropdownToggle ></i>  
+                        <div ngbDropdownMenu>
+                          <a ngbDropdownItem > <img class='usernamePfp' src="{{userData.profilePicture}}"> My profile </a>
+                          
+                          <a ngbDropdownItem> <i class="bi bi-box-arrow-right"></i> Logout </a>
+      
+                        </div>
+                      </div>
                     </div>
                   </li>
                   <!-- <li>
@@ -46,9 +54,11 @@
                         <input type="text" name="" class="form-control searchBar" value="" placeholder="Search ProgBridge">
                     </div>
                   </li> -->
-                  
-                
               </ul>
-            
+              <!-- <div ngbDropdownMenu>
+                <a ngbDropdownItem > <i class="bi bi-trash-fill"></i> Delete </a>
+                <a ngbDropdownItem > <i class="bi bi-pencil-fill"></i> Edit </a>
+
+              </div> -->
           </nav>
 </body>
