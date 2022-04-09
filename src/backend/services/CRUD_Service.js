@@ -118,12 +118,7 @@ async function createConversation(messageData)
 {
 
     let targetConvo = await convoModel.find( { }, {"Sender":messageData.senderID, "Receiver": messageData.receiverID}).populate('Sender Receiver Messages')
-    // let targetConvo = await convoModel.find(
-    // {$or:[
-    //         {Sender: {$in: [messageData.senderID]},
-    //         Receiver: {$in: [messageData.receiverID]}}
-    //     ]
-    // }).populate('Sender Receiver Messages')
+
     
     if(targetConvo.length >= 1)
     {
@@ -161,7 +156,7 @@ async function createConversation(messageData)
         await message.save()
 
         convo.Messages.push(message)
-        
+
         await convo.save()
     }
     return targetConvo

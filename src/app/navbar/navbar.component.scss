@@ -62,3 +62,14 @@ $color-bottom: #fecd45;
 { 
     content: none 
 }
+.searchBarWrapper{
+    .searchBar{
+        border-radius: 15px;
+        
+    }
+    .bi{
+        position: absolute;
+        top:15px;
+        margin-left: 5px;
+    }
+}

@@ -21,7 +21,10 @@
                   <li class="nav-item" *ngIf="!isUser">
                     <a class="nav-link" href="/login">Login</a>
                   </li>
-
+                  <div class="searchBarWrapper">
+                    <input class="form-control searchBar" placeholder="    Search ProgBridge...">
+                    <i class="bi bi-search"></i>
+                  </div>
                   <li class="nav-item profileLink" *ngFor="let userData of isUser ">
                     <a class="nav-link" href="/profile/{{userData._id}}">
                       <img class="usernamePfp" src={{userData.profilePicture}}>
