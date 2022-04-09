@@ -58,7 +58,7 @@ export class MessengerComponent implements OnInit {
           else
           {
             message.className="userReceived"
-            message.style.cssText="text-align: left;background-color: #2568fb;color: white;width: 10%;margin-right: 74%;border-radius: 18px;display: inline-block;padding-top: 8px;padding-right: 12px;word-break: break-word;padding-left: 24px;padding-bottom: 8px;"
+            message.style.cssText="text-align: left;background-color: white;color: black;width: 10%;margin-right: 74%;border-radius: 18px;display: inline-block;padding-top: 8px;padding-right: 12px;word-break: break-word;padding-left: 24px;padding-bottom: 8px;"
           }
   
           messagesContainer.appendChild(message)
@@ -102,6 +102,8 @@ export class MessengerComponent implements OnInit {
     socket.on('getMessages', data => {
       this.messages = data
     })
+
+
 
   }
 }
