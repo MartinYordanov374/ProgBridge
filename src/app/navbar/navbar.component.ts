@@ -15,5 +15,9 @@ export class NavbarComponent implements OnInit {
       this.isUser = JSON.parse(this.isUser)
       
   }
+  hideSearchIcon(icon: any)
+  {
+    icon.style.display = "none"
+  }
 
 }
