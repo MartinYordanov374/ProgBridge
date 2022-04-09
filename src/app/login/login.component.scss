@@ -19,4 +19,13 @@ body, html{
     .btn{
         width: 100%;
     }
+    .loginMessage{
+        .header{
+            color: #fecd45 !important;
+            font-weight: bold;
+        }
+        .text{
+            font-size: 0.9375rem;
+        }
+    }
 }

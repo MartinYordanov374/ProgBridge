@@ -13,10 +13,17 @@ body, html{
     {
         text-align: center;
         display: block;
-        .form-control{
-        }
     }
     .btn{
         width:100%;
+    }
+    .loginMessage{
+        .header{
+            color: #fecd45 !important;
+            font-weight: bold;
+        }
+        .text{
+            font-size: 0.9375rem;
+        }
     }
 }
