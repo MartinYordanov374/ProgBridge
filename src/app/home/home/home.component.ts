@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
     let userID = this.isUser[0]['_id']
     if(userID == ownerID)
     {
-      this.service.deletePost(postID)
+      this.service.deletePost(postID, userID)
       this.getAllPosts()
       location.reload()
     }

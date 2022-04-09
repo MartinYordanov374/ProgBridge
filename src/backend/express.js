@@ -90,7 +90,8 @@ async function start()
 
     app.post('/deletePost/:id', async (req,res) => {
         //TODO ADD CHECK BEFORE DELETING !
-        let result = await deletePost(req.params.id)
+
+        let result = await deletePost(req.params.id, req.body.userID)
         // res.status(200)
     })
 

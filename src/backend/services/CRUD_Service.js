@@ -40,10 +40,16 @@ async function getAllPosts()
     return allPosts
 }
 
-async function deletePost(id)
+async function deletePost(id, userID)
 {
     let targetPost = await postModel.findByIdAndDelete({_id: id})
-    
+    let postOwner = await userModel.findById({_id: userID})
+
+    const index = postOwner.posts.indexOf(id)
+    postOwner.posts.splice(index, 1)
+
+    postOwner.save()
+
     return targetPost
 }
 

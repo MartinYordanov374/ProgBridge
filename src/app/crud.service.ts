@@ -78,9 +78,9 @@ export class CRUDService {
     })
   }
 
-  deletePost(postID: any){
+  deletePost(postID: any, userID: any){
 
-    this.http.post(this.deletePostUrl + postID, {}).subscribe()
+    this.http.post(this.deletePostUrl + postID, {userID: userID}).subscribe()
   }
     
 
