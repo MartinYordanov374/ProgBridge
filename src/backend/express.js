@@ -158,7 +158,6 @@ async function start()
     })
 
     app.post('/changePFP/:id', async(req,res) => {
-        // TODO ADD CHECK BEFORE CHANGING PFP
         let targetUser = await getUserByID(req.params.id)
         let newPFP = req.body.img
         targetUser.profilePicture = newPFP
@@ -168,7 +167,7 @@ async function start()
     })
 
     app.post('/edit/:id', async(req,res) => {
-        // TODO ADD CHECK BEFORE EDITING POST
+
         const userID = req.body.userID
         let targetPost = await findPostByID(req.params.id)
         
@@ -185,9 +184,7 @@ async function start()
     })
 
     app.post('/addFollowing/:id',  async(req,res)=>{
-        // TODO ADD CHECK IF ALREADY FOLLOWING 
 
-        // add target ID to owner's following
         let targetID = req.body.targetUserID
         let ownerID = req.params.id
 
@@ -210,7 +207,6 @@ async function start()
     })
     
     app.post('/addFollower/:id',  async(req,res)=>{
-        // TODO ADD CHECK IF ALREADY FOLLOWING 
 
         // add OWNER ID to Target's followers
         let ownerID = req.body.ownerID

@@ -146,12 +146,22 @@ async function createConversation(messageData)
     }
     else
     {
-        // TODO SAVE MESSAGE AFTER CREATING CONVO
         let convo = await new convoModel({
             Sender: messageData.senderID,
             Receiver: messageData.receiverID
         }).populate('Sender Receiver')
 
+        let message = await new messageModel({
+            ConvoID: convo._id,
+            Sender: messageData.senderID,
+            Receiver: messageData.receiverID,
+            Content: messageData.content
+        }).populate('Sender Receiver')
+
+        await message.save()
+
+        convo.Messages.push(message)
+        
         await convo.save()
     }
     return targetConvo
