@@ -89,10 +89,17 @@ async function start()
     })
 
     app.post('/deletePost/:id', async (req,res) => {
-        //TODO ADD CHECK BEFORE DELETING !
 
-        let result = await deletePost(req.params.id, req.body.userID)
-        // res.status(200)
+        let targetPost = await findPostByID(req.params.id)
+        if(targetPost.Author == req.body.userID)
+        {
+            await deletePost(req.params.id, req.body.userID)
+
+        }
+        else
+        {
+            res.status(401).send({error: 'You have no rights upon this post!'})
+        }
     })
 
     app.post('/addComment/:id', async (req,res) => {
