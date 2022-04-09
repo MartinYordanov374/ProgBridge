@@ -27,8 +27,6 @@ export class ProfileComponent implements OnInit {
     this.userData = JSON.parse(this.userData)
     this.userData = this.userData[0]
     
-    console.log(this.userData.followers)
-
     this.service.getAllUserPosts(this.userData['_id'])
 
     this.allUserPosts = localStorage.getItem('userPosts')

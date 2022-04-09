@@ -381,3 +381,30 @@ body{
         }
     }
 }
+.SideContactsWrapper{
+    // border-style: solid;
+    width:25%;
+    margin-left: 15%;
+    min-height: 100vh;
+    text-decoration: none;
+    .Contact{
+        display: flex;
+        border-radius: 15px;
+        padding: 15px;
+        .username{
+            font-size: 1.8rem;
+            margin-left: 5%;
+            text-decoration: none;
+            color: black;
+        }
+        .userPfp{
+            width: 54px;
+            height: 54px;
+            border-radius: 100%;
+        }
+        &:hover{
+            background-color: $hover-color;
+            cursor: pointer;
+        }
+    }
+}

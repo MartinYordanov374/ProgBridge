@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   charactersLeft: number = 120;
   allPosts: any = [];
   editedPostID: any = '';
-
+  contacts: any = ''
   constructor(private src: AuthService, 
               private service: CRUDService, 
               private router: Router, 
@@ -40,6 +40,12 @@ export class HomeComponent implements OnInit {
     this.isUser = localStorage.getItem('user')
     this.isUser = JSON.parse(this.isUser)
     this.getAllPosts();
+
+    this.service.getContactDataByID(this.isUser[0]._id)
+    this.contacts = localStorage.getItem('contactData')
+    this.contacts = JSON.parse(this.contacts)
+    this.contacts = this.contacts[0].followers
+    
   }
 
   keyup(textarea: any): void{

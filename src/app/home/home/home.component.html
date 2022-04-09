@@ -157,7 +157,12 @@
               </div>
             </div>
           </div>
-         
+          <div class="SideContactsWrapper">
+            <div class="Contact" *ngFor="let contact of contacts">
+              <img class="userPfp" src={{contact.profilePicture}}>
+              <p class="username">{{contact.username}}</p>
+            </div>
+          </div>
 
         </div>        
 
