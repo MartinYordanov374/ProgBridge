@@ -12,7 +12,7 @@ const socket = io.connect('http://localhost:3000/')
 })
 export class MessengerComponent implements OnInit {
   
-  constructor(private route: ActivatedRoute, private service: CRUDService) { }
+  constructor(private route: ActivatedRoute, private service: CRUDService, private router: Router) { }
   
   userFollowers: any;
   contactData: any = '';
@@ -32,8 +32,41 @@ export class MessengerComponent implements OnInit {
     
 
     socket.on('connect', () => {
+      
       socket.on('getMessages', data => {
+        
         this.messages = data
+        let chatbox = document.querySelectorAll('.chatbox')[0]
+        
+        chatbox.replaceChildren('')
+
+        this.messages.Messages.forEach((msg:any)=>{
+          let messagesContainer = document.createElement('div')
+          messagesContainer.className='messages'
+
+
+          messagesContainer.replaceChildren('')
+          
+          let message = document.createElement('p')
+          message.innerText= msg.Content
+          
+          if(this.senderId == msg.Sender)
+          {
+            message.className="userSent"
+            message.style.cssText="text-align: right;background-color: #2568fb;color: white;width: 10%;margin-left: 90%;border-radius: 18px;display: inline-block;padding-top: 8px;padding-right: 12px;word-break: break-word;padding-left: 24px;padding-bottom: 8px;"
+          }
+          else
+          {
+            message.className="userReceived"
+            message.style.cssText="text-align: left;background-color: #2568fb;color: white;width: 10%;margin-right: 74%;border-radius: 18px;display: inline-block;padding-top: 8px;padding-right: 12px;word-break: break-word;padding-left: 24px;padding-bottom: 8px;"
+          }
+  
+          messagesContainer.appendChild(message)
+
+          chatbox.appendChild(messagesContainer)
+        })
+
+        
       })
     });
     
