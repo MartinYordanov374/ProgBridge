@@ -387,6 +387,9 @@ body{
     margin-left: 15%;
     min-height: 100vh;
     text-decoration: none;
+    .msgLink{
+        text-decoration: none;
+    }
     .Contact{
         display: flex;
         border-radius: 15px;

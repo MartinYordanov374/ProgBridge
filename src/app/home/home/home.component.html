@@ -160,10 +160,12 @@
           <div class="SideContactsWrapper">
             <h3 class="contactsHeader">Contacts</h3>
             <hr>
-            <div class="Contact" *ngFor="let contact of contacts">
-              <img class="userPfp" src={{contact.profilePicture}}>
-              <p class="username">{{contact.username}}</p>
-            </div>
+            <a href="/messenger/{{isUser[0]._id}}" class="msgLink">
+                <div class="Contact" *ngFor="let contact of contacts">
+                  <img class="userPfp" src={{contact.profilePicture}}>
+                  <p class="username">{{contact.username}}</p>
+                </div>
+            </a>
           </div>
 
         </div>        
