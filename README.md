@@ -4,10 +4,10 @@ This project was created by me as the Angular front-end framework course at Soft
 
 ## Pages accessible to logged users
 <ul>
-    <li>Home page (Includes peoples' posts and the user's contacts)</li>
-    <li>Profile pages for all users</li>
-    <li>Messenger</li>
-    <li>Find Friends page / Friend Suggestions page</li>
+    <li> <strong> Dynamic </strong> Home page (Includes peoples' posts and the user's contacts). You can also create, edit, and delete posts from the home page. </li>
+    <li> <strong> Dynamic </strong> Profile pages for all users</li>
+    <li> <strong> Dynamic </strong> Messenger page</li>
+    <li> <strong> Dynamic </strong> Find Friends page / Friend Suggestions page</li>
     <li>404 page</li>
 </ul>
 
