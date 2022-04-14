@@ -10,11 +10,15 @@ import { CRUDService } from '../crud.service';
 })
 export class FindFriendsComponent implements OnInit {
 
-  constructor(private service: CRUDService,private route: ActivatedRoute) { }
+  constructor(private service: CRUDService,private route: ActivatedRoute, private http: HttpClient) { }
 
+  public unfollowedUsers: any;
   ngOnInit(): void {
     let userID = this.route.snapshot.params['id'];
-    this.service.getUnfollowedUsers(userID)
+    this.http.post('http://localhost:3000/getUnfollowedUsers/'+ userID, {userID: userID}).subscribe((res) => {
+      this.unfollowedUsers = res
+    })
   }
+
 
 }

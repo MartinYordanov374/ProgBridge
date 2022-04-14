@@ -275,9 +275,9 @@ async function start()
 
         let followersArray = [req.body.userID]
         followers.forEach((user) => followersArray.push(user._id))
-        let allUnfollowedUsers = await getAllUnfollowedUsers(followersArray);
 
-        res.status(200).send(followers)
+        let allUnfollowedUsers = await getAllUnfollowedUsers(followersArray);
+        res.status(200).send(allUnfollowedUsers)
     })
 
     //#endregion endpoints

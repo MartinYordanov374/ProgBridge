@@ -1,0 +1,17 @@
+.suggestionsWrapper{
+    .card{
+        width:9%;
+        display: inline-block;
+        margin-left: 2%;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+        .userPfp{
+            width: 168px;
+            height: 168px;
+            padding: 20px;
+        }
+        .username{
+            text-align: center;
+        }
+    }
+}

@@ -38,6 +38,7 @@ export class CRUDService {
 
   //#endregion
   private data: any;
+  private unfollowedUsers: any;
 
   createPost(postData: any)
   { 
@@ -195,11 +196,9 @@ export class CRUDService {
 
   getUnfollowedUsers(userID: any)
   {
-    this.http.post(this.getUnfollowedUsers_URL + userID, {userID: userID}).subscribe((res)=>{
-      console.log(res)
-    })
+    this.http.post(this.getUnfollowedUsers_URL + userID, {userID: userID})
 
-    console.log(this.getUnfollowedUsers_URL + userID)
+
   }
 
 }

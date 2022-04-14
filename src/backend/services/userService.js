@@ -64,7 +64,7 @@ async function getUserByID(id)
 async function getAllUnfollowedUsers(idArray)
 {
     let unfollowed = await userModel.find({ _id: {'$nin': idArray} })
-    console.log(unfollowed)
+    return unfollowed
 }
 
 module.exports = {
