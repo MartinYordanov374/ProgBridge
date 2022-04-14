@@ -33,8 +33,12 @@ export class CRUDService {
   public addCommentLike_URL = 'http://localhost:3000/addCommentLike/'
   public addCommentReply_URL = 'http://localhost:3000/addCommentReply/'
 
+  // TODO CONTINUE WITH THE GET UNFOLLOWED USERS FUNCTIONALITY
+  public getUnfollowedUsers_URL = 'http://localhost:3000/getUnfollowedUsers/'
+
   //#endregion
   private data: any;
+
   createPost(postData: any)
   { 
     this.http.post(this.createPostURL, postData).subscribe(
@@ -187,6 +191,15 @@ export class CRUDService {
   addCommentReply(targetCommentID: any, userID: any, content: any)
   {
     this.http.post(this.addCommentReply_URL + targetCommentID, {userID: userID, content: content}).subscribe()
+  }
+
+  getUnfollowedUsers(userID: any)
+  {
+    this.http.post(this.getUnfollowedUsers_URL + userID, {userID: userID}).subscribe((res)=>{
+      console.log(res)
+    })
+
+    console.log(this.getUnfollowedUsers_URL + userID)
   }
 
 }

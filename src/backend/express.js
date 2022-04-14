@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const databaseConfig = require('./database/mongoose')
-const { login, register, getUserByID } = require('./services/userService')
+const { login, register, getUserByID, getAllUnfollowedUsers } = require('./services/userService')
 
 var bodyParser = require('body-parser')
 
@@ -267,6 +267,17 @@ async function start()
         let replyObj = {content: Content, author: userID, commentID: targetCommentID}
 
         let replyRes = await addCommentReply(replyObj)
+    })
+
+    app.post('/getUnfollowedUsers/:id', async(req,res)=>{
+        let targetUser = await getUserByID(req.body.userID)
+        let followers = targetUser.followers;
+
+        let followersArray = [req.body.userID]
+        followers.forEach((user) => followersArray.push(user._id))
+        let allUnfollowedUsers = await getAllUnfollowedUsers(followersArray);
+
+        res.status(200).send(followers)
     })
 
     //#endregion endpoints
