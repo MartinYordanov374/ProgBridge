@@ -1,7 +1,9 @@
 <div class="suggestionsWrapper">
     <div class="card" *ngFor="let user of unfollowedUsers">
-        <img class="userPfp" src="{{user.profilePicture}}">
-        <p class="username">{{user.username}}</p>
-        <button class="btn btn-md btn-primary"> <i class="bi bi-person-plus-fill"></i> Follow </button>
+        <div class="userWrapper" id="{{user._id}}">
+            <img class="userPfp" src="{{user.profilePicture}}">
+            <p class="username">{{user.username}}</p>
+            <button class="btn btn-md btn-primary" (click)="FollowUser(user)"> <i class="bi bi-person-plus-fill"></i> Follow </button>
+        </div>
     </div>
 </div>
