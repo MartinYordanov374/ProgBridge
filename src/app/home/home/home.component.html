@@ -108,13 +108,13 @@
                         <div class="commentArea">
   
                           <a class="userCommentAuthor" href="/profile/{{post.Author['_id']}}">{{comment.Author.username}}</a>
-  
+                          
                           <p class="commentContent">{{comment.Content}}</p>
                         </div>
   
                         <div class="commentInteractButtons">
-                            <a (click)="addCommentLike(comment)" class="commentLikeButton" *ngIf="!comment.Likes.includes(isUser[0]._id)"> Like </a>
-                            <a (click)="addCommentLike(comment)" class="commentLikeButton liked" *ngIf="comment.Likes.includes(isUser[0]._id)"> Liked </a>
+                            <a (click)="addCommentLike(comment)" class="commentLikeButton" *ngIf="!comment.Likes.includes(isUser[0]._id)"> Like <span *ngIf="comment.Likes.length > 0">{{comment.Likes.length</span></a>
+                            <a (click)="addCommentLike(comment)" class="commentLikeButton liked" *ngIf="comment.Likes.includes(isUser[0]._id)"> Liked <span *ngIf="comment.Likes.length > 0">{{comment.Likes.length}}</span>  </a>
                           
                             <a class="commentReplyButton" (click)="showReplyForm(replyForm)" > Reply </a>
   
