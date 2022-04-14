@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CRUDService } from '../crud.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CRUDService } from '../crud.service';
 })
 export class FindFriendsComponent implements OnInit {
 
-  constructor(private service: CRUDService,private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private service: CRUDService,private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   public unfollowedUsers: any;
   private userID: any;
@@ -29,6 +29,7 @@ export class FindFriendsComponent implements OnInit {
     this.service.addFollower(targetUserID, currentUserID)
     this.service.addFollowing(currentUserID, targetUserID)
 
+    this.router.navigateByUrl('/findFriends/'+this.userID)
     
 
     
