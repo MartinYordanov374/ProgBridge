@@ -41,9 +41,6 @@
                     <span class="posts" (click)="showShared(FriendsList, PostsList, SharedList, FollowingList)">
                         <p>Shared {{userData.shares.length}}</p>
                     </span>
-                    <span class="about">
-                        <p>About</p>
-                    </span>
                 </div>
                 <div class="FriendsList" #FriendsList >
                     <div *ngFor="let follower of userData.followers">
