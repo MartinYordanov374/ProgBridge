@@ -85,7 +85,15 @@ async function addPostComment(content)
 
 async function getAllUserPosts(userID)
 {
-    let allUserPosts = await userModel.findById({_id: userID}).populate('posts').populate('shares')
+    let allUserPosts = await userModel.findById({_id: userID})
+    .populate('posts')
+    .populate('shares')
+    .populate(({
+        path: 'shares',
+        populate:{
+            path: 'Author',
+        }
+    }))
     return allUserPosts
 }
 

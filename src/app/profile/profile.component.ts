@@ -45,6 +45,7 @@ export class ProfileComponent implements OnInit {
     {
       this.isOwner = true;
     }
+    console.log(this.allUserPosts)
 
 
   }
