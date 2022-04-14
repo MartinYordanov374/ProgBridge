@@ -2,6 +2,7 @@ let userModel = require('../database/userSchema')
 let bcrypt = require('bcrypt')
 
 const saltRounds = 9
+const mongoose = require('mongoose')
 
 async function register(username, password, address)
 {

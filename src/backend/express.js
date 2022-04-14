@@ -271,12 +271,13 @@ async function start()
 
     app.post('/getUnfollowedUsers/:id', async(req,res)=>{
         let targetUser = await getUserByID(req.body.userID)
-        let followers = targetUser.followers;
+        let followers = targetUser.following;
 
-        let followersArray = [req.body.userID]
+        let followersArray = [mongoose.Types.ObjectId(req.body.userID)]
         followers.forEach((user) => followersArray.push(user._id))
 
         let allUnfollowedUsers = await getAllUnfollowedUsers(followersArray);
+
         res.status(200).send(allUnfollowedUsers)
     })
 

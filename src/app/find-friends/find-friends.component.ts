@@ -29,7 +29,7 @@ export class FindFriendsComponent implements OnInit {
     this.service.addFollower(targetUserID, currentUserID)
     this.service.addFollowing(currentUserID, targetUserID)
 
-    console.log(currentUserID + 'is followed by' + targetUserID)
+    
 
     
   }
