@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/auth.guard';
 import { ProfileGuard } from 'src/profile.guard';
 import { ErrorComponent } from './error/error.component';
+import { FindFriendsComponent } from './find-friends/find-friends.component';
 import { HomeGuard } from './home.guard';
 import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'profile/:id', component: ProfileComponent, canActivate: [ProfileGuard]},
   {path: 'messenger/:id', component: MessengerComponent, canActivate: [ProfileGuard]},
+  {path: 'findFriends/:id', component: FindFriendsComponent, canActivate: [ProfileGuard]},
   {path: '**', component: ErrorComponent}
 
 

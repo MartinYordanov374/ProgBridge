@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';''
 import { reducer } from './reducers/post.reducers';
 import { MessengerComponent } from './messenger/messenger.component';
+import { FindFriendsComponent } from './find-friends/find-friends.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MessengerComponent } from './messenger/messenger.component';
     FooterComponent,
     ProfileComponent,
     MessengerComponent,
+    FindFriendsComponent,
     
   ],
   imports: [
