@@ -8,6 +8,7 @@ import { Post } from 'src/app/models/post.model';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import * as postActions from './../../actions/crud.actions'
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -24,12 +25,14 @@ export class HomeComponent implements OnInit {
   allPosts: any = [];
   editedPostID: any = '';
   contacts: any = ''
+  data: any;
   constructor(private src: AuthService, 
               private service: CRUDService, 
               private router: Router, 
               private cdr:ChangeDetectorRef, 
               private zone: NgZone,
-              private store: Store<AppState>) {
+              private store: Store<AppState>,
+              private http: HttpClient) {
                 this.posts = this.store.select('post')
                 this.posts.forEach(x => this.allPosts = x[1] )
                 this.posts.forEach(x => console.log(x[1]) )
@@ -106,6 +109,7 @@ export class HomeComponent implements OnInit {
       this.service.addLike(likeGiver,postID)
       location.reload()
 
+
     })
   }
 
@@ -123,17 +127,17 @@ export class HomeComponent implements OnInit {
   }
   getAllPosts()
   {
-      let res = this.service.getAllPosts()
-      this.posts = this.store.select('post')
-      this.posts.forEach(x => this.allPosts = x[1] )
+    let res = this.service.getAllPosts();
+
+    this.posts = this.store.select('post')
+    this.posts.forEach(x => this.allPosts = x[1] )
       
     
   }
 
   SharePost(card: any)
   {
-    // let postAuthor = card.children[0].children[0].innerText
-    // let postContent = card.children[1].children[0].innerText
+
     let postSharerID = this.isUser[0]._id
     let sharedPostID = card.id
 
